@@ -97,6 +97,7 @@ namespace ProgramForArrest
 
         private void btConfirmUpdate_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes) { 
             UpdateUser input = new UpdateUser();
             RestClient client = new RestClient("http://202.28.34.197:8800");
             RestRequest request = new RestRequest("/ArrestSystem/updateuser/" + this.card);
@@ -134,8 +135,10 @@ namespace ProgramForArrest
 
 
             Console.WriteLine(update);
-
             MessageBox.Show("เปลี่ยนข้อมูลสำเร็จ! ");
+            }
+
+            
         }
 
         public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
@@ -449,46 +452,48 @@ namespace ProgramForArrest
 
         private void btUpdateUser_Click(object sender, EventArgs e)
         {
-            UpdateUserbyAdmin input = new UpdateUserbyAdmin();
-            RestClient client = new RestClient("http://202.28.34.197:8800");
-            RestRequest request = new RestRequest("/ArrestSystem/updateuser/" + tbUserCard.Text);
+            if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                UpdateUserbyAdmin input = new UpdateUserbyAdmin();
+                RestClient client = new RestClient("http://202.28.34.197:8800");
+                RestRequest request = new RestRequest("/ArrestSystem/updateuser/" + tbUserCard.Text);
 
-            input.admincard = this.card;
-            input.title = tbUserTitle.Text;
-            input.firstname = tbUserFristname.Text;
-            input.lastname = tbUserLastname.Text;
-            input.card = tbUserCard.Text;
-            input.date = tbUserBirthday.Value.ToString("yyyy-MM-dd");
-            input.position = tbUserPosition.Text;
-            input.organization = tbUserOrganization.Text;
-            input.email = tbUserEmail.Text;
-            input.phone = tbUserPhone.Text;
-            input.address = tbUserAddress.Text;
-            
-            if (base64String == null)
-            {
-                //imagesStr = base64String;
-                input.image_url = imagesStr;
-                Console.WriteLine("Image");
+                input.admincard = this.card;
+                input.title = tbUserTitle.Text;
+                input.firstname = tbUserFristname.Text;
+                input.lastname = tbUserLastname.Text;
+                input.card = tbUserCard.Text;
+                input.date = tbUserBirthday.Value.ToString("yyyy-MM-dd");
+                input.position = tbUserPosition.Text;
+                input.organization = tbUserOrganization.Text;
+                input.email = tbUserEmail.Text;
+                input.phone = tbUserPhone.Text;
+                input.address = tbUserAddress.Text;
 
+                if (base64String == null)
+                {
+                    //imagesStr = base64String;
+                    input.image_url = imagesStr;
+                    Console.WriteLine("Image");
+
+                }
+                else
+                {
+                    input.image_url = base64String;
+                    Console.WriteLine("New Image");
+
+
+                }
+
+                var serializer = new JavaScriptSerializer();
+                string jsonStr = serializer.Serialize(input);
+                request.AddJsonBody(jsonStr);
+                var update = client.Execute<UdateUserbyAdmin_Result>(request, Method.POST);
+
+
+                Console.WriteLine(update);
+
+                MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
             }
-            else
-            {
-                input.image_url = base64String;
-                Console.WriteLine("New Image");
-
-
-            }
-
-            var serializer = new JavaScriptSerializer();
-            string jsonStr = serializer.Serialize(input);
-            request.AddJsonBody(jsonStr);
-            var update = client.Execute<UdateUserbyAdmin_Result>(request, Method.POST);
-
-
-            Console.WriteLine(update);
-
-            MessageBox.Show("เปลี่ยนข้อมูลสำเร็จ! ");
         }
 
         private void btAddUser_Click(object sender, EventArgs e)
@@ -501,7 +506,7 @@ namespace ProgramForArrest
         {
             try
             {
-                if (MessageBox.Show("ยืนยันการแก้ไขข้อมูลบุคคล", "Message", MessageBoxButtons.OKCancel) == DialogResult.OK) { 
+                if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.OKCancel) == DialogResult.OK) { 
                 UpdatePersons input = new UpdatePersons();
                 RestClient client = new RestClient("http://202.28.34.197:8800");
                 RestRequest request = new RestRequest("/ArrestSystem/personupdate/"+ tbPersonCard.Text);
@@ -552,32 +557,6 @@ namespace ProgramForArrest
         {
             AddPersonForm AddPersonForm = new AddPersonForm(this.card);
             AddPersonForm.Visible = true;
-            try
-            {
-                /*AddPersons input = new AddPersons();
-                RestClient client = new RestClient("http://202.28.34.197:8800");
-                RestRequest request = new RestRequest("/ArrestSystem/persons");
-
-                input.admincard = this.card;
-                input.firstname = tbPersonFirstName.Text;
-                input.lastname = tbPersonLastName.Text;
-                input.card = tbPersonCard.Text;
-                input.date = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
-                input.phone = tbPersonPhone.Text;
-                input.address = tbPersonAddress.Text;
-                input.image_url = openFileDialog_Person.FileName;
-
-                var serializer = new JavaScriptSerializer();
-                string jsonStr = serializer.Serialize(input);
-                request.AddJsonBody(jsonStr);
-                var AddPerson = client.Execute<AddPerson_Result>(request, Method.POST);
-
-
-                Console.WriteLine(AddPerson);
-
-                MessageBox.Show("เปลี่ยนข้อมูลสำเร็จ! ");*/
-            }
-            catch { }
         }
 
         private void btAddFingerPrint_Click(object sender, EventArgs e)
@@ -591,56 +570,7 @@ namespace ProgramForArrest
             AddFingerprintForm addFingerprint = new AddFingerprintForm(this.card,this.org);
             addFingerprint.Visible = true;
 
-            /*try
-            {
-
-                string msgText = _zfmSensor.IsAvailable() ? @"Fingerprint sensor is available." : "Fingerprint sensor is not available.\nCheck sensor configuration options.";
-                //MessageBox.Show(msgText, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                Zfm20Fingerprint.ZfmStatus captureStatus = _zfmSensor.Capture();
-                if (captureStatus != Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
-                {
-                    MessageBox.Show(ZfmStatusToString(captureStatus), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    IntPtr dataBuffer;
-                    uint dataBufferSize;
-
-                    Zfm20Fingerprint.ZfmStatus downloadStatus = _zfmSensor.GetFingerprintBuffer(out dataBuffer, out dataBufferSize);
-                    if (downloadStatus == Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
-                    {
-                        if (dataBufferSize > 0)
-                        {
-                            // Create output bitmap buffer object. 
-                            Bitmap outputImage = new Bitmap(ImageWidth, ImageHeight);
-                            byte[] colorBuffer = new byte[dataBufferSize];
-                            int bufferPos = 0;
-
-                            Marshal.Copy(dataBuffer, colorBuffer, 0, (int)(dataBufferSize - 1));
-
-                            // Paint bitmap buffer with received data buffer content.
-                            for (int yPos = 0; yPos < ImageHeight; yPos++)
-                            {
-                                for (int xPos = 0; xPos < ImageWidth; xPos++)
-                                {
-                                    outputImage.SetPixel(xPos, yPos, Color.FromArgb(colorBuffer[bufferPos], colorBuffer[bufferPos], colorBuffer[bufferPos]));
-                                    bufferPos++;
-                                }
-                            }
-
-                            // Flush data buffer and show bitmap on UI.
-                            _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
-                            pictureBox1.Image = outputImage;
-                            SaveJpeg(pictureBox1.Image, @"d:\images.bmp", 100);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            
         }
 
         public void SaveJpeg(Image img, string filename, int quality)
@@ -724,6 +654,51 @@ namespace ProgramForArrest
                 base64String = Convert.ToBase64String(imageArray);
 
             }
+        }
+
+        private void SearchUsers(object sender, EventArgs e)
+        { 
+        
+        }
+
+
+            private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            try{
+                RestClient client = new RestClient("http://202.28.34.197:8800");
+                RestRequest request = new RestRequest("/ArrestSystem/search/user/" + tbSeachUser.Text);
+                var getUsers = client.Execute<SearchUsers>(request, Method.GET);
+
+                int i = 0;
+
+                if (tbSeachUser != null) {
+                    if (tbSeachUser.Text == getUsers.Data.card) { 
+                        string[] users = new string[]
+                        {
+                                getUsers.Data.card.ToString(),
+                                getUsers.Data.title,
+                                getUsers.Data.firstname,
+                                getUsers.Data.lastname,
+                                getUsers.Data.position,
+                                getUsers.Data.phone
+                        };
+                        listView2.Items.Add(new ListViewItem(users));
+                    }
+                    //listView_Users.Items.Add(new ListViewItem(users));
+                    
+                   
+            }
+
+            }
+            catch (Exception ex) { }
+            
+            
+            
+
+            
+            
+
+
         }
     }
 }

@@ -78,6 +78,7 @@
             this.pictureBox_Person = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btUserImage = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listView_Users = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -156,7 +157,6 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.btUserImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -702,6 +702,17 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "จัดการข้อมูลผู้ใช้ระบบ";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btUserImage
+            // 
+            this.btUserImage.Location = new System.Drawing.Point(15, 213);
+            this.btUserImage.Margin = new System.Windows.Forms.Padding(2);
+            this.btUserImage.Name = "btUserImage";
+            this.btUserImage.Size = new System.Drawing.Size(133, 29);
+            this.btUserImage.TabIndex = 81;
+            this.btUserImage.Text = "เพิ่มรูปภาพ";
+            this.btUserImage.UseVisualStyleBackColor = true;
+            this.btUserImage.Click += new System.EventHandler(this.btUserImage_Click_2);
             // 
             // label1
             // 
@@ -1474,6 +1485,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(590, 36);
             this.tbSearch.TabIndex = 19;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // label37
             // 
@@ -1499,17 +1511,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(917, 601);
             this.tabControl1.TabIndex = 6;
-            // 
-            // btUserImage
-            // 
-            this.btUserImage.Location = new System.Drawing.Point(15, 213);
-            this.btUserImage.Margin = new System.Windows.Forms.Padding(2);
-            this.btUserImage.Name = "btUserImage";
-            this.btUserImage.Size = new System.Drawing.Size(133, 29);
-            this.btUserImage.TabIndex = 81;
-            this.btUserImage.Text = "เพิ่มรูปภาพ";
-            this.btUserImage.UseVisualStyleBackColor = true;
-            this.btUserImage.Click += new System.EventHandler(this.btUserImage_Click_2);
             // 
             // HomeForm
             // 

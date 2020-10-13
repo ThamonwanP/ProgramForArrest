@@ -36,32 +36,35 @@ namespace ProgramForArrest
         {
             try
             {
-                AddPersons input = new AddPersons();
-                RestClient client = new RestClient("http://202.28.34.197:8800");
-                RestRequest request = new RestRequest("/ArrestSystem/persons");
+                if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    AddPersons input = new AddPersons();
+                    RestClient client = new RestClient("http://202.28.34.197:8800");
+                    RestRequest request = new RestRequest("/ArrestSystem/persons");
 
-                input.admincard = this.card;
-                input.title = tbPersonTitle.Text;
-                input.firstname = tbPersonFirstname.Text;
-                input.lastname = tbPersonLastname.Text;
-                input.card = tbPersonCard.Text;
-                input.date = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
-                input.phone = tbPersonPhone.Text;
-                input.address = tbPersonAddress.Text;
-                input.image_url = base64String;
-                input.group = tbPersonGroup.Text;
-                //SaveJpeg(pictureBox_Person.Image, @"d:\images.bmp", 100);
+                    input.admincard = this.card;
+                    input.title = tbPersonTitle.Text;
+                    input.firstname = tbPersonFirstname.Text;
+                    input.lastname = tbPersonLastname.Text;
+                    input.card = tbPersonCard.Text;
+                    input.date = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
+                    input.phone = tbPersonPhone.Text;
+                    input.address = tbPersonAddress.Text;
+                    input.image_url = base64String;
+                    input.group = tbPersonGroup.Text;
+                    //SaveJpeg(pictureBox_Person.Image, @"d:\images.bmp", 100);
 
-                var serializer = new JavaScriptSerializer();
-                string jsonStr = serializer.Serialize(input);
-                request.AddJsonBody(jsonStr);
-                var AddPerson = client.Execute<AddPerson_Result>(request, Method.POST);
+                    var serializer = new JavaScriptSerializer();
+                    string jsonStr = serializer.Serialize(input);
+                    request.AddJsonBody(jsonStr);
+                    var AddPerson = client.Execute<AddPerson_Result>(request, Method.POST);
 
 
 
-                Console.WriteLine(AddPerson);
+                    Console.WriteLine(AddPerson);
 
-                MessageBox.Show("เปลี่ยนข้อมูลสำเร็จ! ");
+                    MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
+                }
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message);

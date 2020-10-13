@@ -32,7 +32,6 @@
             this.btAddUser = new System.Windows.Forms.Button();
             this.btUserImage = new System.Windows.Forms.Button();
             this.pictureBox_User = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbUserAddress = new System.Windows.Forms.TextBox();
             this.tbUserBirthday = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,8 +52,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog_User = new System.Windows.Forms.OpenFileDialog();
             this.btClose = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_User)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +64,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btAddUser);
             this.panel1.Controls.Add(this.btUserImage);
             this.panel1.Controls.Add(this.pictureBox_User);
@@ -124,17 +126,6 @@
             this.pictureBox_User.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_User.TabIndex = 101;
             this.pictureBox_User.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Anantason SemiExpanded", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(263, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 54);
-            this.label1.TabIndex = 99;
-            this.label1.Text = "ข้อมูลผู้ใช้ระบบ";
             // 
             // tbUserAddress
             // 
@@ -338,6 +329,17 @@
             this.label9.TabIndex = 96;
             this.label9.Text = "เบอร์โทรศัพท์";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Anantason SemiExpanded", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(263, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(198, 54);
+            this.label1.TabIndex = 99;
+            this.label1.Text = "ข้อมูลผู้ใช้ระบบ";
+            // 
             // openFileDialog_User
             // 
             this.openFileDialog_User.FileName = "openFileDialog1";
@@ -354,6 +356,17 @@
             this.btClose.TabIndex = 15;
             this.btClose.Text = "X";
             this.btClose.Click += new System.EventHandler(this.btClose_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(526, 281);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(171, 31);
+            this.button1.TabIndex = 104;
+            this.button1.Text = "รับข้อมูลผ่านเครื่องอ่านบัตร";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // AddUserForm
             // 
@@ -406,5 +419,6 @@
         private System.Windows.Forms.Button btAddUser;
         private System.Windows.Forms.OpenFileDialog openFileDialog_User;
         private System.Windows.Forms.Label btClose;
+        private System.Windows.Forms.Button button1;
     }
 }
