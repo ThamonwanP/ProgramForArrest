@@ -55,7 +55,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbSearchPerson = new System.Windows.Forms.TextBox();
             this.tbPersonCard = new System.Windows.Forms.TextBox();
             this.tbPersonGroup = new System.Windows.Forms.TextBox();
             this.tbPersonFirstName = new System.Windows.Forms.TextBox();
@@ -139,7 +139,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.pictureBox_Info = new System.Windows.Forms.PictureBox();
             this.tabHome = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbSearchPersons = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnCard = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -157,6 +157,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -277,7 +278,7 @@
             // tbPassword
             // 
             this.tbPassword.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbPassword.ForeColor = System.Drawing.Color.Silver;
+            this.tbPassword.ForeColor = System.Drawing.Color.Black;
             this.tbPassword.Location = new System.Drawing.Point(174, 87);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Multiline = true;
@@ -301,7 +302,7 @@
             // tbNewPassword
             // 
             this.tbNewPassword.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F);
-            this.tbNewPassword.ForeColor = System.Drawing.Color.Silver;
+            this.tbNewPassword.ForeColor = System.Drawing.Color.Black;
             this.tbNewPassword.Location = new System.Drawing.Point(174, 151);
             this.tbNewPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbNewPassword.Multiline = true;
@@ -325,7 +326,7 @@
             // tbConfirm
             // 
             this.tbConfirm.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F);
-            this.tbConfirm.ForeColor = System.Drawing.Color.Silver;
+            this.tbConfirm.ForeColor = System.Drawing.Color.Black;
             this.tbConfirm.Location = new System.Drawing.Point(174, 214);
             this.tbConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.tbConfirm.Multiline = true;
@@ -333,7 +334,7 @@
             this.tbConfirm.Size = new System.Drawing.Size(273, 36);
             this.tbConfirm.TabIndex = 11;
             this.tbConfirm.Text = "กรุณากรอกข้อมูล";
-            this.tbConfirm.Click += new System.EventHandler(this.tbNewPassword_Click);
+            this.tbConfirm.Click += new System.EventHandler(this.tbConfirm_Click);
             // 
             // label2
             // 
@@ -352,7 +353,7 @@
             this.tabPage4.Controls.Add(this.btPersonImage);
             this.tabPage4.Controls.Add(this.label40);
             this.tabPage4.Controls.Add(this.listView_Persons);
-            this.tabPage4.Controls.Add(this.textBox4);
+            this.tabPage4.Controls.Add(this.tbSearchPerson);
             this.tabPage4.Controls.Add(this.tbPersonCard);
             this.tabPage4.Controls.Add(this.tbPersonGroup);
             this.tabPage4.Controls.Add(this.tbPersonFirstName);
@@ -451,13 +452,14 @@
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 125;
             // 
-            // textBox4
+            // tbSearchPerson
             // 
-            this.textBox4.Location = new System.Drawing.Point(308, 311);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(320, 36);
-            this.textBox4.TabIndex = 15;
+            this.tbSearchPerson.Location = new System.Drawing.Point(308, 322);
+            this.tbSearchPerson.Margin = new System.Windows.Forms.Padding(2);
+            this.tbSearchPerson.Name = "tbSearchPerson";
+            this.tbSearchPerson.Size = new System.Drawing.Size(320, 36);
+            this.tbSearchPerson.TabIndex = 15;
+            this.tbSearchPerson.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearchPerson_KeyUp);
             // 
             // tbPersonCard
             // 
@@ -472,7 +474,7 @@
             this.tbPersonGroup.Location = new System.Drawing.Point(157, 258);
             this.tbPersonGroup.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonGroup.Name = "tbPersonGroup";
-            this.tbPersonGroup.Size = new System.Drawing.Size(159, 36);
+            this.tbPersonGroup.Size = new System.Drawing.Size(113, 36);
             this.tbPersonGroup.TabIndex = 18;
             // 
             // tbPersonFirstName
@@ -501,11 +503,11 @@
             // 
             // tbPersonAddress
             // 
-            this.tbPersonAddress.Location = new System.Drawing.Point(325, 258);
+            this.tbPersonAddress.Location = new System.Drawing.Point(274, 258);
             this.tbPersonAddress.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonAddress.Multiline = true;
             this.tbPersonAddress.Name = "tbPersonAddress";
-            this.tbPersonAddress.Size = new System.Drawing.Size(303, 36);
+            this.tbPersonAddress.Size = new System.Drawing.Size(354, 36);
             this.tbPersonAddress.TabIndex = 7;
             // 
             // groupBox5
@@ -576,7 +578,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(147, 314);
+            this.label11.Location = new System.Drawing.Point(147, 325);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(149, 29);
@@ -636,7 +638,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(330, 232);
+            this.label19.Location = new System.Drawing.Point(269, 230);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(47, 29);
@@ -731,7 +733,8 @@
             this.columnHeader1,
             this.columnHeader4,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader9});
             this.listView_Users.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView_Users.GridLines = true;
             this.listView_Users.HideSelection = false;
@@ -785,6 +788,7 @@
             this.tbSeachUser.Name = "tbSeachUser";
             this.tbSeachUser.Size = new System.Drawing.Size(391, 34);
             this.tbSeachUser.TabIndex = 54;
+            this.tbSeachUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSeachUser_KeyUp);
             // 
             // tbUserPhone
             // 
@@ -1206,19 +1210,19 @@
             // tbLastname
             // 
             this.tbLastname.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLastname.Location = new System.Drawing.Point(477, 104);
+            this.tbLastname.Location = new System.Drawing.Point(451, 104);
             this.tbLastname.Margin = new System.Windows.Forms.Padding(2);
             this.tbLastname.Name = "tbLastname";
-            this.tbLastname.Size = new System.Drawing.Size(128, 36);
+            this.tbLastname.Size = new System.Drawing.Size(154, 36);
             this.tbLastname.TabIndex = 57;
             // 
             // tbFirstname
             // 
             this.tbFirstname.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFirstname.Location = new System.Drawing.Point(319, 104);
+            this.tbFirstname.Location = new System.Drawing.Point(295, 104);
             this.tbFirstname.Margin = new System.Windows.Forms.Padding(2);
             this.tbFirstname.Name = "tbFirstname";
-            this.tbFirstname.Size = new System.Drawing.Size(128, 36);
+            this.tbFirstname.Size = new System.Drawing.Size(148, 36);
             this.tbFirstname.TabIndex = 56;
             // 
             // tbTitle
@@ -1227,14 +1231,14 @@
             this.tbTitle.Location = new System.Drawing.Point(178, 104);
             this.tbTitle.Margin = new System.Windows.Forms.Padding(2);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(109, 36);
+            this.tbTitle.Size = new System.Drawing.Size(108, 36);
             this.tbTitle.TabIndex = 55;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(172, 73);
+            this.label36.Location = new System.Drawing.Point(176, 78);
             this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(77, 29);
@@ -1256,7 +1260,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(313, 73);
+            this.label35.Location = new System.Drawing.Point(290, 78);
             this.label35.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(32, 29);
@@ -1267,7 +1271,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(471, 73);
+            this.label34.Location = new System.Drawing.Point(446, 78);
             this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(69, 29);
@@ -1342,7 +1346,7 @@
             // 
             // tabHome
             // 
-            this.tabHome.Controls.Add(this.textBox1);
+            this.tabHome.Controls.Add(this.tbSearchPersons);
             this.tabHome.Controls.Add(this.label41);
             this.tabHome.Controls.Add(this.listView2);
             this.tabHome.Controls.Add(this.listView1);
@@ -1357,13 +1361,14 @@
             this.tabHome.Text = "หน้าหลัก";
             this.tabHome.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbSearchPersons
             // 
-            this.textBox1.Location = new System.Drawing.Point(234, 289);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(590, 36);
-            this.textBox1.TabIndex = 79;
+            this.tbSearchPersons.Location = new System.Drawing.Point(234, 289);
+            this.tbSearchPersons.Margin = new System.Windows.Forms.Padding(2);
+            this.tbSearchPersons.Name = "tbSearchPersons";
+            this.tbSearchPersons.Size = new System.Drawing.Size(590, 36);
+            this.tbSearchPersons.TabIndex = 79;
+            this.tbSearchPersons.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearchPersons_KeyUp);
             // 
             // label41
             // 
@@ -1485,7 +1490,7 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(590, 36);
             this.tbSearch.TabIndex = 19;
-            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            this.tbSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyUp);
             // 
             // label37
             // 
@@ -1511,6 +1516,11 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(917, 601);
             this.tabControl1.TabIndex = 6;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "หน่วยงาน";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // HomeForm
             // 
@@ -1578,7 +1588,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbSearchPerson;
         private System.Windows.Forms.TextBox tbPersonCard;
         private System.Windows.Forms.TextBox tbPersonGroup;
         private System.Windows.Forms.TextBox tbPersonFirstName;
@@ -1659,7 +1669,7 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.PictureBox pictureBox_Info;
         private System.Windows.Forms.TabPage tabHome;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbSearchPersons;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ColumnHeader columnCard;
@@ -1682,5 +1692,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox tbPersonTitle;
         private System.Windows.Forms.Button btUserImage;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }

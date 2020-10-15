@@ -253,7 +253,7 @@
             this.tbPersonGroup.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonGroup.Name = "tbPersonGroup";
             this.tbPersonGroup.ReadOnly = true;
-            this.tbPersonGroup.Size = new System.Drawing.Size(152, 34);
+            this.tbPersonGroup.Size = new System.Drawing.Size(225, 34);
             this.tbPersonGroup.TabIndex = 84;
             // 
             // tbUserLastname
@@ -269,11 +269,11 @@
             // tbPersonPhone
             // 
             this.tbPersonPhone.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPersonPhone.Location = new System.Drawing.Point(199, 145);
+            this.tbPersonPhone.Location = new System.Drawing.Point(267, 145);
             this.tbPersonPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonPhone.Name = "tbPersonPhone";
             this.tbPersonPhone.ReadOnly = true;
-            this.tbPersonPhone.Size = new System.Drawing.Size(155, 34);
+            this.tbPersonPhone.Size = new System.Drawing.Size(243, 34);
             this.tbPersonPhone.TabIndex = 83;
             // 
             // tbPersonFirstname
@@ -333,7 +333,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(194, 122);
+            this.label9.Location = new System.Drawing.Point(264, 122);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(91, 26);

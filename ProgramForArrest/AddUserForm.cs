@@ -53,7 +53,7 @@ namespace ProgramForArrest
                 input.email = tbUserEmail.Text;
                 input.phone = tbUserPhone.Text;
                 input.address = tbUserAddress.Text;
-                input.image_url = openFileDialog_User.FileName;
+                input.image_url = base64String;
 
                 var serializer = new JavaScriptSerializer();
                 string jsonStr = serializer.Serialize(input);
