@@ -85,6 +85,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tbUserAddress = new System.Windows.Forms.TextBox();
             this.tbSeachUser = new System.Windows.Forms.TextBox();
             this.tbUserPhone = new System.Windows.Forms.TextBox();
@@ -157,17 +158,17 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.listView3 = new System.Windows.Forms.ListView();
+            this.btScan = new System.Windows.Forms.Button();
+            this.label46 = new System.Windows.Forms.Label();
+            this.listView_Matching = new System.Windows.Forms.ListView();
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.radioLeft = new System.Windows.Forms.RadioButton();
-            this.radioRight = new System.Windows.Forms.RadioButton();
-            this.btScan = new System.Windows.Forms.Button();
+            this.radioFigLeft = new System.Windows.Forms.RadioButton();
+            this.radioFigRight = new System.Windows.Forms.RadioButton();
             this.pictureBox_Finger = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -179,7 +180,6 @@
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -794,6 +794,11 @@
             this.columnHeader3.Text = "นามสกุล";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 95;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "หน่วยงาน";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbUserAddress
             // 
@@ -1543,16 +1548,11 @@
             this.tabControl1.Size = new System.Drawing.Size(917, 601);
             this.tabControl1.TabIndex = 6;
             // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "หน่วยงาน";
-            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.btScan);
             this.tabPage5.Controls.Add(this.label46);
-            this.tabPage5.Controls.Add(this.listView3);
+            this.tabPage5.Controls.Add(this.listView_Matching);
             this.tabPage5.Controls.Add(this.groupBox9);
             this.tabPage5.Controls.Add(this.pictureBox_Finger);
             this.tabPage5.Controls.Add(this.textBox1);
@@ -1573,23 +1573,47 @@
             this.tabPage5.Text = "ค้นหาลายนิ้วมือ";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // listView3
+            // btScan
             // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.btScan.Font = new System.Drawing.Font("Anantason SemiExpanded", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btScan.Location = new System.Drawing.Point(238, 486);
+            this.btScan.Margin = new System.Windows.Forms.Padding(2);
+            this.btScan.Name = "btScan";
+            this.btScan.Size = new System.Drawing.Size(259, 37);
+            this.btScan.TabIndex = 26;
+            this.btScan.Text = "สแกนลายนิ้วมือ";
+            this.btScan.UseVisualStyleBackColor = true;
+            this.btScan.Click += new System.EventHandler(this.btScan_Click);
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Anantason SemiExpanded", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(308, 20);
+            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(189, 46);
+            this.label46.TabIndex = 125;
+            this.label46.Text = "ค้นหาลายนิ้วมือ";
+            // 
+            // listView_Matching
+            // 
+            this.listView_Matching.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader10,
             this.columnHeader11,
             this.columnHeader12,
             this.columnHeader13});
-            this.listView3.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView3.GridLines = true;
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(143, 242);
-            this.listView3.Margin = new System.Windows.Forms.Padding(2);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(476, 225);
-            this.listView3.TabIndex = 124;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.listView_Matching.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView_Matching.GridLines = true;
+            this.listView_Matching.HideSelection = false;
+            this.listView_Matching.Location = new System.Drawing.Point(143, 242);
+            this.listView_Matching.Margin = new System.Windows.Forms.Padding(2);
+            this.listView_Matching.Name = "listView_Matching";
+            this.listView_Matching.Size = new System.Drawing.Size(476, 225);
+            this.listView_Matching.TabIndex = 124;
+            this.listView_Matching.UseCompatibleStateImageBehavior = false;
+            this.listView_Matching.View = System.Windows.Forms.View.Details;
+            this.listView_Matching.SelectedIndexChanged += new System.EventHandler(this.listView_Matching_SelectedIndexChanged);
             // 
             // columnHeader10
             // 
@@ -1616,8 +1640,8 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.radioLeft);
-            this.groupBox9.Controls.Add(this.radioRight);
+            this.groupBox9.Controls.Add(this.radioFigLeft);
+            this.groupBox9.Controls.Add(this.radioFigRight);
             this.groupBox9.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox9.Location = new System.Drawing.Point(654, 268);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
@@ -1628,41 +1652,29 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "รายละเอียดลายนิ้วมือ";
             // 
-            // radioLeft
+            // radioFigLeft
             // 
-            this.radioLeft.AutoSize = true;
-            this.radioLeft.Location = new System.Drawing.Point(37, 33);
-            this.radioLeft.Margin = new System.Windows.Forms.Padding(2);
-            this.radioLeft.Name = "radioLeft";
-            this.radioLeft.Size = new System.Drawing.Size(79, 30);
-            this.radioLeft.TabIndex = 28;
-            this.radioLeft.TabStop = true;
-            this.radioLeft.Text = "ด้านซ้าย";
-            this.radioLeft.UseVisualStyleBackColor = true;
+            this.radioFigLeft.AutoSize = true;
+            this.radioFigLeft.Location = new System.Drawing.Point(37, 33);
+            this.radioFigLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.radioFigLeft.Name = "radioFigLeft";
+            this.radioFigLeft.Size = new System.Drawing.Size(79, 30);
+            this.radioFigLeft.TabIndex = 28;
+            this.radioFigLeft.TabStop = true;
+            this.radioFigLeft.Text = "ด้านซ้าย";
+            this.radioFigLeft.UseVisualStyleBackColor = true;
             // 
-            // radioRight
+            // radioFigRight
             // 
-            this.radioRight.AutoSize = true;
-            this.radioRight.Location = new System.Drawing.Point(37, 63);
-            this.radioRight.Margin = new System.Windows.Forms.Padding(2);
-            this.radioRight.Name = "radioRight";
-            this.radioRight.Size = new System.Drawing.Size(79, 30);
-            this.radioRight.TabIndex = 29;
-            this.radioRight.TabStop = true;
-            this.radioRight.Text = "ด้านขวา";
-            this.radioRight.UseVisualStyleBackColor = true;
-            // 
-            // btScan
-            // 
-            this.btScan.Font = new System.Drawing.Font("Anantason SemiExpanded", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btScan.Location = new System.Drawing.Point(238, 486);
-            this.btScan.Margin = new System.Windows.Forms.Padding(2);
-            this.btScan.Name = "btScan";
-            this.btScan.Size = new System.Drawing.Size(259, 37);
-            this.btScan.TabIndex = 26;
-            this.btScan.Text = "สแกนลายนิ้วมือ";
-            this.btScan.UseVisualStyleBackColor = true;
-            this.btScan.Click += new System.EventHandler(this.btScan_Click);
+            this.radioFigRight.AutoSize = true;
+            this.radioFigRight.Location = new System.Drawing.Point(37, 63);
+            this.radioFigRight.Margin = new System.Windows.Forms.Padding(2);
+            this.radioFigRight.Name = "radioFigRight";
+            this.radioFigRight.Size = new System.Drawing.Size(79, 30);
+            this.radioFigRight.TabIndex = 29;
+            this.radioFigRight.TabStop = true;
+            this.radioFigRight.Text = "ด้านขวา";
+            this.radioFigRight.UseVisualStyleBackColor = true;
             // 
             // pictureBox_Finger
             // 
@@ -1779,17 +1791,6 @@
             this.label45.Size = new System.Drawing.Size(91, 26);
             this.label45.TabIndex = 119;
             this.label45.Text = "กลุ่มผู้ต้องหา";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Anantason SemiExpanded", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(308, 20);
-            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(189, 46);
-            this.label46.TabIndex = 125;
-            this.label46.Text = "ค้นหาลายนิ้วมือ";
             // 
             // HomeForm
             // 
@@ -1970,14 +1971,14 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button btScan;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ListView listView_Matching;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.RadioButton radioLeft;
-        private System.Windows.Forms.RadioButton radioRight;
+        private System.Windows.Forms.RadioButton radioFigLeft;
+        private System.Windows.Forms.RadioButton radioFigRight;
         private System.Windows.Forms.PictureBox pictureBox_Finger;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;

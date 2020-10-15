@@ -109,6 +109,10 @@
     <Compile Include="Model\LoginResult.cs" />
     <Compile Include="Model\MatchingFinger.cs" />
     <Compile Include="Model\MatchingFinger_Result.cs" />
+    <Compile Include="Model\SearchbyFidLeft.cs" />
+    <Compile Include="Model\SearchbyFidLeft_Result.cs" />
+    <Compile Include="Model\SearchbyFidRight.cs" />
+    <Compile Include="Model\SearchbyFidRight_Result.cs" />
     <Compile Include="Model\SearchID.cs" />
     <Compile Include="Model\SearchPersons.cs" />
     <Compile Include="Model\SearchUsers.cs" />

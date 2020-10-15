@@ -1140,12 +1140,72 @@ namespace ProgramForArrest
                                     var serializer = new JavaScriptSerializer();
                                     string jsonStr = serializer.Serialize(input);
                                     request.AddJsonBody(jsonStr);
-                                    var fingerprint = client.Execute<MatchingFinger_ResultData>(request, Method.POST);
+                                    var fingerprint = client.Execute<List<MatchingFinger_ResultData>>(request, Method.POST);
 
-                                    if (!fingerprint.Content.Equals("[]"))
+                                    if (fingerprint.Data.Count > 0)
                                     {
-                                        MessageBox.Show(fingerprint.Data.key);
+                                        if (radioFigLeft.Checked) 
+                                        {
+                                            SearchbyFidLeft FidLeft = new SearchbyFidLeft();
+                                            RestRequest FidLeftRequest = new RestRequest("/ArrestSystem/person/fright/search");
+                                            FidLeft.fid = fingerprint.Data[0].key;
+
+                                            var serializerFL = new JavaScriptSerializer();
+                                            string jsonStrFL = serializer.Serialize(FidLeft);
+                                            FidLeftRequest.AddJsonBody(jsonStrFL);
+                                            var FidLeftfingerprint = client.Execute<List<SearchbyFidLeft_ResultData>>(request, Method.POST);
+
+                                            while (i <= FidLeftfingerprint.Data.Count)
+                                            {
+
+                                                string[] fings = new string[]
+                                                {
+                                                    FidLeftfingerprint.Data[i].card,
+                                                    FidLeftfingerprint.Data[i].firstname,
+                                                    FidLeftfingerprint.Data[i].lastname,
+                                                    FidLeftfingerprint.Data[i].group
+                                                };
+
+                                                listView_Matching.Items.Add(new ListViewItem(fings));
+                                                i++;
+                                            }
+
                                     }
+                                    
+                                        else if (radioFigRight.Checked) 
+                                        {
+                                            SearchbyFidLeft FidRight = new SearchbyFidLeft();
+                                            RestRequest FidRightRequest = new RestRequest("/ArrestSystem/person/fright/search");
+                                            FidRight.fid = fingerprint.Data[0].key;
+
+                                            var serializerFR = new JavaScriptSerializer();
+                                            string jsonStrFR = serializer.Serialize(FidRight);
+                                            FidRightRequest.AddJsonBody(jsonStrFR);
+                                            var FidRightfingerprint = client.Execute<List<SearchbyFidRight_ResultData>>(request, Method.POST);
+
+                                            while (i <= FidRightfingerprint.Data.Count)
+                                            {
+
+                                                string[] fings = new string[]
+                                                {
+                                                        FidRightfingerprint.Data[i].card,
+                                                        FidRightfingerprint.Data[i].firstname,
+                                                        FidRightfingerprint.Data[i].lastname,
+                                                        FidRightfingerprint.Data[i].group
+                                                };
+
+                                                listView_Matching.Items.Add(new ListViewItem(fings));
+                                                i++;
+                                            }
+                                    }
+                                    
+                                        else
+                                        {
+                                            MessageBox.Show("กรุณาเลือกลักษณะลายนิ้วมือ");
+                                        }
+
+                                    }
+                                
                                     else 
                                     {
                                         MessageBox.Show("ไม่พบข้อมูล");
@@ -1165,6 +1225,43 @@ namespace ProgramForArrest
             {
                 MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void listView_Matching_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectCard = listView_Matching.SelectedItems[0].SubItems[0].Text;
+
+                RestClient Getclient = new RestClient("http://202.28.34.197:8800");
+                RestRequest Getrequest = new RestRequest("/ArrestSystem/persons/" + selectCard);
+                var getPersons = Getclient.Execute<List<SearchPersons_data>>(Getrequest, Method.GET);
+                int i = 0;
+
+
+                while (i <= getPersons.Data.Count)
+                {
+
+                    if (listView_Matching.SelectedItems[0].SubItems[0].Text != null)
+                    {
+                        
+                        tbPersonCard.Text = getPersons.Data[0].card;
+                        tbPersonFirstName.Text = getPersons.Data[0].firstname;
+                        tbPersonLastName.Text = getPersons.Data[0].lastname;
+                        tbPersonGroup.Text = getPersons.Data[0].group;
+                        tbPersonAddress.Text = getPersons.Data[0].address;
+                        var pic = Convert.FromBase64String(getPersons.Data[0].image_url);
+                        using (MemoryStream ms = new MemoryStream(pic))
+                        {
+                            pictureBox_Finger.Image = Image.FromStream(ms);
+                        }
+                        imagesStr = getPersons.Data[0].image_url;
+                        Console.WriteLine(imagesStr);
+                    }
+                    i++;
+                }
+            }
+            catch { }
         }
     }
  }
