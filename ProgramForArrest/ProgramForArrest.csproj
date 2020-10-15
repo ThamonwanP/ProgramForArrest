@@ -107,6 +107,8 @@
     <Compile Include="Model\GetCaseGroup.cs" />
     <Compile Include="Model\GetUserbyCard.cs" />
     <Compile Include="Model\LoginResult.cs" />
+    <Compile Include="Model\MatchingFinger.cs" />
+    <Compile Include="Model\MatchingFinger_Result.cs" />
     <Compile Include="Model\SearchID.cs" />
     <Compile Include="Model\SearchPersons.cs" />
     <Compile Include="Model\SearchUsers.cs" />

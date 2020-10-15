@@ -158,6 +158,28 @@
             this.label37 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.radioLeft = new System.Windows.Forms.RadioButton();
+            this.radioRight = new System.Windows.Forms.RadioButton();
+            this.btScan = new System.Windows.Forms.Button();
+            this.pictureBox_Finger = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -171,6 +193,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
             this.tabHome.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog_User
@@ -205,7 +230,7 @@
             // pictureBox_Pass
             // 
             this.pictureBox_Pass.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_Pass.Image")));
-            this.pictureBox_Pass.Location = new System.Drawing.Point(718, 33);
+            this.pictureBox_Pass.Location = new System.Drawing.Point(760, 33);
             this.pictureBox_Pass.Name = "pictureBox_Pass";
             this.pictureBox_Pass.Size = new System.Drawing.Size(35, 35);
             this.pictureBox_Pass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1509,6 +1534,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Font = new System.Drawing.Font("Anantason SemiExpanded", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(34, 35);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
@@ -1521,6 +1547,249 @@
             // 
             this.columnHeader9.Text = "หน่วยงาน";
             this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.btScan);
+            this.tabPage5.Controls.Add(this.label46);
+            this.tabPage5.Controls.Add(this.listView3);
+            this.tabPage5.Controls.Add(this.groupBox9);
+            this.tabPage5.Controls.Add(this.pictureBox_Finger);
+            this.tabPage5.Controls.Add(this.textBox1);
+            this.tabPage5.Controls.Add(this.textBox2);
+            this.tabPage5.Controls.Add(this.textBox3);
+            this.tabPage5.Controls.Add(this.textBox4);
+            this.tabPage5.Controls.Add(this.textBox5);
+            this.tabPage5.Controls.Add(this.label25);
+            this.tabPage5.Controls.Add(this.label42);
+            this.tabPage5.Controls.Add(this.label43);
+            this.tabPage5.Controls.Add(this.label44);
+            this.tabPage5.Controls.Add(this.label45);
+            this.tabPage5.Location = new System.Drawing.Point(4, 38);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(909, 559);
+            this.tabPage5.TabIndex = 6;
+            this.tabPage5.Text = "ค้นหาลายนิ้วมือ";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // listView3
+            // 
+            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader13});
+            this.listView3.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView3.GridLines = true;
+            this.listView3.HideSelection = false;
+            this.listView3.Location = new System.Drawing.Point(143, 242);
+            this.listView3.Margin = new System.Windows.Forms.Padding(2);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(476, 225);
+            this.listView3.TabIndex = 124;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "เลขประชาชนประจำตัว";
+            this.columnHeader10.Width = 130;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "ชื่อ";
+            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader11.Width = 110;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "นามสกุล";
+            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader12.Width = 110;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "กลุ่มผู้ต้องหา";
+            this.columnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader13.Width = 125;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.radioLeft);
+            this.groupBox9.Controls.Add(this.radioRight);
+            this.groupBox9.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox9.Location = new System.Drawing.Point(654, 268);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox9.Size = new System.Drawing.Size(160, 117);
+            this.groupBox9.TabIndex = 123;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "รายละเอียดลายนิ้วมือ";
+            // 
+            // radioLeft
+            // 
+            this.radioLeft.AutoSize = true;
+            this.radioLeft.Location = new System.Drawing.Point(37, 33);
+            this.radioLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.radioLeft.Name = "radioLeft";
+            this.radioLeft.Size = new System.Drawing.Size(79, 30);
+            this.radioLeft.TabIndex = 28;
+            this.radioLeft.TabStop = true;
+            this.radioLeft.Text = "ด้านซ้าย";
+            this.radioLeft.UseVisualStyleBackColor = true;
+            // 
+            // radioRight
+            // 
+            this.radioRight.AutoSize = true;
+            this.radioRight.Location = new System.Drawing.Point(37, 63);
+            this.radioRight.Margin = new System.Windows.Forms.Padding(2);
+            this.radioRight.Name = "radioRight";
+            this.radioRight.Size = new System.Drawing.Size(79, 30);
+            this.radioRight.TabIndex = 29;
+            this.radioRight.TabStop = true;
+            this.radioRight.Text = "ด้านขวา";
+            this.radioRight.UseVisualStyleBackColor = true;
+            // 
+            // btScan
+            // 
+            this.btScan.Font = new System.Drawing.Font("Anantason SemiExpanded", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btScan.Location = new System.Drawing.Point(238, 486);
+            this.btScan.Margin = new System.Windows.Forms.Padding(2);
+            this.btScan.Name = "btScan";
+            this.btScan.Size = new System.Drawing.Size(259, 37);
+            this.btScan.TabIndex = 26;
+            this.btScan.Text = "สแกนลายนิ้วมือ";
+            this.btScan.UseVisualStyleBackColor = true;
+            this.btScan.Click += new System.EventHandler(this.btScan_Click);
+            // 
+            // pictureBox_Finger
+            // 
+            this.pictureBox_Finger.BackColor = System.Drawing.Color.DarkGray;
+            this.pictureBox_Finger.Location = new System.Drawing.Point(654, 64);
+            this.pictureBox_Finger.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox_Finger.Name = "pictureBox_Finger";
+            this.pictureBox_Finger.Size = new System.Drawing.Size(160, 178);
+            this.pictureBox_Finger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Finger.TabIndex = 121;
+            this.pictureBox_Finger.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(147, 180);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(225, 34);
+            this.textBox1.TabIndex = 115;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(467, 109);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(152, 34);
+            this.textBox2.TabIndex = 111;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(389, 180);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(230, 34);
+            this.textBox3.TabIndex = 114;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(308, 109);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(152, 34);
+            this.textBox4.TabIndex = 112;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(147, 109);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(152, 34);
+            this.textBox5.TabIndex = 113;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(305, 87);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(29, 26);
+            this.label25.TabIndex = 116;
+            this.label25.Text = "ชื่อ";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(142, 84);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(145, 26);
+            this.label42.TabIndex = 118;
+            this.label42.Text = "เลขประชาชนประจำตัว";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(462, 84);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(64, 26);
+            this.label43.TabIndex = 117;
+            this.label43.Text = "นามสกุล";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(385, 157);
+            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(91, 26);
+            this.label44.TabIndex = 120;
+            this.label44.Text = "เบอร์โทรศัพท์";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(142, 155);
+            this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(91, 26);
+            this.label45.TabIndex = 119;
+            this.label45.Text = "กลุ่มผู้ต้องหา";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Anantason SemiExpanded", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(308, 20);
+            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(189, 46);
+            this.label46.TabIndex = 125;
+            this.label46.Text = "ค้นหาลายนิ้วมือ";
             // 
             // HomeForm
             // 
@@ -1558,6 +1827,11 @@
             this.tabHome.ResumeLayout(false);
             this.tabHome.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1693,5 +1967,27 @@
         private System.Windows.Forms.TextBox tbPersonTitle;
         private System.Windows.Forms.Button btUserImage;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button btScan;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.RadioButton radioLeft;
+        private System.Windows.Forms.RadioButton radioRight;
+        private System.Windows.Forms.PictureBox pictureBox_Finger;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
     }
 }

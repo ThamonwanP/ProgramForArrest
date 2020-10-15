@@ -40,7 +40,6 @@
             this.radioLeft = new System.Windows.Forms.RadioButton();
             this.radioRight = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.btSeach = new System.Windows.Forms.Button();
             this.btScan = new System.Windows.Forms.Button();
             this.btAddFingerPrint = new System.Windows.Forms.Button();
             this.pictureBox_Finger = new System.Windows.Forms.PictureBox();
@@ -190,34 +189,23 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.btSeach);
             this.groupBox7.Controls.Add(this.btScan);
             this.groupBox7.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(534, 346);
+            this.groupBox7.Location = new System.Drawing.Point(534, 378);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox7.Size = new System.Drawing.Size(160, 136);
+            this.groupBox7.Size = new System.Drawing.Size(160, 104);
             this.groupBox7.TabIndex = 108;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "จัดการลายนิ้วมือ";
             // 
-            // btSeach
-            // 
-            this.btSeach.Location = new System.Drawing.Point(18, 95);
-            this.btSeach.Margin = new System.Windows.Forms.Padding(2);
-            this.btSeach.Name = "btSeach";
-            this.btSeach.Size = new System.Drawing.Size(125, 31);
-            this.btSeach.TabIndex = 30;
-            this.btSeach.Text = "ค้นหาลายนิ้วมือ";
-            this.btSeach.UseVisualStyleBackColor = true;
-            // 
             // btScan
             // 
-            this.btScan.Location = new System.Drawing.Point(18, 46);
+            this.btScan.Location = new System.Drawing.Point(11, 44);
             this.btScan.Margin = new System.Windows.Forms.Padding(2);
             this.btScan.Name = "btScan";
-            this.btScan.Size = new System.Drawing.Size(125, 31);
+            this.btScan.Size = new System.Drawing.Size(134, 31);
             this.btScan.TabIndex = 26;
             this.btScan.Text = "สแกนลายนิ้วมือ";
             this.btScan.UseVisualStyleBackColor = true;
@@ -396,7 +384,6 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.RadioButton radioLeft;
         private System.Windows.Forms.RadioButton radioRight;
-        private System.Windows.Forms.Button btSeach;
         private System.Windows.Forms.Button btScan;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ListView listView_Persons;

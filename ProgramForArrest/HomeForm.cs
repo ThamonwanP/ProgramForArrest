@@ -26,9 +26,10 @@ namespace ProgramForArrest
         string imagesStr;
         string org;
         string base64String;
+        string Fingerbase64String;
 
         // Default COM port settings. 
-        private const string DefaultComPort = "COM10";
+        private const string DefaultComPort = "COM5";
         private const int DefaultBaudRate = 115200;
 
         // Size of the fingerprint image. 
@@ -1073,6 +1074,97 @@ namespace ProgramForArrest
                 }
             }
             catch { }
+        }
+
+        private void btScan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string msgText = _zfmSensor.IsAvailable() ? @"Fingerprint sensor is available." : "Fingerprint sensor is not available.\nCheck sensor configuration options.";
+                //MessageBox.Show(msgText, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Zfm20Fingerprint.ZfmStatus captureStatus = _zfmSensor.Capture();
+                if (captureStatus != Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
+                {
+
+                    //MessageBox.Show(ZfmStatusToString(captureStatus), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    IntPtr dataBuffer;
+                    uint dataBufferSize;
+
+                    Zfm20Fingerprint.ZfmStatus downloadStatus = _zfmSensor.GetFingerprintBuffer(out dataBuffer, out dataBufferSize);
+                    if (downloadStatus == Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
+                    {
+                        if (dataBufferSize > 0)
+                        {
+                            // Create output bitmap buffer object. 
+                            Bitmap outputImage = new Bitmap(ImageWidth, ImageHeight);
+                            byte[] colorBuffer = new byte[dataBufferSize];
+                            int bufferPos = 0;
+
+                            Marshal.Copy(dataBuffer, colorBuffer, 0, (int)(dataBufferSize - 1));
+
+                            // Paint bitmap buffer with received data buffer content.
+                            for (int yPos = 0; yPos < ImageHeight; yPos++)
+                            {
+                                for (int xPos = 0; xPos < ImageWidth; xPos++)
+                                {
+                                    outputImage.SetPixel(xPos, yPos, Color.FromArgb(colorBuffer[bufferPos], colorBuffer[bufferPos], colorBuffer[bufferPos]));
+                                    bufferPos++;
+                                }
+                            }
+
+                            // Flush data buffer and show bitmap on UI.
+                            _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
+                            pictureBox_Finger.Image = outputImage;
+
+                            //SaveJpeg(pictureBox_Finger.Image, @"d:\images.bmp", 100);
+                            Console.WriteLine(pictureBox_Finger.ToString());
+                            byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
+                            Fingerbase64String = Convert.ToBase64String(gg);
+                            Console.WriteLine(Fingerbase64String);
+
+
+                            try
+                            {
+
+                                    MatchingFinger input = new MatchingFinger();
+                                    RestClient client = new RestClient("http://202.28.34.197:8800");
+                                    RestRequest request = new RestRequest("/fingerprintSystem/template/matching/" + this.org);
+                                    int i=0;
+                                    input.template = Fingerbase64String;
+
+                                    var serializer = new JavaScriptSerializer();
+                                    string jsonStr = serializer.Serialize(input);
+                                    request.AddJsonBody(jsonStr);
+                                    var fingerprint = client.Execute<MatchingFinger_ResultData>(request, Method.POST);
+
+                                    if (!fingerprint.Content.Equals("[]"))
+                                    {
+                                        MessageBox.Show(fingerprint.Data.key);
+                                    }
+                                    else 
+                                    {
+                                        MessageBox.Show("ไม่พบข้อมูล");
+                                    }
+
+
+                            }
+                            catch { }
+
+
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
  }
