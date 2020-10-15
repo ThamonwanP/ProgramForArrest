@@ -1141,21 +1141,25 @@ namespace ProgramForArrest
                                     string jsonStr = serializer.Serialize(input);
                                     request.AddJsonBody(jsonStr);
                                     var fingerprint = client.Execute<List<MatchingFinger_ResultData>>(request, Method.POST);
+                                    
 
                                     if (fingerprint.Data.Count > 0)
                                     {
                                         if (radioFigLeft.Checked) 
                                         {
                                             SearchbyFidLeft FidLeft = new SearchbyFidLeft();
-                                            RestRequest FidLeftRequest = new RestRequest("/ArrestSystem/person/fright/search");
+                                            RestRequest FidLeftRequest = new RestRequest("/ArrestSystem/person/fleft/search");
+                                            
                                             FidLeft.fid = fingerprint.Data[0].key;
 
                                             var serializerFL = new JavaScriptSerializer();
                                             string jsonStrFL = serializer.Serialize(FidLeft);
                                             FidLeftRequest.AddJsonBody(jsonStrFL);
-                                            var FidLeftfingerprint = client.Execute<List<SearchbyFidLeft_ResultData>>(request, Method.POST);
+                                            var FidLeftfingerprint = client.Execute<List<SearchbyFidLeft_ResultData>>(FidLeftRequest, Method.POST);
+                                            MessageBox.Show(FidLeftfingerprint.Data[0].firstname);
 
-                                            while (i <= FidLeftfingerprint.Data.Count)
+
+                                        while (i <= FidLeftfingerprint.Data.Count)
                                             {
 
                                                 string[] fings = new string[]
@@ -1176,12 +1180,13 @@ namespace ProgramForArrest
                                         {
                                             SearchbyFidLeft FidRight = new SearchbyFidLeft();
                                             RestRequest FidRightRequest = new RestRequest("/ArrestSystem/person/fright/search");
+                                            
                                             FidRight.fid = fingerprint.Data[0].key;
 
                                             var serializerFR = new JavaScriptSerializer();
                                             string jsonStrFR = serializer.Serialize(FidRight);
                                             FidRightRequest.AddJsonBody(jsonStrFR);
-                                            var FidRightfingerprint = client.Execute<List<SearchbyFidRight_ResultData>>(request, Method.POST);
+                                            var FidRightfingerprint = client.Execute<List<SearchbyFidRight_ResultData>>(FidRightRequest, Method.POST);
 
                                             while (i <= FidRightfingerprint.Data.Count)
                                             {
@@ -1245,11 +1250,11 @@ namespace ProgramForArrest
                     if (listView_Matching.SelectedItems[0].SubItems[0].Text != null)
                     {
                         
-                        tbPersonCard.Text = getPersons.Data[0].card;
-                        tbPersonFirstName.Text = getPersons.Data[0].firstname;
-                        tbPersonLastName.Text = getPersons.Data[0].lastname;
-                        tbPersonGroup.Text = getPersons.Data[0].group;
-                        tbPersonAddress.Text = getPersons.Data[0].address;
+                        tbMCard.Text = getPersons.Data[0].card;
+                        tbMFirstName.Text = getPersons.Data[0].firstname;
+                        tbMLastname.Text = getPersons.Data[0].lastname;
+                        tbMGroup.Text = getPersons.Data[0].group;
+                        tbMPhone.Text = getPersons.Data[0].address;
                         var pic = Convert.FromBase64String(getPersons.Data[0].image_url);
                         using (MemoryStream ms = new MemoryStream(pic))
                         {

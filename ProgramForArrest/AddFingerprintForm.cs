@@ -28,7 +28,7 @@ namespace ProgramForArrest
         string perId;
 
         // Default COM port settings. 
-        private const string DefaultComPort = "COM10";
+        private const string DefaultComPort = "COM5";
         private const int DefaultBaudRate = 115200;
 
         // Size of the fingerprint image. 
@@ -259,7 +259,7 @@ namespace ProgramForArrest
                     
                         AddFingerLeft inputFL = new AddFingerLeft();
                         RestClient FLclient = new RestClient("http://202.28.34.197:8800");
-                        RestRequest FLrequest = new RestRequest("ArrestSystem/person/fleft/search" + tbPersonCard.Text);
+                        RestRequest FLrequest = new RestRequest("/ArrestSystem/person/updatefid/left/" + tbPersonCard.Text);
 
                         inputFL.fleft = FingKey;
 
@@ -269,6 +269,7 @@ namespace ProgramForArrest
                         var addFingLeft = FLclient.Execute<AddFingerLeft_Resual>(FLrequest, Method.POST);
                         MessageBox.Show("เพิ่มลายนิ้วมือข้อมูลสำเร็จ! ");
                         Console.WriteLine(addFingLeft.Data.fright);
+                        
 
 
                 }

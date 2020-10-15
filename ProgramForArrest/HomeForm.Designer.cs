@@ -170,11 +170,11 @@
             this.radioFigLeft = new System.Windows.Forms.RadioButton();
             this.radioFigRight = new System.Windows.Forms.RadioButton();
             this.pictureBox_Finger = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbMGroup = new System.Windows.Forms.TextBox();
+            this.tbMLastname = new System.Windows.Forms.TextBox();
+            this.tbMPhone = new System.Windows.Forms.TextBox();
+            this.tbMFirstName = new System.Windows.Forms.TextBox();
+            this.tbMCard = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
@@ -1555,11 +1555,11 @@
             this.tabPage5.Controls.Add(this.listView_Matching);
             this.tabPage5.Controls.Add(this.groupBox9);
             this.tabPage5.Controls.Add(this.pictureBox_Finger);
-            this.tabPage5.Controls.Add(this.textBox1);
-            this.tabPage5.Controls.Add(this.textBox2);
-            this.tabPage5.Controls.Add(this.textBox3);
-            this.tabPage5.Controls.Add(this.textBox4);
-            this.tabPage5.Controls.Add(this.textBox5);
+            this.tabPage5.Controls.Add(this.tbMGroup);
+            this.tabPage5.Controls.Add(this.tbMLastname);
+            this.tabPage5.Controls.Add(this.tbMPhone);
+            this.tabPage5.Controls.Add(this.tbMFirstName);
+            this.tabPage5.Controls.Add(this.tbMCard);
             this.tabPage5.Controls.Add(this.label25);
             this.tabPage5.Controls.Add(this.label42);
             this.tabPage5.Controls.Add(this.label43);
@@ -1687,55 +1687,55 @@
             this.pictureBox_Finger.TabIndex = 121;
             this.pictureBox_Finger.TabStop = false;
             // 
-            // textBox1
+            // tbMGroup
             // 
-            this.textBox1.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(147, 180);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(225, 34);
-            this.textBox1.TabIndex = 115;
+            this.tbMGroup.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMGroup.Location = new System.Drawing.Point(147, 180);
+            this.tbMGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMGroup.Name = "tbMGroup";
+            this.tbMGroup.ReadOnly = true;
+            this.tbMGroup.Size = new System.Drawing.Size(225, 34);
+            this.tbMGroup.TabIndex = 115;
             // 
-            // textBox2
+            // tbMLastname
             // 
-            this.textBox2.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(467, 109);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(152, 34);
-            this.textBox2.TabIndex = 111;
+            this.tbMLastname.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMLastname.Location = new System.Drawing.Point(467, 109);
+            this.tbMLastname.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMLastname.Name = "tbMLastname";
+            this.tbMLastname.ReadOnly = true;
+            this.tbMLastname.Size = new System.Drawing.Size(152, 34);
+            this.tbMLastname.TabIndex = 111;
             // 
-            // textBox3
+            // tbMPhone
             // 
-            this.textBox3.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(389, 180);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(230, 34);
-            this.textBox3.TabIndex = 114;
+            this.tbMPhone.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMPhone.Location = new System.Drawing.Point(389, 180);
+            this.tbMPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMPhone.Name = "tbMPhone";
+            this.tbMPhone.ReadOnly = true;
+            this.tbMPhone.Size = new System.Drawing.Size(230, 34);
+            this.tbMPhone.TabIndex = 114;
             // 
-            // textBox4
+            // tbMFirstName
             // 
-            this.textBox4.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(308, 109);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(152, 34);
-            this.textBox4.TabIndex = 112;
+            this.tbMFirstName.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMFirstName.Location = new System.Drawing.Point(308, 109);
+            this.tbMFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMFirstName.Name = "tbMFirstName";
+            this.tbMFirstName.ReadOnly = true;
+            this.tbMFirstName.Size = new System.Drawing.Size(152, 34);
+            this.tbMFirstName.TabIndex = 112;
             // 
-            // textBox5
+            // tbMCard
             // 
-            this.textBox5.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(147, 109);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(152, 34);
-            this.textBox5.TabIndex = 113;
+            this.tbMCard.Font = new System.Drawing.Font("Anantason SemiExpanded", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMCard.Location = new System.Drawing.Point(147, 109);
+            this.tbMCard.Margin = new System.Windows.Forms.Padding(2);
+            this.tbMCard.Name = "tbMCard";
+            this.tbMCard.ReadOnly = true;
+            this.tbMCard.Size = new System.Drawing.Size(152, 34);
+            this.tbMCard.TabIndex = 113;
             // 
             // label25
             // 
@@ -1980,11 +1980,11 @@
         private System.Windows.Forms.RadioButton radioFigLeft;
         private System.Windows.Forms.RadioButton radioFigRight;
         private System.Windows.Forms.PictureBox pictureBox_Finger;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbMGroup;
+        private System.Windows.Forms.TextBox tbMLastname;
+        private System.Windows.Forms.TextBox tbMPhone;
+        private System.Windows.Forms.TextBox tbMFirstName;
+        private System.Windows.Forms.TextBox tbMCard;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
