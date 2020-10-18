@@ -84,7 +84,7 @@
             this.tbCard.Name = "tbCard";
             this.tbCard.Size = new System.Drawing.Size(194, 20);
             this.tbCard.TabIndex = 3;
-            this.tbCard.Text = "1234567890111";
+            this.tbCard.Text = "1218377889123";
             this.tbCard.Click += new System.EventHandler(this.tbCard_Click);
             // 
             // tbPassword
@@ -98,7 +98,7 @@
             this.tbPassword.PasswordChar = '●';
             this.tbPassword.Size = new System.Drawing.Size(261, 20);
             this.tbPassword.TabIndex = 4;
-            this.tbPassword.Text = "1234567890111";
+            this.tbPassword.Text = "1218377889123";
             // 
             // errorProvider1
             // 

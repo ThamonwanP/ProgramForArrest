@@ -359,7 +359,10 @@ namespace ProgramForArrest
 
         private void btClose_Click(object sender, EventArgs e)
         {
-            Close();
+            if (MessageBox.Show("คุณต้องการปิดโปรแกรมหรือไม่", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Close();
+            }
         }
 
         private void pictureBox_Pass_Click(object sender, EventArgs e)
@@ -1267,6 +1270,12 @@ namespace ProgramForArrest
                 }
             }
             catch { }
+        }
+
+        private void btProof_Click(object sender, EventArgs e)
+        {
+            ProofForm proof = new ProofForm(this.card);
+            proof.Visible = true;
         }
     }
  }
