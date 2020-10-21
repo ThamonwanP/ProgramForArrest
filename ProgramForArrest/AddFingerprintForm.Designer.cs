@@ -31,6 +31,7 @@
             this.btClose = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listView_Persons = new System.Windows.Forms.ListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,12 +54,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox9.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btClose
@@ -110,6 +110,17 @@
             this.panel1.Size = new System.Drawing.Size(722, 557);
             this.panel1.TabIndex = 103;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.DarkGray;
+            this.pictureBox1.Location = new System.Drawing.Point(357, 251);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(149, 163);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 111;
+            this.pictureBox1.TabStop = false;
+            // 
             // listView_Persons
             // 
             this.listView_Persons.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -121,7 +132,7 @@
             this.listView_Persons.GridLines = true;
             this.listView_Persons.HideSelection = false;
             this.listView_Persons.Location = new System.Drawing.Point(34, 207);
-            this.listView_Persons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView_Persons.Margin = new System.Windows.Forms.Padding(2);
             this.listView_Persons.Name = "listView_Persons";
             this.listView_Persons.Size = new System.Drawing.Size(476, 275);
             this.listView_Persons.TabIndex = 110;
@@ -158,9 +169,9 @@
             this.groupBox9.Controls.Add(this.radioRight);
             this.groupBox9.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox9.Location = new System.Drawing.Point(534, 207);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox9.Size = new System.Drawing.Size(160, 119);
             this.groupBox9.TabIndex = 109;
             this.groupBox9.TabStop = false;
@@ -170,7 +181,7 @@
             // 
             this.radioLeft.AutoSize = true;
             this.radioLeft.Location = new System.Drawing.Point(37, 33);
-            this.radioLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioLeft.Margin = new System.Windows.Forms.Padding(2);
             this.radioLeft.Name = "radioLeft";
             this.radioLeft.Size = new System.Drawing.Size(71, 28);
             this.radioLeft.TabIndex = 28;
@@ -182,7 +193,7 @@
             // 
             this.radioRight.AutoSize = true;
             this.radioRight.Location = new System.Drawing.Point(37, 63);
-            this.radioRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioRight.Margin = new System.Windows.Forms.Padding(2);
             this.radioRight.Name = "radioRight";
             this.radioRight.Size = new System.Drawing.Size(71, 28);
             this.radioRight.TabIndex = 29;
@@ -195,9 +206,9 @@
             this.groupBox7.Controls.Add(this.btScan);
             this.groupBox7.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox7.Location = new System.Drawing.Point(534, 378);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox7.Size = new System.Drawing.Size(160, 104);
             this.groupBox7.TabIndex = 108;
             this.groupBox7.TabStop = false;
@@ -207,7 +218,7 @@
             // 
             this.btScan.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btScan.Location = new System.Drawing.Point(11, 44);
-            this.btScan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btScan.Margin = new System.Windows.Forms.Padding(2);
             this.btScan.Name = "btScan";
             this.btScan.Size = new System.Drawing.Size(134, 31);
             this.btScan.TabIndex = 26;
@@ -219,7 +230,7 @@
             // 
             this.btAddFingerPrint.Font = new System.Drawing.Font("Anantason", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btAddFingerPrint.Location = new System.Drawing.Point(170, 500);
-            this.btAddFingerPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAddFingerPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btAddFingerPrint.Name = "btAddFingerPrint";
             this.btAddFingerPrint.Size = new System.Drawing.Size(218, 36);
             this.btAddFingerPrint.TabIndex = 102;
@@ -231,7 +242,7 @@
             // 
             this.pictureBox_Finger.BackColor = System.Drawing.Color.DarkGray;
             this.pictureBox_Finger.Location = new System.Drawing.Point(545, 29);
-            this.pictureBox_Finger.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox_Finger.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Finger.Name = "pictureBox_Finger";
             this.pictureBox_Finger.Size = new System.Drawing.Size(149, 163);
             this.pictureBox_Finger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -242,7 +253,7 @@
             // 
             this.tbPersonGroup.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonGroup.Location = new System.Drawing.Point(38, 145);
-            this.tbPersonGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonGroup.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonGroup.Name = "tbPersonGroup";
             this.tbPersonGroup.ReadOnly = true;
             this.tbPersonGroup.Size = new System.Drawing.Size(225, 31);
@@ -252,7 +263,7 @@
             // 
             this.tbUserLastname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserLastname.Location = new System.Drawing.Point(358, 74);
-            this.tbUserLastname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserLastname.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserLastname.Name = "tbUserLastname";
             this.tbUserLastname.ReadOnly = true;
             this.tbUserLastname.Size = new System.Drawing.Size(152, 31);
@@ -262,7 +273,7 @@
             // 
             this.tbPersonPhone.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonPhone.Location = new System.Drawing.Point(267, 145);
-            this.tbPersonPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonPhone.Name = "tbPersonPhone";
             this.tbPersonPhone.ReadOnly = true;
             this.tbPersonPhone.Size = new System.Drawing.Size(243, 31);
@@ -272,7 +283,7 @@
             // 
             this.tbPersonFirstname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonFirstname.Location = new System.Drawing.Point(199, 74);
-            this.tbPersonFirstname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonFirstname.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonFirstname.Name = "tbPersonFirstname";
             this.tbPersonFirstname.ReadOnly = true;
             this.tbPersonFirstname.Size = new System.Drawing.Size(152, 31);
@@ -282,7 +293,7 @@
             // 
             this.tbPersonCard.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonCard.Location = new System.Drawing.Point(38, 74);
-            this.tbPersonCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonCard.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonCard.Name = "tbPersonCard";
             this.tbPersonCard.ReadOnly = true;
             this.tbPersonCard.Size = new System.Drawing.Size(152, 31);
@@ -343,17 +354,6 @@
             this.label7.TabIndex = 94;
             this.label7.Text = "กลุ่มผู้ต้องหา";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox1.Location = new System.Drawing.Point(357, 251);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(149, 163);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 111;
-            this.pictureBox1.TabStop = false;
-            // 
             // AddFingerprintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,18 +363,17 @@
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddFingerprintForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddFingerprintForm";
             this.Load += new System.EventHandler(this.AddFingerprintForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

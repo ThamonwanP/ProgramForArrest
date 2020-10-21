@@ -38,7 +38,6 @@ namespace ProgramForArrest
                 RestRequest Getrequest = new RestRequest("/ArrestSystem/persons/" + card);
                 var getPersons = Getclient.Execute<List<SearchPersons_data>>(Getrequest, Method.GET);
 
-                
                 //tbPersonTitle.Text = getPersons.Data[0].title;
                 tbPersonCard.Text = getPersons.Data[0].card;
                 tbPersonFirstname.Text = getPersons.Data[0].firstname;
@@ -72,18 +71,14 @@ namespace ProgramForArrest
 
                                 string[] Persons = new string[]
                                 {
-                                                time,
-                                                getEvent.Data[i].casestr,
-                                                pictureBox1.ImageLocation = getEvent.Data[i].image
-                                        
+                                        time,
+                                        getEvent.Data[i].casestr,
+                                        pictureBox1.ImageLocation = getEvent.Data[i].image
                                  };
-                                        listView_Events.Items.Add(new ListViewItem(Persons));
-                                      
-
-                                        
-                                        
+                                listView_Events.Items.Add(new ListViewItem(Persons));
+                                             
                                 i++;
-                                    }
+                            }
                 }
                 catch { }
                 

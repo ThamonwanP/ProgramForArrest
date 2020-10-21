@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.openFileDialog_User = new System.Windows.Forms.OpenFileDialog();
-            this.btClose = new System.Windows.Forms.Label();
             this.openFileDialog_Person = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog_Info = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog_Fingerprint = new System.Windows.Forms.OpenFileDialog();
@@ -202,19 +201,6 @@
             // openFileDialog_User
             // 
             this.openFileDialog_User.FileName = "openFileDialog1";
-            // 
-            // btClose
-            // 
-            this.btClose.AutoSize = true;
-            this.btClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.btClose.Location = new System.Drawing.Point(985, 9);
-            this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(30, 29);
-            this.btClose.TabIndex = 14;
-            this.btClose.Text = "X";
-            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // openFileDialog_Person
             // 
@@ -1822,10 +1808,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(72)))), ((int)(((byte)(125)))));
             this.ClientSize = new System.Drawing.Size(1023, 668);
             this.Controls.Add(this.pictureBox_Pass);
-            this.Controls.Add(this.btClose);
             this.Controls.Add(this.tabControl1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1856,13 +1840,11 @@
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.OpenFileDialog openFileDialog_User;
-        private System.Windows.Forms.Label btClose;
         private System.Windows.Forms.PictureBox pictureBox_Pass;
         private System.Windows.Forms.OpenFileDialog openFileDialog_Person;
         private System.Windows.Forms.OpenFileDialog openFileDialog_Info;

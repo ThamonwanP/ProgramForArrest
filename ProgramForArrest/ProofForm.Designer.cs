@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btClose = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,19 +50,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Person)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btClose
-            // 
-            this.btClose.AutoSize = true;
-            this.btClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btClose.ForeColor = System.Drawing.Color.Black;
-            this.btClose.Location = new System.Drawing.Point(701, 21);
-            this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(30, 29);
-            this.btClose.TabIndex = 107;
-            this.btClose.Text = "X";
-            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // label1
             // 
@@ -98,7 +84,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(722, 557);
             this.panel1.TabIndex = 106;
-            
             // 
             // label2
             // 
@@ -271,10 +256,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(778, 626);
-            this.Controls.Add(this.btClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProofForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProofForm";
@@ -289,8 +272,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label btClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox_Person;
