@@ -52,11 +52,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Anantason SemiExpanded", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Anantason", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.label1.Location = new System.Drawing.Point(124, 201);
+            this.label1.Location = new System.Drawing.Point(137, 202);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 49);
+            this.label1.Size = new System.Drawing.Size(105, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "เข้าสู่ระบบ";
             // 
@@ -64,7 +64,7 @@
             // 
             this.btLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btLogin.Font = new System.Drawing.Font("Anantason SemiExpanded", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLogin.Font = new System.Drawing.Font("Anantason", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.btLogin.Location = new System.Drawing.Point(60, 463);
             this.btLogin.Name = "btLogin";
@@ -158,11 +158,11 @@
             // 
             this.btClose.AutoSize = true;
             this.btClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btClose.Font = new System.Drawing.Font("Anantason SemiExpanded", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.btClose.Location = new System.Drawing.Point(327, 8);
             this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(33, 42);
+            this.btClose.Size = new System.Drawing.Size(24, 24);
             this.btClose.TabIndex = 13;
             this.btClose.Text = "X";
             this.btClose.Click += new System.EventHandler(this.btClose_Click);

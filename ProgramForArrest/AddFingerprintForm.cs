@@ -54,7 +54,7 @@ namespace ProgramForArrest
 
                 int i = 0;
 
-                while (i <= getPerson.Data.Count)
+                while (getPerson.Data.Count > i)
                 {
                     string[] Persons = new string[]
                     {
@@ -164,12 +164,24 @@ namespace ProgramForArrest
                             // Flush data buffer and show bitmap on UI.
                             _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
                             pictureBox_Finger.Image = outputImage;
-                            
+                            pictureBox1.Image = outputImage;
+                            byte[] bb = Relm.Converters.Converter.ToByteArray(pictureBox1.Image);
+                            string hh = Convert.ToBase64String(bb);
+                            Console.WriteLine("Original = " + hh);
+
+
+                            Bitmap bmp = new Bitmap(pictureBox_Finger.Image);
+                            bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                            pictureBox_Finger.Image = bmp;
+
+
+
                             //SaveJpeg(pictureBox_Finger.Image, @"d:\images.bmp", 100);
                             Console.WriteLine(pictureBox_Finger.ToString());
                             byte[] gg=Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
                             base64String = Convert.ToBase64String(gg);
-                            Console.WriteLine(base64String);
+                            
+                            Console.WriteLine("Flip = "+base64String);
 
 
                         }
@@ -267,7 +279,7 @@ namespace ProgramForArrest
                         string jsonStr1 = serializer.Serialize(inputFL);
                         FLrequest.AddJsonBody(jsonStr1);
                         var addFingLeft = FLclient.Execute<AddFingerLeft_Resual>(FLrequest, Method.POST);
-                        MessageBox.Show("เพิ่มลายนิ้วมือข้อมูลสำเร็จ! ");
+                        MessageBox.Show("เพิ่มลายนิ้วมือข้อมูลสำเร็จ!");
                         Console.WriteLine(addFingLeft.Data.fright);
                         
 
@@ -303,19 +315,19 @@ namespace ProgramForArrest
                     string FingKey = AddTemple.Data.key;
                     //Console.WriteLine(a);
 
-                    //MessageBox.Show("เปลี่ยนข้อมูลสำเร็จ! ");
+                    //MessageBox.Show(FingKey);
 
 
-                        AddFingerRight inputRight = new AddFingerRight();
-                        RestClient FRclient = new RestClient("http://202.28.34.197:8800");
-                        RestRequest FRrequest = new RestRequest("/ArrestSystem/person/updatefid/right/" + tbPersonCard.Text);
+                    AddFingerRight inputRight = new AddFingerRight();
+                    RestClient FRclient = new RestClient("http://202.28.34.197:8800");
+                    RestRequest FRrequest = new RestRequest("/ArrestSystem/person/updatefid/right/" + tbPersonCard.Text);
 
-                        inputRight.fright = FingKey;
+                    inputRight.fright = FingKey;
 
-                        var serializer1 = new JavaScriptSerializer();
-                        string jsonStr1 = serializer.Serialize(inputRight);
-                        FRrequest.AddJsonBody(jsonStr1);
-                        var addFingRight = FRclient.Execute<AddFingerRight_Result>(FRrequest, Method.POST);
+                    var serializer1 = new JavaScriptSerializer();
+                    string jsonStr1 = serializer.Serialize(inputRight);
+                    FRrequest.AddJsonBody(jsonStr1);
+                    var addFingRight = FRclient.Execute<AddFingerRight_Result>(FRrequest, Method.POST);
                     Console.WriteLine(addFingRight.Data.fright);
                     MessageBox.Show("OK");
 

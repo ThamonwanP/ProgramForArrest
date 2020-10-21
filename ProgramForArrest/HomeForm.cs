@@ -1146,7 +1146,7 @@ namespace ProgramForArrest
                                     var fingerprint = client.Execute<List<MatchingFinger_ResultData>>(request, Method.POST);
                                     
 
-                                    if (fingerprint.Data.Count > 0)
+                                    if (fingerprint.Data.Count > i)
                                     {
                                         if (radioFigLeft.Checked) 
                                         {
@@ -1159,8 +1159,9 @@ namespace ProgramForArrest
                                             string jsonStrFL = serializer.Serialize(FidLeft);
                                             FidLeftRequest.AddJsonBody(jsonStrFL);
                                             var FidLeftfingerprint = client.Execute<List<SearchbyFidLeft_ResultData>>(FidLeftRequest, Method.POST);
+                                            
                                             MessageBox.Show(FidLeftfingerprint.Data[0].firstname);
-
+                                            btProof.Visible = true;
 
                                         while (i <= FidLeftfingerprint.Data.Count)
                                             {
@@ -1175,7 +1176,9 @@ namespace ProgramForArrest
 
                                                 listView_Matching.Items.Add(new ListViewItem(fings));
                                                 i++;
+                                                
                                             }
+                                        
 
                                     }
                                     
@@ -1190,6 +1193,7 @@ namespace ProgramForArrest
                                             string jsonStrFR = serializer.Serialize(FidRight);
                                             FidRightRequest.AddJsonBody(jsonStrFR);
                                             var FidRightfingerprint = client.Execute<List<SearchbyFidRight_ResultData>>(FidRightRequest, Method.POST);
+                                            btProof.Visible = true;
 
                                             while (i <= FidRightfingerprint.Data.Count)
                                             {
@@ -1205,6 +1209,8 @@ namespace ProgramForArrest
                                                 listView_Matching.Items.Add(new ListViewItem(fings));
                                                 i++;
                                             }
+                                        
+                                        
                                     }
                                     
                                         else
@@ -1274,8 +1280,12 @@ namespace ProgramForArrest
 
         private void btProof_Click(object sender, EventArgs e)
         {
-            ProofForm proof = new ProofForm(this.card);
+           
+
+            ProofForm proof = new ProofForm(tbMCard.Text);
             proof.Visible = true;
+
+            
         }
     }
  }

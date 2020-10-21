@@ -81,10 +81,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PCSC, Version=5.0.0.0, Culture=neutral, PublicKeyToken=13b76e54a2ee80a7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\source\repos\ProgramForArrest\packages\PCSC.5.0.0\lib\net40\PCSC.dll</HintPath>
+      <HintPath>..\packages\PCSC.5.0.0\lib\net40\PCSC.dll</HintPath>
     </Reference>
     <Reference Include="PCSC.Iso7816, Version=5.0.0.0, Culture=neutral, PublicKeyToken=13b76e54a2ee80a7, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\source\repos\ProgramForArrest\packages\PCSC.Iso7816.5.0.0\lib\net40\PCSC.Iso7816.dll</HintPath>
+      <HintPath>..\packages\PCSC.Iso7816.5.0.0\lib\net40\PCSC.Iso7816.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
