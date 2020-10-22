@@ -220,7 +220,7 @@
             // 
             this.pictureBox_Pass.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_Pass.Image")));
             this.pictureBox_Pass.Location = new System.Drawing.Point(1136, 41);
-            this.pictureBox_Pass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox_Pass.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_Pass.Name = "pictureBox_Pass";
             this.pictureBox_Pass.Size = new System.Drawing.Size(47, 43);
             this.pictureBox_Pass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -264,7 +264,7 @@
             this.panel1.Controls.Add(this.tbConfirm);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(268, 117);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(691, 459);
             this.panel1.TabIndex = 18;
@@ -431,6 +431,7 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
+            this.listView_Persons.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.listView_Persons.GridLines = true;
             this.listView_Persons.HideSelection = false;
             this.listView_Persons.Location = new System.Drawing.Point(203, 453);
@@ -1444,7 +1445,6 @@
             this.listView1.TabIndex = 21;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-           
             // 
             // columnID
             // 
@@ -1528,9 +1528,9 @@
             this.tabPage5.Controls.Add(this.label44);
             this.tabPage5.Controls.Add(this.label45);
             this.tabPage5.Location = new System.Drawing.Point(4, 47);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(1271, 689);
             this.tabPage5.TabIndex = 6;
             this.tabPage5.Text = "ค้นหาลายนิ้วมือ";

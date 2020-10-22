@@ -24,7 +24,7 @@ namespace ProgramForArrest
             InitializeComponent();
             this.card = card;
             //this.password = password;
-            Console.WriteLine("Data = " + this.card);
+            //Console.WriteLine("Data = " + this.card);
         }
 
         private void AddUserForm_Load(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace ProgramForArrest
                 request.AddJsonBody(jsonStr);
                 var AddUser = client.Execute<UpdateUserResult>(request, Method.POST);
 
-                Console.WriteLine(AddUser);
+                //Console.WriteLine(AddUser);
 
                 MessageBox.Show("บันทึกข้อมูลสำเร็จ! ");
                 }
@@ -98,7 +98,7 @@ namespace ProgramForArrest
                 base64String = Convert.ToBase64String(personal.PhotoRaw);
 
                 // Write the bytes (as a Base64 string) to the textbox
-                Console.WriteLine(base64String);
+                //Console.WriteLine(base64String);
 
             }
             else if (idcard.ErrorCode() > 0)

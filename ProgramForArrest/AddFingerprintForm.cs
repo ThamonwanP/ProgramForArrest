@@ -99,8 +99,6 @@ namespace ProgramForArrest
                         tbPersonCard.Text = getPersons.Data[0].card;
                         tbPersonFirstname.Text = getPersons.Data[0].firstname;
                         tbUserLastname.Text = getPersons.Data[0].lastname;
-                        //DateTime bdate = UnixTimeStampToDateTime(getPersons.Data[0].birthday.value / 1000);
-                        //tbPersonBirthday.Value = bdate.Subtract(new TimeSpan(7, 0, 0));
                         tbPersonPhone.Text = getPersons.Data[0].phone;
                         tbPersonGroup.Text = getPersons.Data[0].group;
                         perId = getPersons.Data[0].id;
@@ -176,7 +174,7 @@ namespace ProgramForArrest
 
 
                             //SaveJpeg(pictureBox_Finger.Image, @"d:\images.bmp", 100);
-                            Console.WriteLine(pictureBox_Finger.ToString());
+                            //Console.WriteLine(pictureBox_Finger.ToString());
                             byte[] gg=Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
                             base64String = Convert.ToBase64String(gg);
                             
@@ -232,10 +230,6 @@ namespace ProgramForArrest
         public Image ByteToImage(byte[] blob)
         {
             MemoryStream mStream = new MemoryStream(blob);
-            //byte[] pData = blob;
-            //mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            //Bitmap bm = new Bitmap(mStream, false);
-            //mStream.Dispose();
             return Image.FromStream(mStream);
         }
 
@@ -279,7 +273,7 @@ namespace ProgramForArrest
                         FLrequest.AddJsonBody(jsonStr1);
                         var addFingLeft = FLclient.Execute<AddFingerLeft_Resual>(FLrequest, Method.POST);
                         MessageBox.Show("เพิ่มลายนิ้วมือข้อมูลสำเร็จ!");
-                        Console.WriteLine(addFingLeft.Data.fright);
+                        //Console.WriteLine(addFingLeft.Data.fright);
                         
 
 
@@ -327,7 +321,7 @@ namespace ProgramForArrest
                     string jsonStr1 = serializer.Serialize(inputRight);
                     FRrequest.AddJsonBody(jsonStr1);
                     var addFingRight = FRclient.Execute<AddFingerRight_Result>(FRrequest, Method.POST);
-                    Console.WriteLine(addFingRight.Data.fright);
+                    //Console.WriteLine(addFingRight.Data.fright);
                     MessageBox.Show("OK");
 
                 }
@@ -343,10 +337,6 @@ namespace ProgramForArrest
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
 
-        }
     }
 }

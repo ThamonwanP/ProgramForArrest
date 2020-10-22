@@ -30,6 +30,7 @@ namespace ProgramForArrest
         string role;
         int updateAddPerson;
         HomeForm homeForm;
+        AddPersonForm addper;
 
         // Default COM port settings. 
         private const string DefaultComPort = "COM5";
@@ -49,6 +50,7 @@ namespace ProgramForArrest
             this.password = password;
             this.org = org;
             this.role = role;
+            Console.WriteLine(updateAddPerson);
 
         }
 
@@ -100,22 +102,14 @@ namespace ProgramForArrest
                     var resuly = client.Execute<UpdatePasswordResult>(request, Method.POST);
 
 
-                    Console.WriteLine(resuly);
+                    //Console.WriteLine(resuly);
 
                     MessageBox.Show("เปลี่ยนรหัสผ่านสำเร็จ! ");
                 }
-                else
-                {
-                    MessageBox.Show("รหัสผ่านไม่ตรงกัน");
-                }
-
-
+                else{MessageBox.Show("รหัสผ่านไม่ตรงกัน");}
             }
-            else
-            {
-                MessageBox.Show("ไม่ถูกต้อง! กรุณาตรวจสอบใหม่อีกครั้ง");
-            }
-
+            else{ MessageBox.Show("ไม่ถูกต้อง! กรุณาตรวจสอบใหม่อีกครั้ง");}
+            
         }
 
         private void btConfirmUpdate_Click(object sender, EventArgs e)
@@ -141,13 +135,13 @@ namespace ProgramForArrest
                 {
                     //imagesStr = base64String;
                     input.image_url = imagesStr;
-                    Console.WriteLine("Image");
+                    //Console.WriteLine("Image");
 
                 }
                 else
                 {
                     input.image_url = base64String;
-                    Console.WriteLine("New Image");
+                    //Console.WriteLine("New Image");
 
 
                 }
@@ -158,8 +152,10 @@ namespace ProgramForArrest
                 var update = client.Execute<UpdateUserResult>(request, Method.POST);
 
 
-                Console.WriteLine(update);
+                //Console.WriteLine(update);
                 MessageBox.Show("เปลี่ยนข้อมูลสำเร็จ! ");
+
+
             }
 
 
@@ -174,6 +170,11 @@ namespace ProgramForArrest
         }
         private void Home_Load(object sender, EventArgs e)
         {
+            if (updateAddPerson == 1)
+            {
+                refeshPerson();
+            }
+
             if (!this.role.Equals("ผู้ดูแลระบบ"))
             {
                 tabControl1.TabPages.Remove(tabPage3);
@@ -216,30 +217,7 @@ namespace ProgramForArrest
 
             try
             {
-
-                RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                RestRequest Getrequest = new RestRequest("/ArrestSystem/users");
-                var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
-
-                int i = 0;
-
-                if (getUser.Data != null) {
-                    while (i <= getUser.Data.Count)
-                    {
-                        string[] users = new string[]
-                        {
-                            getUser.Data[i].card.ToString(),
-                            getUser.Data[i].title,
-                            getUser.Data[i].firstname,
-                            getUser.Data[i].lastname,
-                            getUser.Data[i].organization
-
-                        };
-                        listView_Users.Items.Add(new ListViewItem(users));
-
-                        i++;
-                    }
-                }
+                refeshUser();
             }
             catch { }
 
@@ -275,25 +253,7 @@ namespace ProgramForArrest
 
             try
             {
-                RestClient client = new RestClient("http://202.28.34.197:8800");
-                RestRequest request = new RestRequest("/ArrestSystem/persons");
-                var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
-
-                int i = 0;
-
-                while (i <= getPerson.Data.Count)
-                {
-                    string[] Persons = new string[]
-                    {
-                            getPerson.Data[i].card.ToString(),
-                            getPerson.Data[i].firstname,
-                            getPerson.Data[i].lastname,
-                            getPerson.Data[i].group
-                    };
-                    listView_Persons.Items.Add(new ListViewItem(Persons));
-                    i++;
-                }
-
+                refeshPerson();
             }
             catch { }
 
@@ -322,14 +282,46 @@ namespace ProgramForArrest
 
             }
             catch { }
-
-
         }
 
-        /*public void getAllUser()
+        public void getInfo()
         {
-            
-        }*/
+            try
+            {
+
+                RestClient client = new RestClient("http://202.28.34.197:8800");
+                RestRequest request = new RestRequest("/ArrestSystem/search/user/card/" + this.card);
+                var info = client.Execute<GetUserbyCard>(request, Method.GET);
+
+
+
+                tbTitle.Text = info.Data.title;
+                tbFirstname.Text = info.Data.firstname;
+                tbLastname.Text = info.Data.lastname;
+                tbCard.Text = info.Data.card.ToString();
+                tbPosition.Text = info.Data.position;
+                tbOrganization.Text = info.Data.organization;
+                tbEmail.Text = info.Data.email;
+                tbPhone.Text = info.Data.phone.ToString();
+                tbAddress.Text = info.Data.address;
+
+                var pic = Convert.FromBase64String(info.Data.image_url);
+                using (MemoryStream ms = new MemoryStream(pic))
+                {
+                    pictureBox_Info.Image = Image.FromStream(ms);
+                }
+
+                //pictureBox_User.Image = (Image)(info.Data.image_url.);
+
+                DateTime bdate = UnixTimeStampToDateTime(info.Data.birthday.value / 1000);
+                tbBirthday.Value = bdate.Subtract(new TimeSpan(7, 0, 0));
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
         public byte[] ImagetoByteArray(Image image)
         {
@@ -371,7 +363,7 @@ namespace ProgramForArrest
                             pictureBox_Person.Image = Image.FromStream(ms);
                         }
                         imagesStr = getPersons.Data[0].image_url;
-                        Console.WriteLine(imagesStr);
+                        //Console.WriteLine(imagesStr);
                     }
                     i++;
                 }
@@ -417,7 +409,7 @@ namespace ProgramForArrest
                 RestRequest request = new RestRequest("/ArrestSystem/search/user/card/" + selectCard);
                 var getUsers = client.Execute<GetUserbyCard>(request, Method.GET);
 
-                Console.WriteLine(tbUserCard.Text);
+                //Console.WriteLine(tbUserCard.Text);
                 if (listView_Users.SelectedItems[0].SubItems[0].Text != null)
                 {
 
@@ -548,13 +540,13 @@ namespace ProgramForArrest
                 {
                     //imagesStr = base64String;
                     input.image_url = imagesStr;
-                    Console.WriteLine("Image");
+                    //Console.WriteLine("Image");
 
                 }
                 else
                 {
                     input.image_url = base64String;
-                    Console.WriteLine("New Image");
+                    //Console.WriteLine("New Image");
 
 
                 }
@@ -565,7 +557,7 @@ namespace ProgramForArrest
                 var update = client.Execute<UdateUserbyAdmin_Result>(request, Method.POST);
 
 
-                Console.WriteLine(update);
+                //Console.WriteLine(update);
 
                 MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
                 listView_Users.Items.Clear();
@@ -631,13 +623,13 @@ namespace ProgramForArrest
                     {
                         //imagesStr = base64String;
                         input.image_url = imagesStr;
-                        Console.WriteLine("Image");
+                        //Console.WriteLine("Image");
 
                     }
                     else
                     {
                         input.image_url = base64String;
-                        Console.WriteLine("New Image");
+                        //Console.WriteLine("New Image");
 
 
                     }
@@ -648,7 +640,7 @@ namespace ProgramForArrest
                     var updatePerson = client.Execute<UpdatePersons_Result>(request, Method.POST);
 
 
-                    Console.WriteLine(updatePerson);
+                    //Console.WriteLine(updatePerson);
 
                     MessageBox.Show("แก้ไขข้อมูลบุคคลสำเร็จ! ");
                     listView_Persons.Items.Clear();
@@ -1214,10 +1206,10 @@ namespace ProgramForArrest
                             pictureBox_Finger.Image = outputImage;
 
                             //SaveJpeg(pictureBox_Finger.Image, @"d:\images.bmp", 100);
-                            Console.WriteLine(pictureBox_Finger.ToString());
+                            //Console.WriteLine(pictureBox_Finger.ToString());
                             byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
                             Fingerbase64String = Convert.ToBase64String(gg);
-                            Console.WriteLine(Fingerbase64String);
+                            //Console.WriteLine(Fingerbase64String);
 
 
                             try
@@ -1355,7 +1347,7 @@ namespace ProgramForArrest
                             pictureBox_Finger.Image = Image.FromStream(ms);
                         }
                         imagesStr = getPersons.Data[0].image_url;
-                        Console.WriteLine(imagesStr);
+                        //Console.WriteLine(imagesStr);
                     }
                     i++;
                 }

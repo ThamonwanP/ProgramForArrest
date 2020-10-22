@@ -52,7 +52,7 @@ namespace ProgramForArrest
                     pictureBox_Person.Image = Image.FromStream(ms);
                 }
                 imagesStr = getPersons.Data[0].image_url;
-                Console.WriteLine(imagesStr);
+                //Console.WriteLine(imagesStr);
                 MessageBox.Show(getPersons.Data[0].id);
 
                 try

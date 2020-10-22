@@ -20,7 +20,7 @@ namespace ProgramForArrest
     {
         string card;
         string base64String;
-        int updateAddPerson=0;
+        int updateAddPerson;
         HomeForm home;
         public AddPersonForm(string card, HomeForm home)
         {
@@ -30,50 +30,49 @@ namespace ProgramForArrest
             this.card = card;
         }
 
-        private void btClose_Click(object sender, EventArgs e)
-        {
-            home.setA();   
-        }
-
-
+        
 
         private void btAddPerson_Click(object sender, EventArgs e)
         {
             try
             {
-                if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    AddPersons input = new AddPersons();
-                    RestClient client = new RestClient("http://202.28.34.197:8800");
-                    RestRequest request = new RestRequest("/ArrestSystem/persons");
+                if (!tbPersonTitle.Text.Equals("") && !tbPersonFirstname.Text.Equals("") &&
+                    !tbPersonLastname.Text.Equals("") && !tbPersonCard.Text.Equals("") &&
+                    !tbPersonPhone.Text.Equals("") && !tbPersonAddress.Text.Equals("") &&
+                    !tbPersonGroup.Text.Equals("")) { 
+                    if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        AddPersons input = new AddPersons();
+                        RestClient client = new RestClient("http://202.28.34.197:8800");
+                        RestRequest request = new RestRequest("/ArrestSystem/persons");
 
-                    input.admincard = this.card;
-                    input.title = tbPersonTitle.Text;
-                    input.firstname = tbPersonFirstname.Text;
-                    input.lastname = tbPersonLastname.Text;
-                    input.card = tbPersonCard.Text;
-                    input.date = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
-                    input.phone = tbPersonPhone.Text;
-                    input.address = tbPersonAddress.Text;
-                    input.image_url = base64String;
-                    input.group = tbPersonGroup.Text;
+                        input.admincard = this.card;
+                        input.title = tbPersonTitle.Text;
+                        input.firstname = tbPersonFirstname.Text;
+                        input.lastname = tbPersonLastname.Text;
+                        input.card = tbPersonCard.Text;
+                        input.date = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
+                        input.phone = tbPersonPhone.Text;
+                        input.address = tbPersonAddress.Text;
+                        input.image_url = base64String;
+                        input.group = tbPersonGroup.Text;
                     
 
-                    var serializer = new JavaScriptSerializer();
-                    string jsonStr = serializer.Serialize(input);
-                    request.AddJsonBody(jsonStr);
-                    var AddPerson = client.Execute<AddPerson_Result>(request, Method.POST);
+                        var serializer = new JavaScriptSerializer();
+                        string jsonStr = serializer.Serialize(input);
+                        request.AddJsonBody(jsonStr);
+                        var AddPerson = client.Execute<AddPerson_Result>(request, Method.POST);
 
 
-                    MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
-                    updateAddPerson = 1;
-
-
-
-                    new AddPersonForm("123456",this.home);
-                    Console.WriteLine(this.home);
-                     
+                        MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
+                        updateAddPerson = 1;
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("กรุณากรอกข้อมูลให้ครบถ้วนก่อนบันทึก");
+                }
+            
             }
             catch(Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -106,7 +105,7 @@ namespace ProgramForArrest
                 base64String = Convert.ToBase64String(personal1.PhotoRaw);
 
                 // Write the bytes (as a Base64 string) to the textbox
-                Console.WriteLine(base64String);
+                //Console.WriteLine(base64String);
 
             }
             else if (idcard.ErrorCode() > 0)
