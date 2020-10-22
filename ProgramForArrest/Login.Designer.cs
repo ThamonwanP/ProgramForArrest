@@ -56,7 +56,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.label1.Location = new System.Drawing.Point(137, 202);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 42);
+            this.label1.Size = new System.Drawing.Size(136, 54);
             this.label1.TabIndex = 0;
             this.label1.Text = "เข้าสู่ระบบ";
             // 
@@ -82,9 +82,9 @@
             this.tbCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.tbCard.Location = new System.Drawing.Point(115, 299);
             this.tbCard.Name = "tbCard";
-            this.tbCard.Size = new System.Drawing.Size(194, 20);
+            this.tbCard.Size = new System.Drawing.Size(194, 25);
             this.tbCard.TabIndex = 3;
-            this.tbCard.Text = "1218377889123";
+            this.tbCard.Text = "1419901762647";
             this.tbCard.Click += new System.EventHandler(this.tbCard_Click);
             // 
             // tbPassword
@@ -96,9 +96,9 @@
             this.tbPassword.Location = new System.Drawing.Point(115, 383);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '●';
-            this.tbPassword.Size = new System.Drawing.Size(261, 20);
+            this.tbPassword.Size = new System.Drawing.Size(261, 25);
             this.tbPassword.TabIndex = 4;
-            this.tbPassword.Text = "1218377889123";
+            this.tbPassword.Text = "1419901762647";
             // 
             // errorProvider1
             // 
@@ -162,7 +162,7 @@
             this.btClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.btClose.Location = new System.Drawing.Point(327, 8);
             this.btClose.Name = "btClose";
-            this.btClose.Size = new System.Drawing.Size(24, 24);
+            this.btClose.Size = new System.Drawing.Size(30, 29);
             this.btClose.TabIndex = 13;
             this.btClose.Text = "X";
             this.btClose.Click += new System.EventHandler(this.btClose_Click);

@@ -27,6 +27,9 @@ namespace ProgramForArrest
         string org;
         string base64String;
         string Fingerbase64String;
+        string role;
+        int updateAddPerson;
+        HomeForm homeForm;
 
         // Default COM port settings. 
         private const string DefaultComPort = "COM5";
@@ -39,20 +42,37 @@ namespace ProgramForArrest
         private Zfm20Fingerprint _zfmSensor;
 
 
-        public HomeForm(string card, string password, string org)
+        public HomeForm(string card, string password, string org, string role)
         {
             InitializeComponent();
             this.card = card;
             this.password = password;
             this.org = org;
-            Console.WriteLine("Data = " + this.org);
+            this.role = role;
 
         }
 
-        public HomeForm()
+        public HomeForm(HomeForm homeForm)
         {
+            InitializeComponent();
+            this.homeForm = homeForm;
+
         }
 
+        public void setA()
+        {
+            Console.WriteLine("Hello");
+        }
+
+        public HomeForm(string card, string password, string org, string role, int updateAddPerson)
+        {
+            InitializeComponent();
+            this.card = card;
+            this.password = password;
+            this.org = org;
+            this.role = role;
+            this.updateAddPerson = updateAddPerson;
+        }
         private void btLogout_Click(object sender, EventArgs e)
         {
             Login login = new Login();
@@ -154,6 +174,11 @@ namespace ProgramForArrest
         }
         private void Home_Load(object sender, EventArgs e)
         {
+            if (!this.role.Equals("ผู้ดูแลระบบ"))
+            {
+                tabControl1.TabPages.Remove(tabPage3);
+            }
+
             _zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
             try
             {
@@ -198,20 +223,22 @@ namespace ProgramForArrest
 
                 int i = 0;
 
-                while (i <= getUser.Data.Count)
-                {
-                    string[] users = new string[]
+                if (getUser.Data != null) {
+                    while (i <= getUser.Data.Count)
                     {
+                        string[] users = new string[]
+                        {
                             getUser.Data[i].card.ToString(),
                             getUser.Data[i].title,
                             getUser.Data[i].firstname,
                             getUser.Data[i].lastname,
                             getUser.Data[i].organization
 
-                    };
-                    listView_Users.Items.Add(new ListViewItem(users));
-                    //listView2.Items.Add(new ListViewItem(users));
-                    i++;
+                        };
+                        listView_Users.Items.Add(new ListViewItem(users));
+
+                        i++;
+                    }
                 }
             }
             catch { }
@@ -226,20 +253,22 @@ namespace ProgramForArrest
 
                 int i = 0;
 
-                while (i <= getUser.Data.Count)
-                {
-                    string[] users = new string[]
+                if (getUser.Data != null) {
+                    while (i <= getUser.Data.Count)
                     {
+                        string[] users = new string[]
+                        {
                             getUser.Data[i].card.ToString(),
                             getUser.Data[i].title,
                             getUser.Data[i].firstname,
                             getUser.Data[i].lastname,
                             getUser.Data[i].position,
                             getUser.Data[i].phone
-                    };
-                    //listView_Users.Items.Add(new ListViewItem(users));
-                    listView2.Items.Add(new ListViewItem(users));
-                    i++;
+                        };
+                        //listView_Users.Items.Add(new ListViewItem(users));
+                        listView2.Items.Add(new ListViewItem(users));
+                        i++;
+                    }
                 }
             }
             catch { }
@@ -296,6 +325,11 @@ namespace ProgramForArrest
 
 
         }
+
+        /*public void getAllUser()
+        {
+            
+        }*/
 
         public byte[] ImagetoByteArray(Image image)
         {
@@ -463,6 +497,33 @@ namespace ProgramForArrest
 
         }
 
+        public void refeshUser()
+        {
+            RestClient Getclient = new RestClient("http://202.28.34.197:8800");
+            RestRequest Getrequest = new RestRequest("/ArrestSystem/users");
+            var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
+
+            int i = 0;
+
+                while (i < getUser.Data.Count)
+                {
+                    string[] users = new string[]
+                    {
+                            getUser.Data[i].card.ToString(),
+                            getUser.Data[i].title,
+                            getUser.Data[i].firstname,
+                            getUser.Data[i].lastname,
+                            getUser.Data[i].organization,
+                            
+                    };
+                    listView_Users.Items.Add(new ListViewItem(users));
+
+                    i++;
+                }
+        }
+
+
+
         private void btUpdateUser_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -507,13 +568,38 @@ namespace ProgramForArrest
                 Console.WriteLine(update);
 
                 MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
+                listView_Users.Items.Clear();
+                refeshUser();
             }
+
+            
         }
 
         private void btAddUser_Click(object sender, EventArgs e)
         {
             AddUserForm addUserForm = new AddUserForm(this.card);
             addUserForm.Visible = true;
+        }
+
+        public void refeshPerson(){
+            RestClient client = new RestClient("http://202.28.34.197:8800");
+            RestRequest request = new RestRequest("/ArrestSystem/persons");
+            var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
+
+            int i = 0;
+
+            while (i < getPerson.Data.Count)
+            {
+                string[] Persons = new string[]
+                {
+                            getPerson.Data[i].card.ToString(),
+                            getPerson.Data[i].firstname,
+                            getPerson.Data[i].lastname,
+                            getPerson.Data[i].group
+                };
+                listView_Persons.Items.Add(new ListViewItem(Persons));
+                i++;
+            }
         }
 
         private void btUpdatePersons_Click(object sender, EventArgs e)
@@ -565,6 +651,9 @@ namespace ProgramForArrest
                     Console.WriteLine(updatePerson);
 
                     MessageBox.Show("แก้ไขข้อมูลบุคคลสำเร็จ! ");
+                    listView_Persons.Items.Clear();
+
+                    refeshPerson();
                 }
             }
             catch { }
@@ -573,7 +662,7 @@ namespace ProgramForArrest
 
         private void btAddPerson_Click(object sender, EventArgs e)
         {
-            AddPersonForm AddPersonForm = new AddPersonForm(this.card);
+            AddPersonForm AddPersonForm = new AddPersonForm(this.card, this);
             AddPersonForm.Visible = true;
         }
 
@@ -1209,8 +1298,6 @@ namespace ProgramForArrest
                                                 listView_Matching.Items.Add(new ListViewItem(fings));
                                                 i++;
                                             }
-                                        
-                                        
                                     }
                                     
                                         else
@@ -1224,8 +1311,6 @@ namespace ProgramForArrest
                                     {
                                         MessageBox.Show("ไม่พบข้อมูล");
                                     }
-
-
                             }
                             catch { }
 
@@ -1287,5 +1372,16 @@ namespace ProgramForArrest
 
             
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            /*progressBar1.Value = Convert.ToInt32(progressBar1.Value) + 5;
+            if (Convert.ToInt32(progressBar1.Value) > 95)
+            {
+                timer1.Enabled = false;
+            }*/
+        }
+
+        
     }
  }

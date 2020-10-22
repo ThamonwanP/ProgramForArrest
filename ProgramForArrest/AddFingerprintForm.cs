@@ -24,7 +24,6 @@ namespace ProgramForArrest
         private Zfm20Fingerprint _zfmSensor;
         string caseGroupID;
         string org;
-        int fingerindex;
         string perId;
 
         // Default COM port settings. 
@@ -164,15 +163,15 @@ namespace ProgramForArrest
                             // Flush data buffer and show bitmap on UI.
                             _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
                             pictureBox_Finger.Image = outputImage;
-                            pictureBox1.Image = outputImage;
+                            /*pictureBox1.Image = outputImage;
                             byte[] bb = Relm.Converters.Converter.ToByteArray(pictureBox1.Image);
-                            string hh = Convert.ToBase64String(bb);
-                            Console.WriteLine("Original = " + hh);
+                            string hh = Convert.ToBase64String(bb);*/
+                            //Console.WriteLine("Original = " + hh);
 
 
-                            Bitmap bmp = new Bitmap(pictureBox_Finger.Image);
-                            bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                            pictureBox_Finger.Image = bmp;
+                            /* Bitmap bmp = new Bitmap(pictureBox_Finger.Image);
+                             bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                             pictureBox_Finger.Image = bmp;*/
 
 
 
@@ -181,7 +180,7 @@ namespace ProgramForArrest
                             byte[] gg=Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
                             base64String = Convert.ToBase64String(gg);
                             
-                            Console.WriteLine("Flip = "+base64String);
+                            //Console.WriteLine("Flip = "+base64String);
 
 
                         }

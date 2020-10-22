@@ -49,7 +49,11 @@ namespace ProgramForArrest
                     RestClient GetClient = new RestClient("http://202.28.34.197:8800");
                     RestRequest GetRequest = new RestRequest("/fingerprintSystem/search/user/" + userData.Data[0].organization);
                     var getOrg = GetClient.Execute<List<searchOrganizationData>>(GetRequest, Method.GET);
-                    HomeForm home = new HomeForm(input.card, input.password, getOrg.Data[0].id);
+
+                    HomeForm home = new HomeForm(input.card, input.password, getOrg.Data[0].id, userData.Data[0].role);
+                    
+
+                    //Console.WriteLine(getOrg.Data[0].firstname);
                     home.Visible = true;
                     Visible = false;
                 }

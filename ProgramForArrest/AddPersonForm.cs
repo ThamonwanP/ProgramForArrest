@@ -20,17 +20,22 @@ namespace ProgramForArrest
     {
         string card;
         string base64String;
-        public AddPersonForm(string card)
+        int updateAddPerson=0;
+        HomeForm home;
+        public AddPersonForm(string card, HomeForm home)
         {
             
             InitializeComponent();
+            this.home = home;
             this.card = card;
         }
 
         private void btClose_Click(object sender, EventArgs e)
         {
-            Close();   
+            home.setA();   
         }
+
+
 
         private void btAddPerson_Click(object sender, EventArgs e)
         {
@@ -52,7 +57,7 @@ namespace ProgramForArrest
                     input.address = tbPersonAddress.Text;
                     input.image_url = base64String;
                     input.group = tbPersonGroup.Text;
-                    //SaveJpeg(pictureBox_Person.Image, @"d:\images.bmp", 100);
+                    
 
                     var serializer = new JavaScriptSerializer();
                     string jsonStr = serializer.Serialize(input);
@@ -60,10 +65,14 @@ namespace ProgramForArrest
                     var AddPerson = client.Execute<AddPerson_Result>(request, Method.POST);
 
 
-
-                    Console.WriteLine(AddPerson);
-
                     MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
+                    updateAddPerson = 1;
+
+
+
+                    new AddPersonForm("123456",this.home);
+                    Console.WriteLine(this.home);
+                     
                 }
             }
             catch(Exception ex) {
@@ -162,7 +171,7 @@ namespace ProgramForArrest
             return Image.FromStream(mStream);
         }
 
-        private void label16_Click(object sender, EventArgs e)
+        private void AddPersonForm_Load(object sender, EventArgs e)
         {
 
         }
