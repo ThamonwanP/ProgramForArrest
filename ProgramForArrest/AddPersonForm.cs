@@ -36,6 +36,11 @@ namespace ProgramForArrest
         {
             try
             {
+                String dateTH = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
+                String[] words = dateTH.Split('-');
+                String date1 = int.Parse(words[0]) - 543 + "-" + words[1] + "-" + words[2];
+                //MessageBox.Show(date1);
+
                 if (!tbPersonTitle.Text.Equals("") && !tbPersonFirstname.Text.Equals("") &&
                     !tbPersonLastname.Text.Equals("") && !tbPersonCard.Text.Equals("") &&
                     !tbPersonPhone.Text.Equals("") && !tbPersonAddress.Text.Equals("") &&
@@ -51,7 +56,7 @@ namespace ProgramForArrest
                         input.firstname = tbPersonFirstname.Text;
                         input.lastname = tbPersonLastname.Text;
                         input.card = tbPersonCard.Text;
-                        input.date = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
+                        input.date = date1;
                         input.phone = tbPersonPhone.Text;
                         input.address = tbPersonAddress.Text;
                         input.image_url = base64String;
@@ -65,7 +70,7 @@ namespace ProgramForArrest
 
 
                         MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
-                        updateAddPerson = 1;
+                       
                     }
                 }
                 else
@@ -77,6 +82,9 @@ namespace ProgramForArrest
             catch(Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+
+            home.refeshPerson();
+            home.getPersonforSearch();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,11 +133,7 @@ namespace ProgramForArrest
 
         public void SaveJpeg(Image img, string filename, int quality)
         {
-            //EncoderParameter qualityParam = new EncoderParameter(Encoder.Quality, (long)quality);
-            //ImageCodecInfo jpegCodec = GetEncoderInfo("image/bmp");
-            //EncoderParameters encoderParams = new EncoderParameters(1);
-            //encoderParams.Param[0] = qualityParam;
-            //img.Save(filename, jpegCodec, encoderParams);
+
 
             byte[] byteArray = ImageToByteArray(img);
             Image result = null;
@@ -163,10 +167,6 @@ namespace ProgramForArrest
         public Image ByteToImage(byte[] blob)
         {
             MemoryStream mStream = new MemoryStream(blob);
-            //byte[] pData = blob;
-            //mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            //Bitmap bm = new Bitmap(mStream, false);
-            //mStream.Dispose();
             return Image.FromStream(mStream);
         }
 

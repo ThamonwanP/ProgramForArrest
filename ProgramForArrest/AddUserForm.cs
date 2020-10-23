@@ -19,24 +19,26 @@ namespace ProgramForArrest
     {
         string card;
         string base64String;
-        public AddUserForm(string card)
+        HomeForm h;
+        public AddUserForm(HomeForm h, string card)
         {
             InitializeComponent();
             this.card = card;
-            //this.password = password;
-            //Console.WriteLine("Data = " + this.card);
+            this.h = h;
         }
 
-        private void AddUserForm_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btAddUser_Click(object sender, EventArgs e)
         {
            
             try
             {
+                String dateTH = tbUserBirthday.Value.ToString("yyyy-MM-dd");
+                String[] words = dateTH.Split('-');
+                String date1 = int.Parse(words[0]) - 543 + "-" + words[1] + "-" + words[2];
+                //MessageBox.Show(date1);
+
+
                 if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.OKCancel) == DialogResult.OK) { 
                 AddUserbyAdmin input = new AddUserbyAdmin();
                 RestClient client = new RestClient("http://202.28.34.197:8800");
@@ -47,9 +49,9 @@ namespace ProgramForArrest
                 input.firstname = tbUserFristname.Text;
                 input.lastname = tbUserLastname.Text;
                 input.card = tbUserCard.Text;
-                input.date = tbUserBirthday.Value.ToString("yyyy-MM-dd");
+                input.date = date1;
                 input.position = tbUserPosition.Text;
-                input.organization = tbUserOrganization.Text;
+                //input.organization = tbUsersOrganization.Text;
                 input.email = tbUserEmail.Text;
                 input.phone = tbUserPhone.Text;
                 input.address = tbUserAddress.Text;
@@ -58,14 +60,23 @@ namespace ProgramForArrest
                 var serializer = new JavaScriptSerializer();
                 string jsonStr = serializer.Serialize(input);
                 request.AddJsonBody(jsonStr);
-                var AddUser = client.Execute<UpdateUserResult>(request, Method.POST);
+                var AddUser = client.Execute<AddUserbyAddmin_Result>(request, Method.POST);
 
-                //Console.WriteLine(AddUser);
-
-                MessageBox.Show("บันทึกข้อมูลสำเร็จ! ");
+                    //Console.WriteLine(AddUser);
+                    if (AddUser.Content.Equals("หมายเลขบัตรประชาชนนี้มีคนใช้อยู่แล้ว กรุณาลองใหม่!!"))
+                    {
+                        MessageBox.Show("หมายเลขบัตรประชาชนนี้มีคนใช้อยู่แล้ว กรุณาลองใหม่");
+                    }
+                    else
+                    {
+                        MessageBox.Show("บันทึกข้อมูลสำเร็จ! ");
+                    }
+                
                 }
             }
             catch { }
+            this.h.refeshUser();
+            this.h.getUserfoSeacrh();
         }
 
         private void btClose_Click(object sender, EventArgs e)

@@ -30,6 +30,7 @@ namespace ProgramForArrest
         string role;
         int updateAddPerson;
         string organization;
+        string date1;
         HomeForm homeForm;
         AddPersonForm addper;
 
@@ -114,6 +115,11 @@ namespace ProgramForArrest
 
         private void btConfirmUpdate_Click(object sender, EventArgs e)
         {
+            String dateTH = tbUserBirthday.Value.ToString("yyyy-MM-dd");
+            String[] words = dateTH.Split('-');
+            String date1 = int.Parse(words[0]) - 543 + "-" + words[1] + "-" + words[2];
+            //MessageBox.Show(date1);
+
             if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 UpdateUser input = new UpdateUser();
@@ -125,16 +131,17 @@ namespace ProgramForArrest
                 input.firstname = tbFirstname.Text;
                 input.lastname = tbLastname.Text;
                 input.card = tbCard.Text;
-                input.date = tbBirthday.Value.ToString("yyyy-MM-dd");
+                input.date = date1;
                 input.position = tbPosition.Text;
                 input.organization = tbOrganization.Text;
                 input.email = tbEmail.Text;
                 input.phone = tbPhone.Text;
                 input.address = tbAddress.Text;
+                
                 if (base64String == null)
                 {
                     //imagesStr = base64String;
-                    input.image_url = imagesStr;
+                    input.image_url = pictureBox_Info.Name;
                     //Console.WriteLine("Image");
                 }
                 else
@@ -162,13 +169,42 @@ namespace ProgramForArrest
             dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
             return dtDateTime;
         }
+
+        public void loadUsers()
+        {
+            try
+            {
+
+                RestClient Getclient = new RestClient("http://202.28.34.197:8800");
+                RestRequest Getrequest = new RestRequest("/ArrestSystem/users/" + this.organization);
+                var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
+
+                int i = 0;
+
+                if (getUser.Data != null)
+                {
+                    while (i <= getUser.Data.Count)
+                    {
+                        string[] users = new string[]
+                        {
+                            getUser.Data[i].card.ToString(),
+                            getUser.Data[i].title,
+                            getUser.Data[i].firstname,
+                            getUser.Data[i].lastname
+
+                        };
+                        listView_Users.Items.Add(new ListViewItem(users));
+                        i++;
+                    }
+                }
+            }
+            catch { }
+        }
+
+
         private void Home_Load(object sender, EventArgs e)
         {
-            /*if (updateAddPerson == 1)
-            {
-                refeshPerson();
-            }*/
-
+            
             if (!this.role.Equals("ผู้ดูแลระบบ"))
             {
                 tabControl1.TabPages.Remove(tabHome);
@@ -176,14 +212,14 @@ namespace ProgramForArrest
             }
 
             _zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
-            ///////////////
+            //////UPDATE INFO/////////
             try
             {
 
                 RestClient client = new RestClient("http://202.28.34.197:8800");
                 RestRequest request = new RestRequest("/ArrestSystem/search/user/card/" + this.card);
                 var info = client.Execute<GetUserbyCard>(request, Method.GET);
-
+                //this.tbBirthday.Enabled = false;
 
                 tbTitle.Text = info.Data.title;
                 tbFirstname.Text = info.Data.firstname;
@@ -211,90 +247,105 @@ namespace ProgramForArrest
             }
 
             
-                try
-            {
-
-                RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                RestRequest Getrequest = new RestRequest("/ArrestSystem/users/" + this.organization);
-                var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
-
-                int i = 0;
-
-                if (getUser.Data != null)
-                {
-                    while (i <= getUser.Data.Count)
-                    {
-                        string[] users = new string[]
-                        {
-                            getUser.Data[i].card.ToString(),
-                            getUser.Data[i].title,
-                            getUser.Data[i].firstname,
-                            getUser.Data[i].lastname
-                            
-                        };
-                        listView_Users.Items.Add(new ListViewItem(users));
-                        i++;
-                    }
-                }
-            }
-            catch { }
+            loadUsers();
 
 
-
-            ///////////
             try
             {
+                getUserfoSeacrh();
 
-                RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                RestRequest Getrequest = new RestRequest("/ArrestSystem/users/"+this.organization);
-                var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
 
-                int i = 0;
-
-                if (getUser.Data != null) {
-                    while (i <= getUser.Data.Count)
-                    {
-                        string[] users = new string[]
-                        {
-                            getUser.Data[i].card.ToString(),
-                            getUser.Data[i].title,
-                            getUser.Data[i].firstname,
-                            getUser.Data[i].lastname,
-                            getUser.Data[i].position,
-                            getUser.Data[i].phone
-                        };
-                        listView2.Items.Add(new ListViewItem(users));
-                        i++;
-                    }
-                }
             }
             catch { }
 
             //////////////
             try
             {
-                RestClient client = new RestClient("http://202.28.34.197:8800");
-                RestRequest request = new RestRequest("/ArrestSystem/persons");
-                var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
+                getPersonforSearch();
 
-                int i = 0;
+            }
+            catch { }
 
-                while (i <= getPerson.Data.Count)
+            try
+            {
+                getPersons();
+            }
+            catch { }
+        }
+
+        public void getUserfoSeacrh()
+        {
+            listView2.Items.Clear();
+            RestClient Getclient = new RestClient("http://202.28.34.197:8800");
+            RestRequest Getrequest = new RestRequest("/ArrestSystem/users/" + this.organization);
+            var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
+
+            int i = 0;
+
+            if (getUser.Data != null)
+            {
+                while (i <= getUser.Data.Count)
                 {
-                    string[] Persons = new string[]
+                    string[] users = new string[]
                     {
+                            getUser.Data[i].card.ToString(),
+                            getUser.Data[i].title,
+                            getUser.Data[i].firstname,
+                            getUser.Data[i].lastname,
+                            getUser.Data[i].position,
+                            getUser.Data[i].phone
+                    };
+                    listView2.Items.Add(new ListViewItem(users));
+                    i++;
+                }
+            }
+        }
+
+        public void getPersons()
+        {
+            RestClient client = new RestClient("http://202.28.34.197:8800");
+            RestRequest request = new RestRequest("/ArrestSystem/persons");
+            var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
+
+            int i = 0;
+
+            while (i <= getPerson.Data.Count)
+            {
+                string[] Persons = new string[]
+                {
                             getPerson.Data[i].card.ToString(),
                             getPerson.Data[i].firstname,
                             getPerson.Data[i].lastname,
                             getPerson.Data[i].group,
                             getPerson.Data[i].address
-                    };
-                    listView1.Items.Add(new ListViewItem(Persons));
-                    i++;
-                }
-
+                };
+                listView_Persons.Items.Add(new ListViewItem(Persons));
+                i++;
             }
-            catch { }
+        }
+
+        public void getPersonforSearch()
+        {
+            listView1.Items.Clear();
+            RestClient client = new RestClient("http://202.28.34.197:8800");
+            RestRequest request = new RestRequest("/ArrestSystem/persons");
+            var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
+
+            int i = 0;
+
+            while (i <= getPerson.Data.Count)
+            {
+                string[] Persons = new string[]
+                {
+                            getPerson.Data[i].card.ToString(),
+                            getPerson.Data[i].firstname,
+                            getPerson.Data[i].lastname,
+                            getPerson.Data[i].group,
+                            getPerson.Data[i].address
+                };
+                listView1.Items.Add(new ListViewItem(Persons));
+                i++;
+            }
         }
 
         public void getInfo()
@@ -370,6 +421,7 @@ namespace ProgramForArrest
                         tbPersonPhone.Text = getPersons.Data[0].phone;
                         tbPersonGroup.Text = getPersons.Data[0].group;
                         tbPersonAddress.Text = getPersons.Data[0].address;
+                        
                         var pic = Convert.FromBase64String(getPersons.Data[0].image_url);
                         using (MemoryStream ms = new MemoryStream(pic))
                         {
@@ -503,6 +555,7 @@ namespace ProgramForArrest
 
         public void refeshUser()
         {
+            listView_Users.Items.Clear();
             RestClient Getclient = new RestClient("http://202.28.34.197:8800");
             RestRequest Getrequest = new RestRequest("/ArrestSystem/users/"+this.organization);
             var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
@@ -529,18 +582,21 @@ namespace ProgramForArrest
 
         private void btUpdateUser_Click(object sender, EventArgs e)
         {
+            String dateTH = tbUserBirthday.Value.ToString("yyyy-MM-dd");
+            String[] words = dateTH.Split('-');
+            String date1 = int.Parse(words[0]) - 543 + "-" + words[1] + "-" + words[2];
+
             if (MessageBox.Show("คุณต้องการบันทึกข้อมูลหรือไม่", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 UpdateUserbyAdmin input = new UpdateUserbyAdmin();
                 RestClient client = new RestClient("http://202.28.34.197:8800");
                 RestRequest request = new RestRequest("/ArrestSystem/updateuser/" + tbUserCard.Text);
-
                 input.admincard = this.card;
                 input.title = tbUserTitle.Text;
                 input.firstname = tbUserFristname.Text;
                 input.lastname = tbUserLastname.Text;
                 input.card = tbUserCard.Text;
-                input.date = tbUserBirthday.Value.ToString("yyyy-MM-dd");
+                input.date = date1;
                 input.position = tbUserPosition.Text;
                 input.organization = tbUserOrganization.Text;
                 input.email = tbUserEmail.Text;
@@ -571,8 +627,9 @@ namespace ProgramForArrest
                 //Console.WriteLine(update);
 
                 MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
-                listView_Users.Items.Clear();
+                
                 refeshUser();
+                getUserfoSeacrh();
             }
 
             
@@ -580,11 +637,13 @@ namespace ProgramForArrest
 
         private void btAddUser_Click(object sender, EventArgs e)
         {
-            AddUserForm addUserForm = new AddUserForm(this.card);
+            AddUserForm addUserForm = new AddUserForm(this,this.card);
             addUserForm.Visible = true;
         }
 
         public void refeshPerson(){
+
+            listView_Persons.Items.Clear();
             RestClient client = new RestClient("http://202.28.34.197:8800");
             RestRequest request = new RestRequest("/ArrestSystem/persons");
             var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
@@ -603,6 +662,7 @@ namespace ProgramForArrest
                 listView_Persons.Items.Add(new ListViewItem(Persons));
                 i++;
             }
+            
         }
 
         private void btUpdatePersons_Click(object sender, EventArgs e)
@@ -654,9 +714,10 @@ namespace ProgramForArrest
                     //Console.WriteLine(updatePerson);
 
                     MessageBox.Show("แก้ไขข้อมูลบุคคลสำเร็จ! ");
-                    listView_Persons.Items.Clear();
+                    
 
                     refeshPerson();
+                    getPersonforSearch();
                 }
             }
             catch { }
@@ -1376,18 +1437,11 @@ namespace ProgramForArrest
             
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            /*progressBar1.Value = Convert.ToInt32(progressBar1.Value) + 5;
-            if (Convert.ToInt32(progressBar1.Value) > 95)
-            {
-                timer1.Enabled = false;
-            }*/
-        }
 
         private void tabPage5_Click(object sender, EventArgs e)
         {
 
         }
+
     }
  }

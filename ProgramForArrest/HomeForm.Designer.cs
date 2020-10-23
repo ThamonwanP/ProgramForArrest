@@ -224,7 +224,6 @@
             this.pictureBox_Pass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Pass.TabIndex = 15;
             this.pictureBox_Pass.TabStop = false;
-            this.pictureBox_Pass.Click += new System.EventHandler(this.pictureBox_Pass_Click);
             // 
             // tabPage1
             // 
@@ -232,9 +231,9 @@
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(951, 559);
             this.tabPage1.TabIndex = 5;
             this.tabPage1.Text = "ตั้งค่า";
@@ -282,7 +281,7 @@
             // 
             this.btCancel.Font = new System.Drawing.Font("Anantason", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btCancel.Location = new System.Drawing.Point(324, 284);
-            this.btCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(100, 34);
             this.btCancel.TabIndex = 16;
@@ -294,7 +293,7 @@
             this.tbPassword.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPassword.ForeColor = System.Drawing.Color.Black;
             this.tbPassword.Location = new System.Drawing.Point(174, 87);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Multiline = true;
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(273, 36);
@@ -306,7 +305,7 @@
             // 
             this.btComfirm.Font = new System.Drawing.Font("Anantason", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btComfirm.Location = new System.Drawing.Point(174, 284);
-            this.btComfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btComfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btComfirm.Name = "btComfirm";
             this.btComfirm.Size = new System.Drawing.Size(100, 34);
             this.btComfirm.TabIndex = 15;
@@ -319,7 +318,7 @@
             this.tbNewPassword.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbNewPassword.ForeColor = System.Drawing.Color.Black;
             this.tbNewPassword.Location = new System.Drawing.Point(174, 151);
-            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbNewPassword.Multiline = true;
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(273, 36);
@@ -343,7 +342,7 @@
             this.tbConfirm.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbConfirm.ForeColor = System.Drawing.Color.Black;
             this.tbConfirm.Location = new System.Drawing.Point(174, 214);
-            this.tbConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.tbConfirm.Multiline = true;
             this.tbConfirm.Name = "tbConfirm";
             this.tbConfirm.Size = new System.Drawing.Size(273, 36);
@@ -389,9 +388,9 @@
             this.tabPage4.Controls.Add(this.label24);
             this.tabPage4.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tabPage4.Location = new System.Drawing.Point(4, 38);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage4.Size = new System.Drawing.Size(951, 559);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "จัดการข้อมูลผู้ต้องหา";
@@ -401,7 +400,7 @@
             // 
             this.tbPersonTitle.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonTitle.Location = new System.Drawing.Point(157, 112);
-            this.tbPersonTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonTitle.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonTitle.Name = "tbPersonTitle";
             this.tbPersonTitle.Size = new System.Drawing.Size(123, 31);
             this.tbPersonTitle.TabIndex = 83;
@@ -409,7 +408,7 @@
             // btPersonImage
             // 
             this.btPersonImage.Location = new System.Drawing.Point(667, 265);
-            this.btPersonImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btPersonImage.Margin = new System.Windows.Forms.Padding(2);
             this.btPersonImage.Name = "btPersonImage";
             this.btPersonImage.Size = new System.Drawing.Size(173, 29);
             this.btPersonImage.TabIndex = 80;
@@ -439,7 +438,7 @@
             this.listView_Persons.GridLines = true;
             this.listView_Persons.HideSelection = false;
             this.listView_Persons.Location = new System.Drawing.Point(152, 368);
-            this.listView_Persons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView_Persons.Margin = new System.Windows.Forms.Padding(2);
             this.listView_Persons.Name = "listView_Persons";
             this.listView_Persons.Size = new System.Drawing.Size(476, 167);
             this.listView_Persons.TabIndex = 20;
@@ -473,10 +472,10 @@
             // tbSearchPerson
             // 
             this.tbSearchPerson.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbSearchPerson.Location = new System.Drawing.Point(308, 322);
-            this.tbSearchPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearchPerson.Location = new System.Drawing.Point(289, 322);
+            this.tbSearchPerson.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearchPerson.Name = "tbSearchPerson";
-            this.tbSearchPerson.Size = new System.Drawing.Size(320, 31);
+            this.tbSearchPerson.Size = new System.Drawing.Size(339, 31);
             this.tbSearchPerson.TabIndex = 15;
             this.tbSearchPerson.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearchPerson_KeyUp);
             // 
@@ -484,7 +483,7 @@
             // 
             this.tbPersonCard.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonCard.Location = new System.Drawing.Point(157, 187);
-            this.tbPersonCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonCard.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonCard.Name = "tbPersonCard";
             this.tbPersonCard.Size = new System.Drawing.Size(159, 31);
             this.tbPersonCard.TabIndex = 0;
@@ -493,7 +492,7 @@
             // 
             this.tbPersonGroup.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonGroup.Location = new System.Drawing.Point(157, 258);
-            this.tbPersonGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonGroup.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonGroup.Name = "tbPersonGroup";
             this.tbPersonGroup.Size = new System.Drawing.Size(113, 31);
             this.tbPersonGroup.TabIndex = 18;
@@ -502,7 +501,7 @@
             // 
             this.tbPersonFirstName.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonFirstName.Location = new System.Drawing.Point(289, 112);
-            this.tbPersonFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonFirstName.Name = "tbPersonFirstName";
             this.tbPersonFirstName.Size = new System.Drawing.Size(159, 31);
             this.tbPersonFirstName.TabIndex = 1;
@@ -511,7 +510,7 @@
             // 
             this.tbPersonLastName.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonLastName.Location = new System.Drawing.Point(458, 112);
-            this.tbPersonLastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonLastName.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonLastName.Name = "tbPersonLastName";
             this.tbPersonLastName.Size = new System.Drawing.Size(170, 31);
             this.tbPersonLastName.TabIndex = 2;
@@ -520,7 +519,7 @@
             // 
             this.tbPersonPhone.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonPhone.Location = new System.Drawing.Point(481, 187);
-            this.tbPersonPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonPhone.Name = "tbPersonPhone";
             this.tbPersonPhone.Size = new System.Drawing.Size(147, 31);
             this.tbPersonPhone.TabIndex = 6;
@@ -529,7 +528,7 @@
             // 
             this.tbPersonAddress.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonAddress.Location = new System.Drawing.Point(274, 258);
-            this.tbPersonAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonAddress.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonAddress.Multiline = true;
             this.tbPersonAddress.Name = "tbPersonAddress";
             this.tbPersonAddress.Size = new System.Drawing.Size(354, 31);
@@ -541,9 +540,9 @@
             this.groupBox5.Controls.Add(this.btUpdatePersons);
             this.groupBox5.Controls.Add(this.btAddPerson);
             this.groupBox5.Location = new System.Drawing.Point(667, 314);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(173, 221);
             this.groupBox5.TabIndex = 16;
             this.groupBox5.TabStop = false;
@@ -552,7 +551,7 @@
             // btAddFingerPrint
             // 
             this.btAddFingerPrint.Location = new System.Drawing.Point(23, 158);
-            this.btAddFingerPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAddFingerPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btAddFingerPrint.Name = "btAddFingerPrint";
             this.btAddFingerPrint.Size = new System.Drawing.Size(123, 33);
             this.btAddFingerPrint.TabIndex = 81;
@@ -563,7 +562,7 @@
             // btUpdatePersons
             // 
             this.btUpdatePersons.Location = new System.Drawing.Point(23, 107);
-            this.btUpdatePersons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btUpdatePersons.Margin = new System.Windows.Forms.Padding(2);
             this.btUpdatePersons.Name = "btUpdatePersons";
             this.btUpdatePersons.Size = new System.Drawing.Size(123, 33);
             this.btUpdatePersons.TabIndex = 1;
@@ -574,7 +573,7 @@
             // btAddPerson
             // 
             this.btAddPerson.Location = new System.Drawing.Point(23, 54);
-            this.btAddPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAddPerson.Margin = new System.Windows.Forms.Padding(2);
             this.btAddPerson.Name = "btAddPerson";
             this.btAddPerson.Size = new System.Drawing.Size(123, 33);
             this.btAddPerson.TabIndex = 0;
@@ -584,90 +583,98 @@
             // 
             // tbPersonBirthday
             // 
-            this.tbPersonBirthday.Font = new System.Drawing.Font("Anantason", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.tbPersonBirthday.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPersonBirthday.Location = new System.Drawing.Point(325, 187);
-            this.tbPersonBirthday.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPersonBirthday.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonBirthday.Name = "tbPersonBirthday";
-            this.tbPersonBirthday.Size = new System.Drawing.Size(147, 35);
+            this.tbPersonBirthday.Size = new System.Drawing.Size(147, 31);
             this.tbPersonBirthday.TabIndex = 51;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label38.Location = new System.Drawing.Point(320, 159);
             this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(45, 24);
+            this.label38.Size = new System.Drawing.Size(54, 29);
             this.label38.TabIndex = 50;
             this.label38.Text = "วันเกิด";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label11.Location = new System.Drawing.Point(147, 325);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 24);
+            this.label11.Size = new System.Drawing.Size(143, 29);
             this.label11.TabIndex = 14;
             this.label11.Text = "ค้นหาข้อมูลผู้ต้องหา ";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label23.Location = new System.Drawing.Point(154, 160);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(99, 24);
+            this.label23.Size = new System.Drawing.Size(120, 29);
             this.label23.TabIndex = 3;
             this.label23.Text = "เลขบัตรประชาชน ";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label22.Location = new System.Drawing.Point(284, 85);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(28, 24);
+            this.label22.Size = new System.Drawing.Size(35, 29);
             this.label22.TabIndex = 4;
             this.label22.Text = "ชื่อ ";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label21.Location = new System.Drawing.Point(454, 85);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(57, 24);
+            this.label21.Size = new System.Drawing.Size(70, 29);
             this.label21.TabIndex = 5;
             this.label21.Text = "นามสกุล ";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label10.Location = new System.Drawing.Point(152, 230);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 24);
+            this.label10.Size = new System.Drawing.Size(99, 29);
             this.label10.TabIndex = 19;
             this.label10.Text = "กลุ่มผู้ต้องหา ";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label20.Location = new System.Drawing.Point(476, 159);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(77, 24);
+            this.label20.Size = new System.Drawing.Size(94, 29);
             this.label20.TabIndex = 8;
             this.label20.Text = "เบอร์โทรศัพท์";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label19.Location = new System.Drawing.Point(269, 230);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(37, 24);
+            this.label19.Size = new System.Drawing.Size(45, 29);
             this.label19.TabIndex = 9;
             this.label19.Text = "ที่อยู่ ";
             // 
@@ -675,7 +682,7 @@
             // 
             this.pictureBox_Person.BackColor = System.Drawing.Color.DarkGray;
             this.pictureBox_Person.Location = new System.Drawing.Point(667, 59);
-            this.pictureBox_Person.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox_Person.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Person.Name = "pictureBox_Person";
             this.pictureBox_Person.Size = new System.Drawing.Size(173, 197);
             this.pictureBox_Person.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -685,10 +692,11 @@
             // label24
             // 
             this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label24.Location = new System.Drawing.Point(152, 85);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(60, 24);
+            this.label24.Size = new System.Drawing.Size(73, 29);
             this.label24.TabIndex = 82;
             this.label24.Text = "คำนำหน้า";
             // 
@@ -723,9 +731,9 @@
             this.tabPage3.Controls.Add(this.label39);
             this.tabPage3.Controls.Add(this.pictureBox_User);
             this.tabPage3.Location = new System.Drawing.Point(4, 38);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage3.Size = new System.Drawing.Size(951, 559);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "จัดการข้อมูลผู้ใช้ระบบ";
@@ -735,7 +743,7 @@
             // 
             this.btUserImage.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btUserImage.Location = new System.Drawing.Point(14, 255);
-            this.btUserImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btUserImage.Margin = new System.Windows.Forms.Padding(2);
             this.btUserImage.Name = "btUserImage";
             this.btUserImage.Size = new System.Drawing.Size(154, 33);
             this.btUserImage.TabIndex = 81;
@@ -765,7 +773,7 @@
             this.listView_Users.GridLines = true;
             this.listView_Users.HideSelection = false;
             this.listView_Users.Location = new System.Drawing.Point(516, 172);
-            this.listView_Users.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView_Users.Margin = new System.Windows.Forms.Padding(2);
             this.listView_Users.Name = "listView_Users";
             this.listView_Users.Size = new System.Drawing.Size(416, 251);
             this.listView_Users.TabIndex = 76;
@@ -800,17 +808,17 @@
             // 
             this.tbUserAddress.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserAddress.Location = new System.Drawing.Point(184, 374);
-            this.tbUserAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserAddress.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserAddress.Multiline = true;
             this.tbUserAddress.Name = "tbUserAddress";
-            this.tbUserAddress.Size = new System.Drawing.Size(314, 50);
+            this.tbUserAddress.Size = new System.Drawing.Size(324, 50);
             this.tbUserAddress.TabIndex = 64;
             // 
             // tbSeachUser
             // 
             this.tbSeachUser.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbSeachUser.Location = new System.Drawing.Point(516, 105);
-            this.tbSeachUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSeachUser.Margin = new System.Windows.Forms.Padding(2);
             this.tbSeachUser.Name = "tbSeachUser";
             this.tbSeachUser.Size = new System.Drawing.Size(416, 31);
             this.tbSeachUser.TabIndex = 54;
@@ -820,16 +828,16 @@
             // 
             this.tbUserPhone.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserPhone.Location = new System.Drawing.Point(363, 306);
-            this.tbUserPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserPhone.Name = "tbUserPhone";
-            this.tbUserPhone.Size = new System.Drawing.Size(135, 31);
+            this.tbUserPhone.Size = new System.Drawing.Size(145, 31);
             this.tbUserPhone.TabIndex = 63;
             // 
             // tbUserEmail
             // 
             this.tbUserEmail.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserEmail.Location = new System.Drawing.Point(184, 306);
-            this.tbUserEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserEmail.Name = "tbUserEmail";
             this.tbUserEmail.Size = new System.Drawing.Size(168, 31);
             this.tbUserEmail.TabIndex = 62;
@@ -838,7 +846,7 @@
             // 
             this.tbUserTitle.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserTitle.Location = new System.Drawing.Point(186, 106);
-            this.tbUserTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserTitle.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserTitle.Name = "tbUserTitle";
             this.tbUserTitle.Size = new System.Drawing.Size(83, 31);
             this.tbUserTitle.TabIndex = 56;
@@ -847,16 +855,16 @@
             // 
             this.tbUserPosition.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserPosition.Location = new System.Drawing.Point(346, 239);
-            this.tbUserPosition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserPosition.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserPosition.Name = "tbUserPosition";
-            this.tbUserPosition.Size = new System.Drawing.Size(152, 31);
+            this.tbUserPosition.Size = new System.Drawing.Size(162, 31);
             this.tbUserPosition.TabIndex = 61;
             // 
             // tbUserFristname
             // 
             this.tbUserFristname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserFristname.Location = new System.Drawing.Point(276, 106);
-            this.tbUserFristname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserFristname.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserFristname.Name = "tbUserFristname";
             this.tbUserFristname.Size = new System.Drawing.Size(108, 31);
             this.tbUserFristname.TabIndex = 57;
@@ -865,7 +873,7 @@
             // 
             this.tbUserOrganization.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserOrganization.Location = new System.Drawing.Point(184, 239);
-            this.tbUserOrganization.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserOrganization.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserOrganization.Name = "tbUserOrganization";
             this.tbUserOrganization.Size = new System.Drawing.Size(155, 31);
             this.tbUserOrganization.TabIndex = 60;
@@ -874,16 +882,16 @@
             // 
             this.tbUserLastname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserLastname.Location = new System.Drawing.Point(390, 106);
-            this.tbUserLastname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserLastname.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserLastname.Name = "tbUserLastname";
-            this.tbUserLastname.Size = new System.Drawing.Size(108, 31);
+            this.tbUserLastname.Size = new System.Drawing.Size(118, 31);
             this.tbUserLastname.TabIndex = 58;
             // 
             // tbUserCard
             // 
             this.tbUserCard.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserCard.Location = new System.Drawing.Point(187, 173);
-            this.tbUserCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserCard.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserCard.Name = "tbUserCard";
             this.tbUserCard.ReadOnly = true;
             this.tbUserCard.Size = new System.Drawing.Size(167, 31);
@@ -893,9 +901,9 @@
             // 
             this.tbUserBirthday.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserBirthday.Location = new System.Drawing.Point(363, 173);
-            this.tbUserBirthday.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserBirthday.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserBirthday.Name = "tbUserBirthday";
-            this.tbUserBirthday.Size = new System.Drawing.Size(135, 31);
+            this.tbUserBirthday.Size = new System.Drawing.Size(145, 31);
             this.tbUserBirthday.TabIndex = 75;
             // 
             // groupBox3
@@ -904,9 +912,9 @@
             this.groupBox3.Controls.Add(this.btAddUser);
             this.groupBox3.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox3.Location = new System.Drawing.Point(175, 446);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(757, 79);
             this.groupBox3.TabIndex = 55;
             this.groupBox3.TabStop = false;
@@ -916,7 +924,7 @@
             // 
             this.btUpdateUser.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btUpdateUser.Location = new System.Drawing.Point(369, 34);
-            this.btUpdateUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btUpdateUser.Margin = new System.Windows.Forms.Padding(2);
             this.btUpdateUser.Name = "btUpdateUser";
             this.btUpdateUser.Size = new System.Drawing.Size(144, 30);
             this.btUpdateUser.TabIndex = 1;
@@ -928,7 +936,7 @@
             // 
             this.btAddUser.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btAddUser.Location = new System.Drawing.Point(189, 34);
-            this.btAddUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAddUser.Margin = new System.Windows.Forms.Padding(2);
             this.btAddUser.Name = "btAddUser";
             this.btAddUser.Size = new System.Drawing.Size(144, 30);
             this.btAddUser.TabIndex = 0;
@@ -973,7 +981,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label18.Location = new System.Drawing.Point(182, 80);
+            this.label18.Location = new System.Drawing.Point(182, 75);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(73, 29);
@@ -995,7 +1003,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label17.Location = new System.Drawing.Point(273, 80);
+            this.label17.Location = new System.Drawing.Point(273, 77);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(31, 29);
@@ -1017,7 +1025,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label16.Location = new System.Drawing.Point(383, 81);
+            this.label16.Location = new System.Drawing.Point(385, 77);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(66, 29);
@@ -1039,7 +1047,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label12.Location = new System.Drawing.Point(179, 350);
+            this.label12.Location = new System.Drawing.Point(179, 343);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 29);
@@ -1061,7 +1069,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label39.Location = new System.Drawing.Point(511, 147);
+            this.label39.Location = new System.Drawing.Point(511, 143);
             this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(111, 29);
@@ -1072,7 +1080,7 @@
             // 
             this.pictureBox_User.BackColor = System.Drawing.Color.DarkGray;
             this.pictureBox_User.Location = new System.Drawing.Point(14, 57);
-            this.pictureBox_User.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox_User.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_User.Name = "pictureBox_User";
             this.pictureBox_User.Size = new System.Drawing.Size(154, 182);
             this.pictureBox_User.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1107,9 +1115,9 @@
             this.tabPage2.Controls.Add(this.label29);
             this.tabPage2.Controls.Add(this.pictureBox_Info);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(951, 559);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "จัดการข้อมูลส่วนตัว";
@@ -1119,7 +1127,7 @@
             // 
             this.btInfoImage.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btInfoImage.Location = new System.Drawing.Point(719, 253);
-            this.btInfoImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btInfoImage.Margin = new System.Windows.Forms.Padding(2);
             this.btInfoImage.Name = "btInfoImage";
             this.btInfoImage.Size = new System.Drawing.Size(158, 39);
             this.btInfoImage.TabIndex = 81;
@@ -1142,7 +1150,7 @@
             // 
             this.button16.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.button16.Location = new System.Drawing.Point(448, 489);
-            this.button16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button16.Margin = new System.Windows.Forms.Padding(2);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(157, 38);
             this.button16.TabIndex = 76;
@@ -1153,7 +1161,7 @@
             // 
             this.btConfirmUpdate.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btConfirmUpdate.Location = new System.Drawing.Point(256, 489);
-            this.btConfirmUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btConfirmUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btConfirmUpdate.Name = "btConfirmUpdate";
             this.btConfirmUpdate.Size = new System.Drawing.Size(157, 38);
             this.btConfirmUpdate.TabIndex = 75;
@@ -1165,7 +1173,7 @@
             // 
             this.tbBirthday.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbBirthday.Location = new System.Drawing.Point(448, 185);
-            this.tbBirthday.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbBirthday.Margin = new System.Windows.Forms.Padding(2);
             this.tbBirthday.Name = "tbBirthday";
             this.tbBirthday.Size = new System.Drawing.Size(199, 31);
             this.tbBirthday.TabIndex = 74;
@@ -1185,7 +1193,7 @@
             // 
             this.tbAddress.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbAddress.Location = new System.Drawing.Point(220, 409);
-            this.tbAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAddress.Margin = new System.Windows.Forms.Padding(2);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(427, 60);
@@ -1195,7 +1203,7 @@
             // 
             this.tbPhone.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPhone.Location = new System.Drawing.Point(448, 338);
-            this.tbPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(199, 31);
             this.tbPhone.TabIndex = 62;
@@ -1204,7 +1212,7 @@
             // 
             this.tbEmail.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbEmail.Location = new System.Drawing.Point(220, 338);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(209, 31);
             this.tbEmail.TabIndex = 61;
@@ -1213,7 +1221,7 @@
             // 
             this.tbPosition.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbPosition.Location = new System.Drawing.Point(448, 264);
-            this.tbPosition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPosition.Margin = new System.Windows.Forms.Padding(2);
             this.tbPosition.Name = "tbPosition";
             this.tbPosition.Size = new System.Drawing.Size(199, 31);
             this.tbPosition.TabIndex = 60;
@@ -1222,7 +1230,7 @@
             // 
             this.tbOrganization.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbOrganization.Location = new System.Drawing.Point(220, 264);
-            this.tbOrganization.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbOrganization.Margin = new System.Windows.Forms.Padding(2);
             this.tbOrganization.Name = "tbOrganization";
             this.tbOrganization.Size = new System.Drawing.Size(209, 31);
             this.tbOrganization.TabIndex = 59;
@@ -1231,7 +1239,7 @@
             // 
             this.tbCard.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbCard.Location = new System.Drawing.Point(220, 187);
-            this.tbCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbCard.Margin = new System.Windows.Forms.Padding(2);
             this.tbCard.Name = "tbCard";
             this.tbCard.ReadOnly = true;
             this.tbCard.Size = new System.Drawing.Size(209, 31);
@@ -1241,7 +1249,7 @@
             // 
             this.tbLastname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbLastname.Location = new System.Drawing.Point(493, 113);
-            this.tbLastname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbLastname.Margin = new System.Windows.Forms.Padding(2);
             this.tbLastname.Name = "tbLastname";
             this.tbLastname.Size = new System.Drawing.Size(154, 31);
             this.tbLastname.TabIndex = 57;
@@ -1250,7 +1258,7 @@
             // 
             this.tbFirstname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbFirstname.Location = new System.Drawing.Point(337, 113);
-            this.tbFirstname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbFirstname.Margin = new System.Windows.Forms.Padding(2);
             this.tbFirstname.Name = "tbFirstname";
             this.tbFirstname.Size = new System.Drawing.Size(148, 31);
             this.tbFirstname.TabIndex = 56;
@@ -1259,7 +1267,7 @@
             // 
             this.tbTitle.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbTitle.Location = new System.Drawing.Point(220, 113);
-            this.tbTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbTitle.Margin = new System.Windows.Forms.Padding(2);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(108, 31);
             this.tbTitle.TabIndex = 55;
@@ -1368,7 +1376,7 @@
             this.pictureBox_Info.BackColor = System.Drawing.Color.DarkGray;
             this.pictureBox_Info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox_Info.Location = new System.Drawing.Point(719, 50);
-            this.pictureBox_Info.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox_Info.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Info.Name = "pictureBox_Info";
             this.pictureBox_Info.Size = new System.Drawing.Size(159, 192);
             this.pictureBox_Info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1384,9 +1392,9 @@
             this.tabHome.Controls.Add(this.tbSearch);
             this.tabHome.Controls.Add(this.label37);
             this.tabHome.Location = new System.Drawing.Point(4, 38);
-            this.tabHome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabHome.Margin = new System.Windows.Forms.Padding(2);
             this.tabHome.Name = "tabHome";
-            this.tabHome.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabHome.Padding = new System.Windows.Forms.Padding(2);
             this.tabHome.Size = new System.Drawing.Size(951, 559);
             this.tabHome.TabIndex = 0;
             this.tabHome.Text = "หน้าหลัก";
@@ -1395,7 +1403,7 @@
             // tbSearchPersons
             // 
             this.tbSearchPersons.Location = new System.Drawing.Point(257, 290);
-            this.tbSearchPersons.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearchPersons.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearchPersons.Name = "tbSearchPersons";
             this.tbSearchPersons.Size = new System.Drawing.Size(590, 37);
             this.tbSearchPersons.TabIndex = 79;
@@ -1424,7 +1432,7 @@
             this.listView2.GridLines = true;
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(113, 101);
-            this.listView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView2.Margin = new System.Windows.Forms.Padding(2);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(734, 161);
             this.listView2.TabIndex = 77;
@@ -1478,7 +1486,7 @@
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(113, 335);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(734, 191);
             this.listView1.TabIndex = 21;
@@ -1517,7 +1525,7 @@
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(257, 46);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(590, 37);
             this.tbSearch.TabIndex = 19;
@@ -1535,6 +1543,9 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabHome);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -1543,7 +1554,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tabControl1.Location = new System.Drawing.Point(34, 35);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(959, 601);
@@ -1567,9 +1578,10 @@
             this.tabPage5.Controls.Add(this.label43);
             this.tabPage5.Controls.Add(this.label44);
             this.tabPage5.Controls.Add(this.label45);
+            this.tabPage5.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tabPage5.Location = new System.Drawing.Point(4, 38);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(951, 559);
             this.tabPage5.TabIndex = 6;
             this.tabPage5.Text = "ค้นหาลายนิ้วมือ";
@@ -1579,7 +1591,7 @@
             // btProof
             // 
             this.btProof.Location = new System.Drawing.Point(666, 434);
-            this.btProof.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btProof.Margin = new System.Windows.Forms.Padding(2);
             this.btProof.Name = "btProof";
             this.btProof.Size = new System.Drawing.Size(160, 33);
             this.btProof.TabIndex = 126;
@@ -1592,7 +1604,7 @@
             // 
             this.btScan.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btScan.Location = new System.Drawing.Point(250, 486);
-            this.btScan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btScan.Margin = new System.Windows.Forms.Padding(2);
             this.btScan.Name = "btScan";
             this.btScan.Size = new System.Drawing.Size(259, 37);
             this.btScan.TabIndex = 26;
@@ -1622,7 +1634,7 @@
             this.listView_Matching.GridLines = true;
             this.listView_Matching.HideSelection = false;
             this.listView_Matching.Location = new System.Drawing.Point(155, 242);
-            this.listView_Matching.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listView_Matching.Margin = new System.Windows.Forms.Padding(2);
             this.listView_Matching.Name = "listView_Matching";
             this.listView_Matching.Size = new System.Drawing.Size(476, 225);
             this.listView_Matching.TabIndex = 124;
@@ -1659,9 +1671,9 @@
             this.groupBox9.Controls.Add(this.radioFigRight);
             this.groupBox9.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox9.Location = new System.Drawing.Point(666, 268);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox9.Size = new System.Drawing.Size(160, 117);
             this.groupBox9.TabIndex = 123;
             this.groupBox9.TabStop = false;
@@ -1671,7 +1683,7 @@
             // 
             this.radioFigLeft.AutoSize = true;
             this.radioFigLeft.Location = new System.Drawing.Point(37, 33);
-            this.radioFigLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioFigLeft.Margin = new System.Windows.Forms.Padding(2);
             this.radioFigLeft.Name = "radioFigLeft";
             this.radioFigLeft.Size = new System.Drawing.Size(71, 28);
             this.radioFigLeft.TabIndex = 28;
@@ -1683,7 +1695,7 @@
             // 
             this.radioFigRight.AutoSize = true;
             this.radioFigRight.Location = new System.Drawing.Point(37, 63);
-            this.radioFigRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioFigRight.Margin = new System.Windows.Forms.Padding(2);
             this.radioFigRight.Name = "radioFigRight";
             this.radioFigRight.Size = new System.Drawing.Size(71, 28);
             this.radioFigRight.TabIndex = 29;
@@ -1695,7 +1707,7 @@
             // 
             this.pictureBox_Finger.BackColor = System.Drawing.Color.DarkGray;
             this.pictureBox_Finger.Location = new System.Drawing.Point(666, 64);
-            this.pictureBox_Finger.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox_Finger.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Finger.Name = "pictureBox_Finger";
             this.pictureBox_Finger.Size = new System.Drawing.Size(160, 178);
             this.pictureBox_Finger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1706,7 +1718,7 @@
             // 
             this.tbMGroup.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbMGroup.Location = new System.Drawing.Point(159, 180);
-            this.tbMGroup.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMGroup.Margin = new System.Windows.Forms.Padding(2);
             this.tbMGroup.Name = "tbMGroup";
             this.tbMGroup.ReadOnly = true;
             this.tbMGroup.Size = new System.Drawing.Size(225, 31);
@@ -1716,7 +1728,7 @@
             // 
             this.tbMLastname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbMLastname.Location = new System.Drawing.Point(479, 109);
-            this.tbMLastname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMLastname.Margin = new System.Windows.Forms.Padding(2);
             this.tbMLastname.Name = "tbMLastname";
             this.tbMLastname.ReadOnly = true;
             this.tbMLastname.Size = new System.Drawing.Size(152, 31);
@@ -1726,7 +1738,7 @@
             // 
             this.tbMPhone.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbMPhone.Location = new System.Drawing.Point(401, 180);
-            this.tbMPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbMPhone.Name = "tbMPhone";
             this.tbMPhone.ReadOnly = true;
             this.tbMPhone.Size = new System.Drawing.Size(230, 31);
@@ -1736,7 +1748,7 @@
             // 
             this.tbMFirstName.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbMFirstName.Location = new System.Drawing.Point(320, 109);
-            this.tbMFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMFirstName.Margin = new System.Windows.Forms.Padding(2);
             this.tbMFirstName.Name = "tbMFirstName";
             this.tbMFirstName.ReadOnly = true;
             this.tbMFirstName.Size = new System.Drawing.Size(152, 31);
@@ -1746,7 +1758,7 @@
             // 
             this.tbMCard.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbMCard.Location = new System.Drawing.Point(159, 109);
-            this.tbMCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbMCard.Margin = new System.Windows.Forms.Padding(2);
             this.tbMCard.Name = "tbMCard";
             this.tbMCard.ReadOnly = true;
             this.tbMCard.Size = new System.Drawing.Size(152, 31);
@@ -1755,61 +1767,57 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label25.Location = new System.Drawing.Point(317, 87);
+            this.label25.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label25.Location = new System.Drawing.Point(317, 83);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(25, 24);
+            this.label25.Size = new System.Drawing.Size(31, 29);
             this.label25.TabIndex = 116;
             this.label25.Text = "ชื่อ";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label42.Location = new System.Drawing.Point(154, 84);
+            this.label42.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label42.Location = new System.Drawing.Point(154, 80);
             this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(122, 24);
+            this.label42.Size = new System.Drawing.Size(149, 29);
             this.label42.TabIndex = 118;
             this.label42.Text = "เลขประชาชนประจำตัว";
             // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label43.Location = new System.Drawing.Point(474, 84);
+            this.label43.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label43.Location = new System.Drawing.Point(474, 80);
             this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(54, 24);
+            this.label43.Size = new System.Drawing.Size(66, 29);
             this.label43.TabIndex = 117;
             this.label43.Text = "นามสกุล";
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label44.Location = new System.Drawing.Point(397, 157);
+            this.label44.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label44.Location = new System.Drawing.Point(397, 153);
             this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(77, 24);
+            this.label44.Size = new System.Drawing.Size(94, 29);
             this.label44.TabIndex = 120;
             this.label44.Text = "เบอร์โทรศัพท์";
             // 
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label45.Location = new System.Drawing.Point(154, 155);
+            this.label45.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label45.Location = new System.Drawing.Point(154, 151);
             this.label45.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(78, 24);
+            this.label45.Size = new System.Drawing.Size(95, 29);
             this.label45.TabIndex = 119;
             this.label45.Text = "กลุ่มผู้ต้องหา";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // HomeForm
             // 
@@ -1821,7 +1829,7 @@
             this.Controls.Add(this.pictureBox_Pass);
             this.Controls.Add(this.tabControl1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
