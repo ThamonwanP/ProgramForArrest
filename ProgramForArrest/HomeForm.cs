@@ -26,11 +26,12 @@ namespace ProgramForArrest
         string imagesStr;
         string org;
         string base64String;
+        string base64StringInfo;
+        string base64StringUser;
         string Fingerbase64String;
         string role;
         int updateAddPerson;
         string organization;
-        string date1;
         HomeForm homeForm;
         AddPersonForm addper;
 
@@ -62,11 +63,6 @@ namespace ProgramForArrest
             InitializeComponent();
             this.homeForm = homeForm;
 
-        }
-
-        public void setA()
-        {
-            Console.WriteLine("Hello");
         }
 
         public HomeForm(string card, string password, string org, string role, int updateAddPerson)
@@ -138,16 +134,16 @@ namespace ProgramForArrest
                 input.phone = tbPhone.Text;
                 input.address = tbAddress.Text;
                 
-                if (base64String == null)
+                if (base64StringInfo == null)
                 {
-                    //imagesStr = base64String;
-                    input.image_url = pictureBox_Info.Name;
-                    //Console.WriteLine("Image");
+                    //imagesStr = base64StringInfo;
+                    input.image_url = imagesStr;
+                    Console.WriteLine("Image");
                 }
                 else
                 {
-                    input.image_url = base64String;
-                    //Console.WriteLine("New Image");
+                    input.image_url = base64StringInfo;
+                    Console.WriteLine("New Image");
                 }
 
                 var serializer = new JavaScriptSerializer();
@@ -237,6 +233,7 @@ namespace ProgramForArrest
                     pictureBox_Info.Image = Image.FromStream(ms);
                 }
 
+                imagesStr = info.Data.image_url;
                 //pictureBox_User.Image = (Image)(info.Data.image_url.);
                 DateTime bdate = UnixTimeStampToDateTime((info.Data.birthday.value / 1000));
                 tbBirthday.Value = bdate.Subtract(new TimeSpan(7, 0, 0));
@@ -284,7 +281,7 @@ namespace ProgramForArrest
 
             if (getUser.Data != null)
             {
-                while (i <= getUser.Data.Count)
+                while (i < getUser.Data.Count)
                 {
                     string[] users = new string[]
                     {
@@ -374,8 +371,8 @@ namespace ProgramForArrest
                 {
                     pictureBox_Info.Image = Image.FromStream(ms);
                 }
-
-                //pictureBox_User.Image = (Image)(info.Data.image_url.);
+                imagesStr = info.Data.image_url;
+                
 
                 DateTime bdate = UnixTimeStampToDateTime(info.Data.birthday.value / 1000);
                 tbBirthday.Value = bdate.Subtract(new TimeSpan(7, 0, 0));
@@ -437,15 +434,6 @@ namespace ProgramForArrest
 
         }
 
-
-
-        private void btUserImage_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog_User.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox_User.Image = Image.FromFile(openFileDialog_User.FileName);
-            }
-        }
 
 
         private void btClose_Click(object sender, EventArgs e)
@@ -526,19 +514,15 @@ namespace ProgramForArrest
         }
 
 
-        private void btUserImage_Click_1(object sender, EventArgs e)
-        {
-            if (openFileDialog_User.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox_User.Image = Image.FromFile(openFileDialog_User.FileName);
-            }
-        }
+
 
         private void btImageInfo_Click(object sender, EventArgs e)
         {
             if (openFileDialog_Info.ShowDialog() == DialogResult.OK)
             {
                 pictureBox_Info.Image = Image.FromFile(openFileDialog_Info.FileName);
+                byte[] imageArray = System.IO.File.ReadAllBytes(openFileDialog_Info.FileName);
+                base64StringInfo = Convert.ToBase64String(imageArray);
             }
         }
 
@@ -603,16 +587,16 @@ namespace ProgramForArrest
                 input.phone = tbUserPhone.Text;
                 input.address = tbUserAddress.Text;
 
-                if (base64String == null)
+                if (base64StringUser == null)
                 {
-                    //imagesStr = base64String;
+                    imagesStr = base64StringUser;
                     input.image_url = imagesStr;
                     //Console.WriteLine("Image");
 
                 }
                 else
                 {
-                    input.image_url = base64String;
+                    input.image_url = base64StringUser;
                     //Console.WriteLine("New Image");
 
 
@@ -688,7 +672,7 @@ namespace ProgramForArrest
                     input.phone = tbPersonPhone.Text;
                     input.address = tbPersonAddress.Text;
                     input.group = tbPersonGroup.Text;
-                    //input.image_url = base64String;
+                    input.image_url = base64String;
 
                     if (base64String == null)
                     {
@@ -805,13 +789,13 @@ namespace ProgramForArrest
             }
         }
 
-        private void btUserImage_Click_2(object sender, EventArgs e)
+        private void btUserImage_Click(object sender, EventArgs e)
         {
             if (openFileDialog_User.ShowDialog() == DialogResult.OK)
             {
                 pictureBox_User.Image = Image.FromFile(openFileDialog_User.FileName);
                 byte[] imageArray = System.IO.File.ReadAllBytes(openFileDialog_User.FileName);
-                base64String = Convert.ToBase64String(imageArray);
+                base64StringUser = Convert.ToBase64String(imageArray);
 
             }
         }
@@ -822,7 +806,7 @@ namespace ProgramForArrest
             {
                 pictureBox_Info.Image = Image.FromFile(openFileDialog_Info.FileName);
                 byte[] imageArray = System.IO.File.ReadAllBytes(openFileDialog_Info.FileName);
-                base64String = Convert.ToBase64String(imageArray);
+                base64StringInfo = Convert.ToBase64String(imageArray);
 
             }
         }

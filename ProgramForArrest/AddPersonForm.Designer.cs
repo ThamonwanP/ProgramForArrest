@@ -129,10 +129,10 @@
             // pictureBox_Person
             // 
             this.pictureBox_Person.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox_Person.Location = new System.Drawing.Point(527, 41);
+            this.pictureBox_Person.Location = new System.Drawing.Point(523, 41);
             this.pictureBox_Person.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Person.Name = "pictureBox_Person";
-            this.pictureBox_Person.Size = new System.Drawing.Size(122, 142);
+            this.pictureBox_Person.Size = new System.Drawing.Size(140, 151);
             this.pictureBox_Person.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Person.TabIndex = 101;
             this.pictureBox_Person.TabStop = false;
