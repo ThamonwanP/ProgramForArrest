@@ -29,6 +29,7 @@ namespace ProgramForArrest
         string Fingerbase64String;
         string role;
         int updateAddPerson;
+        string organization;
         HomeForm homeForm;
         AddPersonForm addper;
 
@@ -43,13 +44,14 @@ namespace ProgramForArrest
         private Zfm20Fingerprint _zfmSensor;
 
 
-        public HomeForm(string card, string password, string org, string role)
+        public HomeForm(string card, string password, string org, string role, string organization)
         {
             InitializeComponent();
             this.card = card;
             this.password = password;
             this.org = org;
             this.role = role;
+            this.organization = organization;
             Console.WriteLine(updateAddPerson);
 
         }
@@ -101,7 +103,6 @@ namespace ProgramForArrest
                     request.AddJsonBody(jsonStr);
                     var resuly = client.Execute<UpdatePasswordResult>(request, Method.POST);
 
-
                     //Console.WriteLine(resuly);
 
                     MessageBox.Show("เปลี่ยนรหัสผ่านสำเร็จ! ");
@@ -109,7 +110,6 @@ namespace ProgramForArrest
                 else{MessageBox.Show("รหัสผ่านไม่ตรงกัน");}
             }
             else{ MessageBox.Show("ไม่ถูกต้อง! กรุณาตรวจสอบใหม่อีกครั้ง");}
-            
         }
 
         private void btConfirmUpdate_Click(object sender, EventArgs e)
@@ -136,14 +136,11 @@ namespace ProgramForArrest
                     //imagesStr = base64String;
                     input.image_url = imagesStr;
                     //Console.WriteLine("Image");
-
                 }
                 else
                 {
                     input.image_url = base64String;
                     //Console.WriteLine("New Image");
-
-
                 }
 
                 var serializer = new JavaScriptSerializer();
@@ -151,14 +148,11 @@ namespace ProgramForArrest
                 request.AddJsonBody(jsonStr);
                 var update = client.Execute<UpdateUserResult>(request, Method.POST);
 
-
                 //Console.WriteLine(update);
                 MessageBox.Show("เปลี่ยนข้อมูลสำเร็จ! ");
 
 
             }
-
-
         }
 
         public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
@@ -170,24 +164,25 @@ namespace ProgramForArrest
         }
         private void Home_Load(object sender, EventArgs e)
         {
-            if (updateAddPerson == 1)
+            /*if (updateAddPerson == 1)
             {
                 refeshPerson();
-            }
+            }*/
 
             if (!this.role.Equals("ผู้ดูแลระบบ"))
             {
+                tabControl1.TabPages.Remove(tabHome);
                 tabControl1.TabPages.Remove(tabPage3);
             }
 
             _zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
+            ///////////////
             try
             {
 
                 RestClient client = new RestClient("http://202.28.34.197:8800");
                 RestRequest request = new RestRequest("/ArrestSystem/search/user/card/" + this.card);
                 var info = client.Execute<GetUserbyCard>(request, Method.GET);
-
 
 
                 tbTitle.Text = info.Data.title;
@@ -207,7 +202,7 @@ namespace ProgramForArrest
                 }
 
                 //pictureBox_User.Image = (Image)(info.Data.image_url.);
-                DateTime bdate = UnixTimeStampToDateTime(info.Data.birthday.value / 1000);
+                DateTime bdate = UnixTimeStampToDateTime((info.Data.birthday.value / 1000));
                 tbBirthday.Value = bdate.Subtract(new TimeSpan(7, 0, 0));
             }
             catch (Exception ex)
@@ -215,18 +210,43 @@ namespace ProgramForArrest
                 Console.WriteLine(ex.Message);
             }
 
-            try
+            
+                try
             {
-                refeshUser();
+
+                RestClient Getclient = new RestClient("http://202.28.34.197:8800");
+                RestRequest Getrequest = new RestRequest("/ArrestSystem/users/" + this.organization);
+                var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
+
+                int i = 0;
+
+                if (getUser.Data != null)
+                {
+                    while (i <= getUser.Data.Count)
+                    {
+                        string[] users = new string[]
+                        {
+                            getUser.Data[i].card.ToString(),
+                            getUser.Data[i].title,
+                            getUser.Data[i].firstname,
+                            getUser.Data[i].lastname
+                            
+                        };
+                        listView_Users.Items.Add(new ListViewItem(users));
+                        i++;
+                    }
+                }
             }
             catch { }
+
+
 
             ///////////
             try
             {
 
                 RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                RestRequest Getrequest = new RestRequest("/ArrestSystem/users");
+                RestRequest Getrequest = new RestRequest("/ArrestSystem/users/"+this.organization);
                 var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
 
                 int i = 0;
@@ -243,17 +263,10 @@ namespace ProgramForArrest
                             getUser.Data[i].position,
                             getUser.Data[i].phone
                         };
-                        //listView_Users.Items.Add(new ListViewItem(users));
                         listView2.Items.Add(new ListViewItem(users));
                         i++;
                     }
                 }
-            }
-            catch { }
-
-            try
-            {
-                refeshPerson();
             }
             catch { }
 
@@ -486,13 +499,12 @@ namespace ProgramForArrest
                 base64String = Convert.ToBase64String(imageArray);
 
             }
-
         }
 
         public void refeshUser()
         {
             RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-            RestRequest Getrequest = new RestRequest("/ArrestSystem/users");
+            RestRequest Getrequest = new RestRequest("/ArrestSystem/users/"+this.organization);
             var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
 
             int i = 0;
@@ -513,7 +525,6 @@ namespace ProgramForArrest
                     i++;
                 }
         }
-
 
 
         private void btUpdateUser_Click(object sender, EventArgs e)
@@ -1374,6 +1385,9 @@ namespace ProgramForArrest
             }*/
         }
 
-        
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
  }
