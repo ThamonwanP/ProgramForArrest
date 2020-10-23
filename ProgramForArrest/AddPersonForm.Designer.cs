@@ -304,7 +304,6 @@
             this.Name = "AddPersonForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddPersonForm";
-            this.Load += new System.EventHandler(this.AddPersonForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Person)).EndInit();

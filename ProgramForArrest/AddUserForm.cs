@@ -20,11 +20,14 @@ namespace ProgramForArrest
         string card;
         string base64String;
         HomeForm h;
-        public AddUserForm(HomeForm h, string card)
+        string organization;
+        public AddUserForm(HomeForm h, string card, string organization)
         {
             InitializeComponent();
             this.card = card;
             this.h = h;
+            this.organization = organization;
+           
         }
 
 
@@ -51,7 +54,7 @@ namespace ProgramForArrest
                 input.card = tbUserCard.Text;
                 input.date = date1;
                 input.position = tbUserPosition.Text;
-                //input.organization = tbUsersOrganization.Text;
+                input.organization = this.organization;
                 input.email = tbUserEmail.Text;
                 input.phone = tbUserPhone.Text;
                 input.address = tbUserAddress.Text;
@@ -60,23 +63,25 @@ namespace ProgramForArrest
                 var serializer = new JavaScriptSerializer();
                 string jsonStr = serializer.Serialize(input);
                 request.AddJsonBody(jsonStr);
-                var AddUser = client.Execute<AddUserbyAddmin_Result>(request, Method.POST);
+                var AddUsers = client.Execute<AddUserbyAddmin_Result>(request, Method.POST);
 
                     //Console.WriteLine(AddUser);
-                    if (AddUser.Content.Equals("หมายเลขบัตรประชาชนนี้มีคนใช้อยู่แล้ว กรุณาลองใหม่!!"))
+                    if (AddUsers.Content.Equals("หมายเลขบัตรประชาชนนี้มีคนใช้อยู่แล้ว กรุณาลองใหม่!!"))
                     {
                         MessageBox.Show("หมายเลขบัตรประชาชนนี้มีคนใช้อยู่แล้ว กรุณาลองใหม่");
                     }
                     else
                     {
                         MessageBox.Show("บันทึกข้อมูลสำเร็จ! ");
-                    }
+                        this.h.refeshUser();
+                        this.h.getUserfoSeacrh();
+                    }   
+                        
                 
                 }
             }
             catch { }
-            this.h.refeshUser();
-            this.h.getUserfoSeacrh();
+            
         }
 
         private void btClose_Click(object sender, EventArgs e)
@@ -104,6 +109,7 @@ namespace ProgramForArrest
                 tbUserBirthday.Text = personal.Birthday.ToString("yyyy-MM-dd");
                 tbUserAddress.Text = personal.Address;
                 pictureBox_User.Image = ByteToImage1(personal.PhotoRaw);
+                tbUserOrg.Text = this.organization;
 
                 // Convert byte[] to Base64 String
                 base64String = Convert.ToBase64String(personal.PhotoRaw);

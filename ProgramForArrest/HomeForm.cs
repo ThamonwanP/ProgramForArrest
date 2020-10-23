@@ -621,7 +621,7 @@ namespace ProgramForArrest
 
         private void btAddUser_Click(object sender, EventArgs e)
         {
-            AddUserForm addUserForm = new AddUserForm(this,this.card);
+            AddUserForm addUserForm = new AddUserForm(this,this.card, this.organization);
             addUserForm.Visible = true;
         }
 

@@ -53,6 +53,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.openFileDialog_User = new System.Windows.Forms.OpenFileDialog();
+            this.tbUserOrg = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_User)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +63,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.tbUserOrg);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btAddUser);
@@ -91,8 +95,8 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Anantason", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.button1.Location = new System.Drawing.Point(526, 297);
+            this.button1.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.button1.Location = new System.Drawing.Point(524, 249);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(171, 36);
             this.button1.TabIndex = 104;
@@ -113,9 +117,9 @@
             // 
             // btAddUser
             // 
-            this.btAddUser.Font = new System.Drawing.Font("Anantason", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btAddUser.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btAddUser.Location = new System.Drawing.Point(182, 453);
-            this.btAddUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btAddUser.Margin = new System.Windows.Forms.Padding(2);
             this.btAddUser.Name = "btAddUser";
             this.btAddUser.Size = new System.Drawing.Size(313, 36);
             this.btAddUser.TabIndex = 102;
@@ -125,11 +129,11 @@
             // 
             // btUserImage
             // 
-            this.btUserImage.Font = new System.Drawing.Font("Anantason", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btUserImage.Location = new System.Drawing.Point(553, 186);
-            this.btUserImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btUserImage.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btUserImage.Location = new System.Drawing.Point(546, 196);
+            this.btUserImage.Margin = new System.Windows.Forms.Padding(2);
             this.btUserImage.Name = "btUserImage";
-            this.btUserImage.Size = new System.Drawing.Size(122, 36);
+            this.btUserImage.Size = new System.Drawing.Size(129, 36);
             this.btUserImage.TabIndex = 100;
             this.btUserImage.Text = "เพิ่มรูปภาพ";
             this.btUserImage.UseVisualStyleBackColor = true;
@@ -137,10 +141,10 @@
             // pictureBox_User
             // 
             this.pictureBox_User.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox_User.Location = new System.Drawing.Point(553, 25);
-            this.pictureBox_User.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox_User.Location = new System.Drawing.Point(546, 25);
+            this.pictureBox_User.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_User.Name = "pictureBox_User";
-            this.pictureBox_User.Size = new System.Drawing.Size(122, 142);
+            this.pictureBox_User.Size = new System.Drawing.Size(129, 157);
             this.pictureBox_User.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_User.TabIndex = 101;
             this.pictureBox_User.TabStop = false;
@@ -148,8 +152,8 @@
             // tbUserAddress
             // 
             this.tbUserAddress.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbUserAddress.Location = new System.Drawing.Point(182, 372);
-            this.tbUserAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserAddress.Location = new System.Drawing.Point(181, 235);
+            this.tbUserAddress.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserAddress.Multiline = true;
             this.tbUserAddress.Name = "tbUserAddress";
             this.tbUserAddress.Size = new System.Drawing.Size(314, 50);
@@ -160,7 +164,7 @@
             this.tbUserBirthday.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUserBirthday.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserBirthday.Location = new System.Drawing.Point(344, 165);
-            this.tbUserBirthday.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserBirthday.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserBirthday.Name = "tbUserBirthday";
             this.tbUserBirthday.Size = new System.Drawing.Size(152, 31);
             this.tbUserBirthday.TabIndex = 98;
@@ -169,7 +173,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label7.Location = new System.Drawing.Point(181, 207);
+            this.label7.Location = new System.Drawing.Point(340, 296);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 24);
@@ -179,8 +183,8 @@
             // tbUserPhone
             // 
             this.tbUserPhone.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbUserPhone.Location = new System.Drawing.Point(361, 302);
-            this.tbUserPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserPhone.Location = new System.Drawing.Point(361, 391);
+            this.tbUserPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserPhone.Name = "tbUserPhone";
             this.tbUserPhone.Size = new System.Drawing.Size(135, 31);
             this.tbUserPhone.TabIndex = 86;
@@ -188,8 +192,8 @@
             // tbUserEmail
             // 
             this.tbUserEmail.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbUserEmail.Location = new System.Drawing.Point(182, 302);
-            this.tbUserEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserEmail.Location = new System.Drawing.Point(182, 391);
+            this.tbUserEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserEmail.Name = "tbUserEmail";
             this.tbUserEmail.Size = new System.Drawing.Size(168, 31);
             this.tbUserEmail.TabIndex = 85;
@@ -198,7 +202,7 @@
             // 
             this.tbUserTitle.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserTitle.Location = new System.Drawing.Point(181, 96);
-            this.tbUserTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserTitle.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserTitle.Name = "tbUserTitle";
             this.tbUserTitle.Size = new System.Drawing.Size(86, 31);
             this.tbUserTitle.TabIndex = 79;
@@ -206,17 +210,17 @@
             // tbUserPosition
             // 
             this.tbUserPosition.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbUserPosition.Location = new System.Drawing.Point(181, 233);
-            this.tbUserPosition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserPosition.Location = new System.Drawing.Point(344, 322);
+            this.tbUserPosition.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserPosition.Name = "tbUserPosition";
-            this.tbUserPosition.Size = new System.Drawing.Size(315, 31);
+            this.tbUserPosition.Size = new System.Drawing.Size(152, 31);
             this.tbUserPosition.TabIndex = 84;
             // 
             // tbUserFristname
             // 
             this.tbUserFristname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserFristname.Location = new System.Drawing.Point(274, 96);
-            this.tbUserFristname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserFristname.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserFristname.Name = "tbUserFristname";
             this.tbUserFristname.Size = new System.Drawing.Size(108, 31);
             this.tbUserFristname.TabIndex = 80;
@@ -225,7 +229,7 @@
             // 
             this.tbUserLastname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserLastname.Location = new System.Drawing.Point(388, 96);
-            this.tbUserLastname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserLastname.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserLastname.Name = "tbUserLastname";
             this.tbUserLastname.Size = new System.Drawing.Size(108, 31);
             this.tbUserLastname.TabIndex = 81;
@@ -234,7 +238,7 @@
             // 
             this.tbUserCard.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tbUserCard.Location = new System.Drawing.Point(181, 165);
-            this.tbUserCard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbUserCard.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserCard.Name = "tbUserCard";
             this.tbUserCard.Size = new System.Drawing.Size(156, 31);
             this.tbUserCard.TabIndex = 82;
@@ -298,7 +302,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(180, 276);
+            this.label8.Location = new System.Drawing.Point(180, 365);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 24);
@@ -309,7 +313,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label12.Location = new System.Drawing.Point(177, 348);
+            this.label12.Location = new System.Drawing.Point(176, 208);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 24);
@@ -320,7 +324,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.Location = new System.Drawing.Point(356, 276);
+            this.label9.Location = new System.Drawing.Point(356, 365);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 24);
@@ -330,6 +334,26 @@
             // openFileDialog_User
             // 
             this.openFileDialog_User.FileName = "openFileDialog1";
+            // 
+            // tbUserOrg
+            // 
+            this.tbUserOrg.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.tbUserOrg.Location = new System.Drawing.Point(181, 322);
+            this.tbUserOrg.Margin = new System.Windows.Forms.Padding(2);
+            this.tbUserOrg.Name = "tbUserOrg";
+            this.tbUserOrg.Size = new System.Drawing.Size(152, 31);
+            this.tbUserOrg.TabIndex = 105;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Location = new System.Drawing.Point(180, 296);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 24);
+            this.label2.TabIndex = 106;
+            this.label2.Text = "หน่วยงาน";
             // 
             // AddUserForm
             // 
@@ -341,7 +365,6 @@
             this.Name = "AddUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUsecrForm";
-           
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_User)).EndInit();
@@ -376,5 +399,7 @@
         private System.Windows.Forms.Button btAddUser;
         private System.Windows.Forms.OpenFileDialog openFileDialog_User;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbUserOrg;
     }
 }

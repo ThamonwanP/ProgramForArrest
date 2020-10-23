@@ -31,7 +31,6 @@ namespace ProgramForArrest
         }
 
         
-
         private void btAddPerson_Click(object sender, EventArgs e)
         {
             try
@@ -170,9 +169,6 @@ namespace ProgramForArrest
             return Image.FromStream(mStream);
         }
 
-        private void AddPersonForm_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

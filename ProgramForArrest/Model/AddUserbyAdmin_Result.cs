@@ -1,4 +1,6 @@
 ﻿
+
+
 public class AddUserbyAddmin_Result
 {
     public string id { get; set; }
@@ -18,6 +20,7 @@ public class AddUserbyAddmin_Result
     public string image_url { get; set; }
     public string role { get; set; }
     public string status { get; set; }
+    public object request { get; set; }
 }
 
 public class AddUserbyAddmin_Result_Birthday
@@ -42,7 +45,7 @@ public class AddUserbyAddmin_Result_Birthday
     public bool javaScriptWithScope { get; set; }
     public bool number { get; set; }
     public bool document { get; set; }
+    public bool boolean { get; set; }
     public bool array { get; set; }
     public bool _null { get; set; }
-    public bool boolean { get; set; }
 }
