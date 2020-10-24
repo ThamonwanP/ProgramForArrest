@@ -181,6 +181,7 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1564,6 +1565,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.progressBar1);
             this.tabPage5.Controls.Add(this.btProof);
             this.tabPage5.Controls.Add(this.btScan);
             this.tabPage5.Controls.Add(this.label46);
@@ -1592,7 +1594,7 @@
             // 
             // btProof
             // 
-            this.btProof.Location = new System.Drawing.Point(666, 434);
+            this.btProof.Location = new System.Drawing.Point(701, 434);
             this.btProof.Margin = new System.Windows.Forms.Padding(2);
             this.btProof.Name = "btProof";
             this.btProof.Size = new System.Drawing.Size(160, 33);
@@ -1605,7 +1607,7 @@
             // btScan
             // 
             this.btScan.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btScan.Location = new System.Drawing.Point(250, 486);
+            this.btScan.Location = new System.Drawing.Point(260, 486);
             this.btScan.Margin = new System.Windows.Forms.Padding(2);
             this.btScan.Name = "btScan";
             this.btScan.Size = new System.Drawing.Size(259, 37);
@@ -1672,11 +1674,11 @@
             this.groupBox9.Controls.Add(this.radioFigLeft);
             this.groupBox9.Controls.Add(this.radioFigRight);
             this.groupBox9.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.groupBox9.Location = new System.Drawing.Point(666, 268);
+            this.groupBox9.Location = new System.Drawing.Point(701, 258);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox9.Size = new System.Drawing.Size(160, 117);
+            this.groupBox9.Size = new System.Drawing.Size(160, 91);
             this.groupBox9.TabIndex = 123;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "รายละเอียดลายนิ้วมือ";
@@ -1684,7 +1686,7 @@
             // radioFigLeft
             // 
             this.radioFigLeft.AutoSize = true;
-            this.radioFigLeft.Location = new System.Drawing.Point(37, 33);
+            this.radioFigLeft.Location = new System.Drawing.Point(37, 24);
             this.radioFigLeft.Margin = new System.Windows.Forms.Padding(2);
             this.radioFigLeft.Name = "radioFigLeft";
             this.radioFigLeft.Size = new System.Drawing.Size(71, 28);
@@ -1696,7 +1698,7 @@
             // radioFigRight
             // 
             this.radioFigRight.AutoSize = true;
-            this.radioFigRight.Location = new System.Drawing.Point(37, 63);
+            this.radioFigRight.Location = new System.Drawing.Point(37, 54);
             this.radioFigRight.Margin = new System.Windows.Forms.Padding(2);
             this.radioFigRight.Name = "radioFigRight";
             this.radioFigRight.Size = new System.Drawing.Size(71, 28);
@@ -1708,7 +1710,7 @@
             // pictureBox_Finger
             // 
             this.pictureBox_Finger.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox_Finger.Location = new System.Drawing.Point(666, 64);
+            this.pictureBox_Finger.Location = new System.Drawing.Point(701, 64);
             this.pictureBox_Finger.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Finger.Name = "pictureBox_Finger";
             this.pictureBox_Finger.Size = new System.Drawing.Size(160, 178);
@@ -1820,6 +1822,14 @@
             this.label45.Size = new System.Drawing.Size(95, 29);
             this.label45.TabIndex = 119;
             this.label45.Text = "กลุ่มผู้ต้องหา";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(701, 374);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(160, 23);
+            this.progressBar1.TabIndex = 127;
+            this.progressBar1.Visible = false;
             // 
             // HomeForm
             // 
@@ -2016,5 +2026,6 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Button btProof;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

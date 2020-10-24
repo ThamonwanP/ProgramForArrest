@@ -654,6 +654,12 @@ namespace ProgramForArrest
 
             try
             {
+                String dateTH = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
+                String[] words = dateTH.Split('-');
+                String date1 = int.Parse(words[0]) - 543 + "-" + words[1] + "-" + words[2];
+                //MessageBox.Show(date1);
+
+
                 if (MessageBox.Show("ยืนยันการแก้ไขข้อมูลบุคคล", "Message", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     UpdatePersons input = new UpdatePersons();
@@ -668,7 +674,7 @@ namespace ProgramForArrest
                     input.firstname = tbPersonFirstName.Text;
                     input.lastname = tbPersonLastName.Text;
                     input.card = tbPersonCard.Text;
-                    input.date = tbPersonBirthday.Value.ToString("yyyy-MM-dd");
+                    input.date = date1;
                     input.phone = tbPersonPhone.Text;
                     input.address = tbPersonAddress.Text;
                     input.group = tbPersonGroup.Text;
@@ -1218,6 +1224,7 @@ namespace ProgramForArrest
 
         private void btScan_Click(object sender, EventArgs e)
         {
+            progressBar1.Value = 0;
             try
             {
 
@@ -1246,14 +1253,19 @@ namespace ProgramForArrest
                             int bufferPos = 0;
 
                             Marshal.Copy(dataBuffer, colorBuffer, 0, (int)(dataBufferSize - 1));
-
+                            int count = 0;
                             // Paint bitmap buffer with received data buffer content.
                             for (int yPos = 0; yPos < ImageHeight; yPos++)
                             {
                                 for (int xPos = 0; xPos < ImageWidth; xPos++)
                                 {
+                                    count++;
                                     outputImage.SetPixel(xPos, yPos, Color.FromArgb(colorBuffer[bufferPos], colorBuffer[bufferPos], colorBuffer[bufferPos]));
                                     bufferPos++;
+                                    if(count % 737 == 0)
+                                    {
+                                        progressBar1.Value += 1;
+                                    }
                                 }
                             }
 
@@ -1281,7 +1293,9 @@ namespace ProgramForArrest
                                     string jsonStr = serializer.Serialize(input);
                                     request.AddJsonBody(jsonStr);
                                     var fingerprint = client.Execute<List<MatchingFinger_ResultData>>(request, Method.POST);
-                                    
+                                    progressBar1.Visible = true;
+
+
 
                                     if (fingerprint.Data.Count > i)
                                     {
@@ -1315,9 +1329,10 @@ namespace ProgramForArrest
                                                 i++;
                                                 
                                             }
-                                        
+                                        progressBar1.Visible = false;
 
-                                    }
+
+                                        }
                                     
                                         else if (radioFigRight.Checked) 
                                         {
@@ -1346,7 +1361,9 @@ namespace ProgramForArrest
                                                 listView_Matching.Items.Add(new ListViewItem(fings));
                                                 i++;
                                             }
-                                    }
+
+                                            progressBar1.Visible = false;
+                                        }
                                     
                                         else
                                         {
@@ -1358,6 +1375,7 @@ namespace ProgramForArrest
                                     else 
                                     {
                                         MessageBox.Show("ไม่พบข้อมูล");
+                                        progressBar1.Visible = false;
                                     }
                             }
                             catch { }

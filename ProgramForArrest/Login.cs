@@ -42,28 +42,46 @@ namespace ProgramForArrest
                 string jsonStr = serializer.Serialize(input);
                 request.AddJsonBody(jsonStr);
                 var userData =  client.Execute<List<LoginResult_Userinfo>>(request, Method.POST);
-            
 
-                if (userData.Data != null)
+                RestClient GetClient1 = new RestClient("http://202.28.34.197:8800");
+                RestRequest GetRequest1 = new RestRequest("/ArrestSystem/search/user/card/" + tbCard.Text);
+                var getstatus = GetClient1.Execute<GetUserbyCard>(GetRequest1, Method.GET);
+                if (getstatus.Data != null)
                 {
-                    try
+                    if (getstatus.Data.status.Equals("ใช้งาน"))
                     {
-                        RestClient GetClient = new RestClient("http://202.28.34.197:8800");
-                        RestRequest GetRequest = new RestRequest("/fingerprintSystem/search/user/" + userData.Data[0].organization);
-                        var getOrg = GetClient.Execute<List<searchOrganizationData>>(GetRequest, Method.GET);
 
-                        HomeForm home = new HomeForm(input.card, input.password, getOrg.Data[0].id, userData.Data[0].role, userData.Data[0].organization);
-                    
-                        home.Visible = true;
-                        Visible = false;
+                        if (userData.Data != null)
+                        {
+                            try
+                            {
+                                RestClient GetClient = new RestClient("http://202.28.34.197:8800");
+                                RestRequest GetRequest = new RestRequest("/fingerprintSystem/search/user/" + userData.Data[0].organization);
+                                var getOrg = GetClient.Execute<List<searchOrganizationData>>(GetRequest, Method.GET);
+
+                                HomeForm home = new HomeForm(input.card, input.password, getOrg.Data[0].id, userData.Data[0].role, userData.Data[0].organization);
+                                home.Visible = true;
+                                Visible = false;
+                                //1429900356751
+                            }
+                            catch { }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("ไม่ถูกต้อง! กรุณาตรวจสอบใหม่อีกครั้ง");
+                        }
                     }
-                    catch { }
-                    
+                    else
+                    {
+                        MessageBox.Show("ไม่สามารถเข้าสู่ระบบได้ เนื่องจากข้อมูลเลิกจากถูกการใช้งาน");
+                    }
                 }
                 else
                 {
                     MessageBox.Show("ไม่ถูกต้อง! กรุณาตรวจสอบใหม่อีกครั้ง");
                 }
+                
             }
             else
             {
