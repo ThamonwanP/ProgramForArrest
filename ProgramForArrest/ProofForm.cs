@@ -73,6 +73,7 @@ namespace ProgramForArrest
                                 {
                                         time,
                                         getEvent.Data[i].casestr,
+                                        getEvent.Data[i].other,
                                         pictureBox1.ImageLocation = getEvent.Data[i].image
                                  };
                                 listView_Events.Items.Add(new ListViewItem(Persons));
@@ -95,6 +96,29 @@ namespace ProgramForArrest
             return dtDateTime;
         }
 
+        private void listView_Events_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string selectCard = listView_Events.SelectedItems[0].SubItems[0].Text;
 
+                RestClient Getclient = new RestClient("http://202.28.34.197:8800");
+                RestRequest request = new RestRequest("/ArrestSystem/person/event/" + tbPersonCard.Text);
+                var getEvent = Getclient.Execute<List<GetEventData>>(request, Method.GET);
+
+                //Console.WriteLine(tbUserCard.Text);
+                if (listView_Events.SelectedItems[0].SubItems[0].Text != null)
+                {
+
+                    var pic = Convert.FromBase64String(getEvent.Data[0].image);
+                    using (MemoryStream ms = new MemoryStream(pic))
+                    {
+                        pictureBox_Person.Image = Image.FromStream(ms);
+                    }
+                }
+
+            }
+            catch { }
+        }
     }
 }

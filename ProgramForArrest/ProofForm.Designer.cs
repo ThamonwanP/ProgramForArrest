@@ -46,6 +46,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Person)).BeginInit();
@@ -55,7 +56,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Anantason", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.Location = new System.Drawing.Point(300, 10);
+            this.label1.Location = new System.Drawing.Point(260, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(107, 48);
@@ -64,8 +65,9 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.listView_Events);
@@ -89,7 +91,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(534, 232);
+            this.label2.Location = new System.Drawing.Point(534, 242);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 24);
@@ -99,10 +101,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox1.Location = new System.Drawing.Point(443, 266);
+            this.pictureBox1.Location = new System.Drawing.Point(457, 276);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(257, 257);
+            this.pictureBox1.Size = new System.Drawing.Size(243, 257);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 111;
             this.pictureBox1.TabStop = false;
@@ -111,33 +113,35 @@
             // 
             this.listView_Events.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
+            this.columnHeader1,
             this.columnHeader6});
             this.listView_Events.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.listView_Events.GridLines = true;
             this.listView_Events.HideSelection = false;
-            this.listView_Events.Location = new System.Drawing.Point(34, 207);
+            this.listView_Events.Location = new System.Drawing.Point(34, 217);
             this.listView_Events.Margin = new System.Windows.Forms.Padding(2);
             this.listView_Events.Name = "listView_Events";
-            this.listView_Events.Size = new System.Drawing.Size(396, 316);
+            this.listView_Events.Size = new System.Drawing.Size(407, 316);
             this.listView_Events.TabIndex = 110;
             this.listView_Events.UseCompatibleStateImageBehavior = false;
             this.listView_Events.View = System.Windows.Forms.View.Details;
+            this.listView_Events.SelectedIndexChanged += new System.EventHandler(this.listView_Events_SelectedIndexChanged);
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "วันที่";
-            this.columnHeader5.Width = 100;
+            this.columnHeader5.Width = 80;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "รายละเอียด";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 290;
+            this.columnHeader6.Width = 230;
             // 
             // pictureBox_Person
             // 
             this.pictureBox_Person.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox_Person.Location = new System.Drawing.Point(538, 29);
+            this.pictureBox_Person.Location = new System.Drawing.Point(538, 39);
             this.pictureBox_Person.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Person.Name = "pictureBox_Person";
             this.pictureBox_Person.Size = new System.Drawing.Size(156, 163);
@@ -148,7 +152,7 @@
             // tbPersonGroup
             // 
             this.tbPersonGroup.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbPersonGroup.Location = new System.Drawing.Point(38, 145);
+            this.tbPersonGroup.Location = new System.Drawing.Point(38, 155);
             this.tbPersonGroup.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonGroup.Name = "tbPersonGroup";
             this.tbPersonGroup.ReadOnly = true;
@@ -158,7 +162,7 @@
             // tbUserLastname
             // 
             this.tbUserLastname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbUserLastname.Location = new System.Drawing.Point(358, 74);
+            this.tbUserLastname.Location = new System.Drawing.Point(358, 84);
             this.tbUserLastname.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserLastname.Name = "tbUserLastname";
             this.tbUserLastname.ReadOnly = true;
@@ -168,7 +172,7 @@
             // tbPersonPhone
             // 
             this.tbPersonPhone.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbPersonPhone.Location = new System.Drawing.Point(267, 145);
+            this.tbPersonPhone.Location = new System.Drawing.Point(267, 155);
             this.tbPersonPhone.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonPhone.Name = "tbPersonPhone";
             this.tbPersonPhone.ReadOnly = true;
@@ -178,7 +182,7 @@
             // tbPersonFirstname
             // 
             this.tbPersonFirstname.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbPersonFirstname.Location = new System.Drawing.Point(199, 74);
+            this.tbPersonFirstname.Location = new System.Drawing.Point(199, 84);
             this.tbPersonFirstname.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonFirstname.Name = "tbPersonFirstname";
             this.tbPersonFirstname.ReadOnly = true;
@@ -188,7 +192,7 @@
             // tbPersonCard
             // 
             this.tbPersonCard.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbPersonCard.Location = new System.Drawing.Point(38, 74);
+            this.tbPersonCard.Location = new System.Drawing.Point(38, 84);
             this.tbPersonCard.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonCard.Name = "tbPersonCard";
             this.tbPersonCard.ReadOnly = true;
@@ -199,7 +203,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label17.Location = new System.Drawing.Point(196, 52);
+            this.label17.Location = new System.Drawing.Point(196, 62);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(25, 24);
@@ -210,7 +214,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label15.Location = new System.Drawing.Point(33, 49);
+            this.label15.Location = new System.Drawing.Point(33, 59);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(122, 24);
@@ -221,7 +225,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label16.Location = new System.Drawing.Point(353, 49);
+            this.label16.Location = new System.Drawing.Point(353, 59);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(54, 24);
@@ -232,7 +236,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label9.Location = new System.Drawing.Point(264, 122);
+            this.label9.Location = new System.Drawing.Point(264, 132);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 24);
@@ -243,20 +247,25 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label7.Location = new System.Drawing.Point(33, 120);
+            this.label7.Location = new System.Drawing.Point(33, 130);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 24);
             this.label7.TabIndex = 94;
             this.label7.Text = "กลุ่มผู้ต้องหา";
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ชื่อเรื่อง";
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader1.Width = 130;
+            // 
             // ProofForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(72)))), ((int)(((byte)(125)))));
             this.ClientSize = new System.Drawing.Size(778, 626);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "ProofForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -267,7 +276,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Person)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -290,5 +298,6 @@
         private System.Windows.Forms.ListView listView_Events;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
