@@ -11,4 +11,5 @@ public class AddPersons
     public string address { get; set; }
     public string image_url { get; set; }
     public string group { get; set; }
+    public string org { get; set; }
 }

@@ -21,13 +21,15 @@ namespace ProgramForArrest
         string card;
         string base64String;
         int updateAddPerson;
+        string organization;
         HomeForm home;
-        public AddPersonForm(string card, HomeForm home)
+        public AddPersonForm(string card, HomeForm home, string organization)
         {
             
             InitializeComponent();
             this.home = home;
             this.card = card;
+            this.organization = organization;
         }
 
         
@@ -49,7 +51,7 @@ namespace ProgramForArrest
                         AddPersons input = new AddPersons();
                         RestClient client = new RestClient("http://202.28.34.197:8800");
                         RestRequest request = new RestRequest("/ArrestSystem/persons");
-
+                        input.org = this.organization;
                         input.admincard = this.card;
                         input.title = tbPersonTitle.Text;
                         input.firstname = tbPersonFirstname.Text;

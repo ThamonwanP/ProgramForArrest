@@ -1,4 +1,6 @@
 ﻿
+
+
 public class GetAllPerson
 {
     public GetAllPerson_data[] Property1 { get; set; }
@@ -13,24 +15,24 @@ public class GetAllPerson_data
     public string firstname { get; set; }
     public string lastname { get; set; }
     public object date { get; set; }
-    public GetAllPerson_Birthday birthday { get; set; }
+    public GetAllPerson_data_Birthday birthday { get; set; }
     public string phone { get; set; }
     public string address { get; set; }
     public string image_url { get; set; }
     public string group { get; set; }
-    public string fid { get; set; }
-    public object notes { get; set; }
+    public object fleft { get; set; }
+    public object fright { get; set; }
+    public string org { get; set; }
 }
 
-public class GetAllPerson_Birthday
+public class GetAllPerson_data_Birthday
 {
     public long value { get; set; }
-    public int inc { get; set; }
     public string bsonType { get; set; }
+    public int inc { get; set; }
     public int time { get; set; }
     public bool _double { get; set; }
     public bool binary { get; set; }
-    public bool number { get; set; }
     public bool _string { get; set; }
     public bool int32 { get; set; }
     public bool int64 { get; set; }
@@ -43,6 +45,7 @@ public class GetAllPerson_Birthday
     public bool regularExpression { get; set; }
     public bool javaScript { get; set; }
     public bool javaScriptWithScope { get; set; }
+    public bool number { get; set; }
     public bool document { get; set; }
     public bool boolean { get; set; }
     public bool array { get; set; }

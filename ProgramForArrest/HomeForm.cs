@@ -301,9 +301,9 @@ namespace ProgramForArrest
         public void getPersons()
         {
             RestClient client = new RestClient("http://202.28.34.197:8800");
-            RestRequest request = new RestRequest("/ArrestSystem/persons");
+            RestRequest request = new RestRequest("/ArrestSystem/persons/org/" + this.organization);
             var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
-
+            
             int i = 0;
 
             while (i <= getPerson.Data.Count)
@@ -325,7 +325,7 @@ namespace ProgramForArrest
         {
             listView1.Items.Clear();
             RestClient client = new RestClient("http://202.28.34.197:8800");
-            RestRequest request = new RestRequest("/ArrestSystem/persons");
+            RestRequest request = new RestRequest("/ArrestSystem/persons/org/"+this.organization);
             var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
 
             int i = 0;
@@ -629,7 +629,7 @@ namespace ProgramForArrest
 
             listView_Persons.Items.Clear();
             RestClient client = new RestClient("http://202.28.34.197:8800");
-            RestRequest request = new RestRequest("/ArrestSystem/persons");
+            RestRequest request = new RestRequest("/ArrestSystem/persons/org/"+this.organization);
             var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
 
             int i = 0;
@@ -716,7 +716,7 @@ namespace ProgramForArrest
 
         private void btAddPerson_Click(object sender, EventArgs e)
         {
-            AddPersonForm AddPersonForm = new AddPersonForm(this.card, this);
+            AddPersonForm AddPersonForm = new AddPersonForm(this.card, this, this.organization);
             AddPersonForm.Visible = true;
         }
 
@@ -1444,6 +1444,7 @@ namespace ProgramForArrest
         {
 
         }
+
 
     }
  }

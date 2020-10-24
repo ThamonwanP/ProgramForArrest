@@ -158,6 +158,7 @@
             this.label37 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btProof = new System.Windows.Forms.Button();
             this.btScan = new System.Windows.Forms.Button();
             this.label46 = new System.Windows.Forms.Label();
@@ -181,7 +182,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -408,6 +408,7 @@
             // 
             // btPersonImage
             // 
+            this.btPersonImage.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btPersonImage.Location = new System.Drawing.Point(667, 265);
             this.btPersonImage.Margin = new System.Windows.Forms.Padding(2);
             this.btPersonImage.Name = "btPersonImage";
@@ -551,6 +552,7 @@
             // 
             // btAddFingerPrint
             // 
+            this.btAddFingerPrint.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btAddFingerPrint.Location = new System.Drawing.Point(23, 158);
             this.btAddFingerPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btAddFingerPrint.Name = "btAddFingerPrint";
@@ -562,6 +564,7 @@
             // 
             // btUpdatePersons
             // 
+            this.btUpdatePersons.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btUpdatePersons.Location = new System.Drawing.Point(23, 107);
             this.btUpdatePersons.Margin = new System.Windows.Forms.Padding(2);
             this.btUpdatePersons.Name = "btUpdatePersons";
@@ -573,6 +576,7 @@
             // 
             // btAddPerson
             // 
+            this.btAddPerson.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btAddPerson.Location = new System.Drawing.Point(23, 54);
             this.btAddPerson.Margin = new System.Windows.Forms.Padding(2);
             this.btAddPerson.Name = "btAddPerson";
@@ -742,11 +746,11 @@
             // 
             // btUserImage
             // 
-            this.btUserImage.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btUserImage.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btUserImage.Location = new System.Drawing.Point(14, 255);
             this.btUserImage.Margin = new System.Windows.Forms.Padding(2);
             this.btUserImage.Name = "btUserImage";
-            this.btUserImage.Size = new System.Drawing.Size(154, 33);
+            this.btUserImage.Size = new System.Drawing.Size(154, 38);
             this.btUserImage.TabIndex = 81;
             this.btUserImage.Text = "เพิ่มรูปภาพ";
             this.btUserImage.UseVisualStyleBackColor = true;
@@ -1497,6 +1501,7 @@
             this.listView1.TabIndex = 21;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+           
             // 
             // columnID
             // 
@@ -1592,12 +1597,21 @@
             this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(701, 374);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(160, 23);
+            this.progressBar1.TabIndex = 127;
+            this.progressBar1.Visible = false;
+            // 
             // btProof
             // 
-            this.btProof.Location = new System.Drawing.Point(701, 434);
+            this.btProof.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btProof.Location = new System.Drawing.Point(253, 491);
             this.btProof.Margin = new System.Windows.Forms.Padding(2);
             this.btProof.Name = "btProof";
-            this.btProof.Size = new System.Drawing.Size(160, 33);
+            this.btProof.Size = new System.Drawing.Size(258, 32);
             this.btProof.TabIndex = 126;
             this.btProof.Text = "หลักฐาน";
             this.btProof.UseVisualStyleBackColor = true;
@@ -1607,10 +1621,10 @@
             // btScan
             // 
             this.btScan.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btScan.Location = new System.Drawing.Point(260, 486);
+            this.btScan.Location = new System.Drawing.Point(701, 434);
             this.btScan.Margin = new System.Windows.Forms.Padding(2);
             this.btScan.Name = "btScan";
-            this.btScan.Size = new System.Drawing.Size(259, 37);
+            this.btScan.Size = new System.Drawing.Size(160, 37);
             this.btScan.TabIndex = 26;
             this.btScan.Text = "สแกนลายนิ้วมือ";
             this.btScan.UseVisualStyleBackColor = true;
@@ -1822,14 +1836,6 @@
             this.label45.Size = new System.Drawing.Size(95, 29);
             this.label45.TabIndex = 119;
             this.label45.Text = "กลุ่มผู้ต้องหา";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(701, 374);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(160, 23);
-            this.progressBar1.TabIndex = 127;
-            this.progressBar1.Visible = false;
             // 
             // HomeForm
             // 
