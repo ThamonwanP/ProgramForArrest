@@ -354,8 +354,6 @@ namespace ProgramForArrest
                 RestRequest request = new RestRequest("/ArrestSystem/search/user/card/" + this.card);
                 var info = client.Execute<GetUserbyCard>(request, Method.GET);
 
-
-
                 tbTitle.Text = info.Data.title;
                 tbFirstname.Text = info.Data.firstname;
                 tbLastname.Text = info.Data.lastname;

@@ -16,6 +16,7 @@ namespace ProgramForArrest
     {
         string card;
         string imagesStr;
+        string perId;
         public ProofForm(string tbMCard)
         {
             InitializeComponent();
@@ -60,20 +61,22 @@ namespace ProgramForArrest
                             
                             RestRequest request = new RestRequest("/ArrestSystem/person/event/" + getPersons.Data[0].id);
                             var getEvent = Getclient.Execute<List<GetEventData>>(request, Method.GET);
-
+                            perId = getPersons.Data[0].id;
                             //string selectCard = listView_Events.SelectedItems[0].SubItems[0].Text;
                             int i = 0;
 
                             while (getEvent.Data.Count > i)
                             {
                                 DateTime bdate = UnixTimeStampToDateTime(getEvent.Data[i].date.value);
-                                string time = bdate.ToString("yyyy-MM-dd");
+                                string time = bdate.ToString("dd MMMM yyyy");
 
                                 string[] Persons = new string[]
                                 {
+                                        //(i+1).ToString(),
+                                        getEvent.Data[i].id,
                                         time,
                                         getEvent.Data[i].casestr,
-                                        getEvent.Data[i].other,
+                                        getEvent.Data[i].detail.ToString(),
                                         pictureBox1.ImageLocation = getEvent.Data[i].image
                                  };
                                 listView_Events.Items.Add(new ListViewItem(Persons));
@@ -100,23 +103,29 @@ namespace ProgramForArrest
         {
             try
             {
+                int i = 0;
                 string selectCard = listView_Events.SelectedItems[0].SubItems[0].Text;
-
                 RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                RestRequest request = new RestRequest("/ArrestSystem/person/event/" + tbPersonCard.Text);
-                var getEvent = Getclient.Execute<List<GetEventData>>(request, Method.GET);
-
+                RestRequest request = new RestRequest("/ArrestSystem/event/" + selectCard);
+                var getEvent = Getclient.Execute<List<GetEventbyID_Data>>(request, Method.GET);
+                
+                
                 //Console.WriteLine(tbUserCard.Text);
-                if (listView_Events.SelectedItems[0].SubItems[0].Text != null)
+                
+                if (getEvent.Data != null)
                 {
-
-                    var pic = Convert.FromBase64String(getEvent.Data[0].image);
-                    using (MemoryStream ms = new MemoryStream(pic))
+                    while (i <= getEvent.Data.Count)
                     {
-                        pictureBox_Person.Image = Image.FromStream(ms);
-                    }
-                }
+                        if (listView_Events.SelectedItems[0].SubItems[0].Text != null)
+                        {
 
+                            pictureBox1.ImageLocation = getEvent.Data[i].image;
+
+                        }
+                        i++;
+                    }
+
+                }
             }
             catch { }
         }

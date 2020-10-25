@@ -1,28 +1,30 @@
 ﻿
-public class GetEvent
+
+public class GetEventbyID
 {
-    public GetEventData[] Property1 { get; set; }
+    public GetEventbyID_Data[] Property1 { get; set; }
 }
 
-public class GetEventData
+public class GetEventbyID_Data
 {
     public string id { get; set; }
-    public Date date { get; set; }
+    public GetEventbyID_Data_Date date { get; set; }
     public string recorder { get; set; }
     public string personid { get; set; }
     public string casestr { get; set; }
-    public object detail { get; set; }
+    public string detail { get; set; }
     public string image { get; set; }
 }
 
-public class Date
+public class GetEventbyID_Data_Date
 {
     public int value { get; set; }
-    public string bsonType { get; set; }
     public int inc { get; set; }
+    public string bsonType { get; set; }
     public int time { get; set; }
     public bool _double { get; set; }
     public bool binary { get; set; }
+    public bool number { get; set; }
     public bool _string { get; set; }
     public bool int32 { get; set; }
     public bool int64 { get; set; }
@@ -35,11 +37,9 @@ public class Date
     public bool regularExpression { get; set; }
     public bool javaScript { get; set; }
     public bool javaScriptWithScope { get; set; }
-    public bool number { get; set; }
     public bool document { get; set; }
     public bool boolean { get; set; }
     public bool array { get; set; }
     public bool _null { get; set; }
 }
 
-  

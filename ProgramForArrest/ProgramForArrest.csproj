@@ -106,6 +106,7 @@
     </Compile>
     <Compile Include="Model\GetCaseGroup.cs" />
     <Compile Include="Model\GetEvent.cs" />
+    <Compile Include="Model\GetEventbyID.cs" />
     <Compile Include="Model\GetUserbyCard.cs" />
     <Compile Include="Model\LoginResult.cs" />
     <Compile Include="Model\MatchingFinger.cs" />
