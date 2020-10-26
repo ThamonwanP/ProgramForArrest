@@ -437,6 +437,7 @@
             this.columnHeader7,
             this.columnHeader8});
             this.listView_Persons.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView_Persons.FullRowSelect = true;
             this.listView_Persons.GridLines = true;
             this.listView_Persons.HideSelection = false;
             this.listView_Persons.Location = new System.Drawing.Point(152, 336);
@@ -776,6 +777,7 @@
             this.columnHeader2,
             this.columnHeader3});
             this.listView_Users.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView_Users.FullRowSelect = true;
             this.listView_Users.GridLines = true;
             this.listView_Users.HideSelection = false;
             this.listView_Users.Location = new System.Drawing.Point(517, 178);
@@ -922,18 +924,18 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(757, 79);
+            this.groupBox3.Size = new System.Drawing.Size(757, 86);
             this.groupBox3.TabIndex = 55;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "จัดการข้อมูลผู้ใช้ระบบ";
             // 
             // btUpdateUser
             // 
-            this.btUpdateUser.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btUpdateUser.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btUpdateUser.Location = new System.Drawing.Point(369, 34);
             this.btUpdateUser.Margin = new System.Windows.Forms.Padding(2);
             this.btUpdateUser.Name = "btUpdateUser";
-            this.btUpdateUser.Size = new System.Drawing.Size(144, 30);
+            this.btUpdateUser.Size = new System.Drawing.Size(144, 37);
             this.btUpdateUser.TabIndex = 1;
             this.btUpdateUser.Text = "แก้ไขข้อมูล";
             this.btUpdateUser.UseVisualStyleBackColor = true;
@@ -941,11 +943,11 @@
             // 
             // btAddUser
             // 
-            this.btAddUser.Font = new System.Drawing.Font("Anantason", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btAddUser.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btAddUser.Location = new System.Drawing.Point(189, 34);
             this.btAddUser.Margin = new System.Windows.Forms.Padding(2);
             this.btAddUser.Name = "btAddUser";
-            this.btAddUser.Size = new System.Drawing.Size(144, 30);
+            this.btAddUser.Size = new System.Drawing.Size(144, 37);
             this.btAddUser.TabIndex = 0;
             this.btAddUser.Text = "เพิ่มข้อมูล";
             this.btAddUser.UseVisualStyleBackColor = true;
@@ -1438,6 +1440,7 @@
             this.columnPosion,
             this.columnPhone});
             this.listView2.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView2.FullRowSelect = true;
             this.listView2.GridLines = true;
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(113, 101);
@@ -1492,6 +1495,7 @@
             this.columnGroup,
             this.columnAddrss});
             this.listView1.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(113, 335);
@@ -1501,7 +1505,6 @@
             this.listView1.TabIndex = 21;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-           
             // 
             // columnID
             // 
@@ -1595,7 +1598,6 @@
             this.tabPage5.TabIndex = 6;
             this.tabPage5.Text = "ค้นหาลายนิ้วมือ";
             this.tabPage5.UseVisualStyleBackColor = true;
-            this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
             // progressBar1
             // 
@@ -1611,7 +1613,7 @@
             this.btProof.Location = new System.Drawing.Point(253, 491);
             this.btProof.Margin = new System.Windows.Forms.Padding(2);
             this.btProof.Name = "btProof";
-            this.btProof.Size = new System.Drawing.Size(258, 32);
+            this.btProof.Size = new System.Drawing.Size(258, 33);
             this.btProof.TabIndex = 126;
             this.btProof.Text = "หลักฐาน";
             this.btProof.UseVisualStyleBackColor = true;
@@ -1649,6 +1651,7 @@
             this.columnHeader12,
             this.columnHeader13});
             this.listView_Matching.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView_Matching.FullRowSelect = true;
             this.listView_Matching.GridLines = true;
             this.listView_Matching.HideSelection = false;
             this.listView_Matching.Location = new System.Drawing.Point(155, 242);

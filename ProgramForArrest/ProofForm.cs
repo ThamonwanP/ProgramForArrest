@@ -61,7 +61,7 @@ namespace ProgramForArrest
                             
                             RestRequest request = new RestRequest("/ArrestSystem/person/event/" + getPersons.Data[0].id);
                             var getEvent = Getclient.Execute<List<GetEventData>>(request, Method.GET);
-                            perId = getPersons.Data[0].id;
+                            
                             //string selectCard = listView_Events.SelectedItems[0].SubItems[0].Text;
                             int i = 0;
 

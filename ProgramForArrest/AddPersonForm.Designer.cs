@@ -116,7 +116,7 @@
             // 
             // btAddPerson
             // 
-            this.btAddPerson.Font = new System.Drawing.Font("Anantason", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btAddPerson.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btAddPerson.Location = new System.Drawing.Point(149, 421);
             this.btAddPerson.Margin = new System.Windows.Forms.Padding(2);
             this.btAddPerson.Name = "btAddPerson";

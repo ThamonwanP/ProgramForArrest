@@ -90,14 +90,17 @@ namespace ProgramForArrest
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+
+                MessageBox.Show("กรุณาวางนิ้วมือก่อนสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
             readCard();
 
         }
         public void readCard()
         {
             ThaiIDCard idcard = new ThaiIDCard();
-            Personal personal = idcard.readAll();
-            Personal personal1 = idcard.readAllPhoto();
+            Personal personal = idcard.readAllPhoto();
 
             if (personal != null)
             {
@@ -108,10 +111,10 @@ namespace ProgramForArrest
                 tbPersonCard.Text = personal.Citizenid;
                 tbPersonBirthday.Text = personal.Birthday.ToString("yyyy-MM-dd");
                 tbPersonAddress.Text = personal.Address;
-                pictureBox_Person.Image = ByteToImage1(personal1.PhotoRaw);
+                pictureBox_Person.Image = ByteToImage1(personal.PhotoRaw);
 
                 // Convert byte[] to Base64 String
-                base64String = Convert.ToBase64String(personal1.PhotoRaw);
+                base64String = Convert.ToBase64String(personal.PhotoRaw);
 
                 // Write the bytes (as a Base64 string) to the textbox
                 //Console.WriteLine(base64String);

@@ -619,6 +619,7 @@ namespace ProgramForArrest
 
         private void btAddUser_Click(object sender, EventArgs e)
         {
+
             AddUserForm addUserForm = new AddUserForm(this,this.card, this.organization);
             addUserForm.Visible = true;
         }
@@ -1233,7 +1234,7 @@ namespace ProgramForArrest
                 if (captureStatus != Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
                 {
 
-                    //MessageBox.Show(ZfmStatusToString(captureStatus), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("กรุณาวางนิ้วมือก่อนสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -1309,7 +1310,7 @@ namespace ProgramForArrest
                                             FidLeftRequest.AddJsonBody(jsonStrFL);
                                             var FidLeftfingerprint = client.Execute<List<SearchbyFidLeft_ResultData>>(FidLeftRequest, Method.POST);
                                             
-                                            MessageBox.Show(FidLeftfingerprint.Data[0].firstname);
+                                            //MessageBox.Show(FidLeftfingerprint.Data[0].firstname);
                                             btProof.Visible = true;
 
                                         while (i <= FidLeftfingerprint.Data.Count)
@@ -1436,13 +1437,6 @@ namespace ProgramForArrest
 
             
         }
-
-
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
     }
  }
