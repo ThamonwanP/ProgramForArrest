@@ -80,7 +80,7 @@
             this.tbCard.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
-            this.tbCard.Location = new System.Drawing.Point(115, 299);
+            this.tbCard.Location = new System.Drawing.Point(110, 299);
             this.tbCard.Name = "tbCard";
             this.tbCard.Size = new System.Drawing.Size(194, 25);
             this.tbCard.TabIndex = 3;

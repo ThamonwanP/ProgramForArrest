@@ -160,24 +160,33 @@ namespace ProgramForArrest
 
                             // Flush data buffer and show bitmap on UI.
                             _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
-                            pictureBox_Finger.Image = outputImage;
-                            /*pictureBox1.Image = outputImage;
-                            byte[] bb = Relm.Converters.Converter.ToByteArray(pictureBox1.Image);
-                            string hh = Convert.ToBase64String(bb);*/
+                            //pictureBox_Finger.Image = outputImage;
+                            
+                            
+                            
+                           
+                            /*byte[] bb = Relm.Converters.Converter.ToByteArray(pictureBox1.Image);
+                            pictureBox1.Image = bb;
+                            string hh = Convert.ToBase64String(bb); */
+                            
                             //Console.WriteLine("Original = " + hh);
 
 
-                            /* Bitmap bmp = new Bitmap(pictureBox_Finger.Image);
-                             bmp.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                             pictureBox_Finger.Image = bmp;*/
+                             Bitmap bmp = new Bitmap(outputImage);
+                             bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+                             pictureBox_Finger.Image = bmp;
+
+                            byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
+                            base64String = Convert.ToBase64String(gg);
+
 
 
 
                             //SaveJpeg(pictureBox_Finger.Image, @"d:\images.bmp", 100);
                             //Console.WriteLine(pictureBox_Finger.ToString());
-                            byte[] gg=Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
-                            base64String = Convert.ToBase64String(gg);
-                            
+
+
                             //Console.WriteLine("Flip = "+base64String);
 
 

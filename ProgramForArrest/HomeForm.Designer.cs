@@ -436,7 +436,7 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
-            this.listView_Persons.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView_Persons.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.listView_Persons.FullRowSelect = true;
             this.listView_Persons.GridLines = true;
             this.listView_Persons.HideSelection = false;
@@ -776,7 +776,7 @@
             this.columnHeader4,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView_Users.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView_Users.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.listView_Users.FullRowSelect = true;
             this.listView_Users.GridLines = true;
             this.listView_Users.HideSelection = false;
@@ -1650,7 +1650,7 @@
             this.columnHeader11,
             this.columnHeader12,
             this.columnHeader13});
-            this.listView_Matching.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView_Matching.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.listView_Matching.FullRowSelect = true;
             this.listView_Matching.GridLines = true;
             this.listView_Matching.HideSelection = false;

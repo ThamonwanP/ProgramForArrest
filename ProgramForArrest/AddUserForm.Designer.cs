@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbUserOrg = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btAddUser = new System.Windows.Forms.Button();
@@ -53,8 +55,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.openFileDialog_User = new System.Windows.Forms.OpenFileDialog();
-            this.tbUserOrg = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_User)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(722, 518);
             this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Location = new System.Drawing.Point(180, 296);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 24);
+            this.label2.TabIndex = 106;
+            this.label2.Text = "หน่วยงาน";
+            // 
+            // tbUserOrg
+            // 
+            this.tbUserOrg.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.tbUserOrg.Location = new System.Drawing.Point(181, 322);
+            this.tbUserOrg.Margin = new System.Windows.Forms.Padding(2);
+            this.tbUserOrg.Name = "tbUserOrg";
+            this.tbUserOrg.Size = new System.Drawing.Size(152, 31);
+            this.tbUserOrg.TabIndex = 105;
             // 
             // button1
             // 
@@ -335,26 +355,6 @@
             // 
             this.openFileDialog_User.FileName = "openFileDialog1";
             // 
-            // tbUserOrg
-            // 
-            this.tbUserOrg.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbUserOrg.Location = new System.Drawing.Point(181, 322);
-            this.tbUserOrg.Margin = new System.Windows.Forms.Padding(2);
-            this.tbUserOrg.Name = "tbUserOrg";
-            this.tbUserOrg.Size = new System.Drawing.Size(152, 31);
-            this.tbUserOrg.TabIndex = 105;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(180, 296);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 24);
-            this.label2.TabIndex = 106;
-            this.label2.Text = "หน่วยงาน";
-            // 
             // AddUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,6 +365,7 @@
             this.Name = "AddUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddUsecrForm";
+            this.Load += new System.EventHandler(this.AddUserForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_User)).EndInit();

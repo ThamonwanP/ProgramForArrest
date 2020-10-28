@@ -21,6 +21,8 @@ namespace ProgramForArrest
         string base64String;
         HomeForm h;
         string organization;
+        ThaiIDCard thaicard;
+
         public AddUserForm(HomeForm h, string card, string organization)
         {
             InitializeComponent();
@@ -91,7 +93,9 @@ namespace ProgramForArrest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            readCard();
+            thaicard.GetReaders();
+            
+            //readCard();
         }
 
         public void readCard()
@@ -169,6 +173,11 @@ namespace ProgramForArrest
         {
             MemoryStream mStream = new MemoryStream(blob);
             return Image.FromStream(mStream);
+        }
+
+        private void AddUserForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

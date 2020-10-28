@@ -216,6 +216,7 @@ namespace ProgramForArrest
                 RestRequest request = new RestRequest("/ArrestSystem/search/user/card/" + this.card);
                 var info = client.Execute<GetUserbyCard>(request, Method.GET);
                 //this.tbBirthday.Enabled = false;
+                if (info.Data != null) { 
 
                 tbTitle.Text = info.Data.title;
                 tbFirstname.Text = info.Data.firstname;
@@ -237,6 +238,7 @@ namespace ProgramForArrest
                 //pictureBox_User.Image = (Image)(info.Data.image_url.);
                 DateTime bdate = UnixTimeStampToDateTime((info.Data.birthday.value / 1000));
                 tbBirthday.Value = bdate.Subtract(new TimeSpan(7, 0, 0));
+                }
             }
             catch (Exception ex)
             {
@@ -1270,12 +1272,14 @@ namespace ProgramForArrest
 
                             // Flush data buffer and show bitmap on UI.
                             _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
-                            pictureBox_Finger.Image = outputImage;
+                            Bitmap bmp = new Bitmap(outputImage);
+                            bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
 
-                            //SaveJpeg(pictureBox_Finger.Image, @"d:\images.bmp", 100);
-                            //Console.WriteLine(pictureBox_Finger.ToString());
+                            pictureBox_Finger.Image = bmp;
+
                             byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
                             Fingerbase64String = Convert.ToBase64String(gg);
+
                             //Console.WriteLine(Fingerbase64String);
 
 
