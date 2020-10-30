@@ -1226,6 +1226,7 @@ namespace ProgramForArrest
         private void btScan_Click(object sender, EventArgs e)
         {
             progressBar1.Value = 0;
+            listView_Matching.Items.Clear();
             try
             {
 
@@ -1399,6 +1400,7 @@ namespace ProgramForArrest
         {
             try
             {
+                
                 string selectCard = listView_Matching.SelectedItems[0].SubItems[0].Text;
 
                 RestClient Getclient = new RestClient("http://202.28.34.197:8800");
@@ -1409,6 +1411,7 @@ namespace ProgramForArrest
 
                 while (i <= getPersons.Data.Count)
                 {
+                    
 
                     if (listView_Matching.SelectedItems[0].SubItems[0].Text != null)
                     {

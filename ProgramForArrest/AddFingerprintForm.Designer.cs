@@ -89,7 +89,7 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(39, 47);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(961, 685);
             this.panel1.TabIndex = 103;
@@ -102,6 +102,7 @@
             this.columnHeader7,
             this.columnHeader8});
             this.listView_Persons.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView_Persons.FullRowSelect = true;
             this.listView_Persons.GridLines = true;
             this.listView_Persons.HideSelection = false;
             this.listView_Persons.Location = new System.Drawing.Point(45, 289);
@@ -329,7 +330,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(72)))), ((int)(((byte)(125)))));
             this.ClientSize = new System.Drawing.Size(1037, 770);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddFingerprintForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddFingerprintForm";
