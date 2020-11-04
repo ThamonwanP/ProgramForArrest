@@ -1,4 +1,6 @@
-﻿public class searchOrganization
+﻿
+
+public class searchOrganization
 {
     public searchOrganizationData[] Property1 { get; set; }
 }
@@ -7,17 +9,17 @@ public class searchOrganizationData
 {
     public string id { get; set; }
     public object admincard { get; set; }
-    public string card { get; set; }
     public string title { get; set; }
     public string firstname { get; set; }
     public string lastname { get; set; }
-    public searchOrganizationData_Birthday birthday { get; set; }
+    public string card { get; set; }
+    public searchOrganizationDataBirthday birthday { get; set; }
     public object date { get; set; }
     public string position { get; set; }
     public string organization { get; set; }
-    public string address { get; set; }
-    public string phone { get; set; }
     public string email { get; set; }
+    public string phone { get; set; }
+    public string address { get; set; }
     public string password { get; set; }
     public string image_url { get; set; }
     public string role { get; set; }
@@ -25,14 +27,15 @@ public class searchOrganizationData
     public object request { get; set; }
 }
 
-public class searchOrganizationData_Birthday
+public class searchOrganizationDataBirthday
 {
     public long value { get; set; }
-    public string bsonType { get; set; }
     public int inc { get; set; }
+    public string bsonType { get; set; }
     public int time { get; set; }
     public bool _double { get; set; }
     public bool binary { get; set; }
+    public bool number { get; set; }
     public bool _string { get; set; }
     public bool int32 { get; set; }
     public bool int64 { get; set; }
@@ -45,9 +48,8 @@ public class searchOrganizationData_Birthday
     public bool regularExpression { get; set; }
     public bool javaScript { get; set; }
     public bool javaScriptWithScope { get; set; }
-    public bool number { get; set; }
     public bool document { get; set; }
+    public bool boolean { get; set; }
     public bool array { get; set; }
     public bool _null { get; set; }
-    public bool boolean { get; set; }
 }

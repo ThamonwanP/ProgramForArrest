@@ -1,5 +1,4 @@
-﻿
-public class GetUserbyCard
+﻿public class GetUserbyCard
 {
     public string id { get; set; }
     public object admincard { get; set; }
@@ -7,7 +6,7 @@ public class GetUserbyCard
     public string firstname { get; set; }
     public string lastname { get; set; }
     public string card { get; set; }
-    public GetUserbyCard_Birthday birthday { get; set; }
+    public GetUserbyCardBirthday birthday { get; set; }
     public object date { get; set; }
     public string position { get; set; }
     public string organization { get; set; }
@@ -18,16 +17,18 @@ public class GetUserbyCard
     public string image_url { get; set; }
     public string role { get; set; }
     public string status { get; set; }
+    public object request { get; set; }
 }
 
-public class GetUserbyCard_Birthday
+public class GetUserbyCardBirthday
 {
     public long value { get; set; }
-    public string bsonType { get; set; }
     public int inc { get; set; }
+    public string bsonType { get; set; }
     public int time { get; set; }
     public bool _double { get; set; }
     public bool binary { get; set; }
+    public bool number { get; set; }
     public bool _string { get; set; }
     public bool int32 { get; set; }
     public bool int64 { get; set; }
@@ -40,10 +41,8 @@ public class GetUserbyCard_Birthday
     public bool regularExpression { get; set; }
     public bool javaScript { get; set; }
     public bool javaScriptWithScope { get; set; }
-    public bool number { get; set; }
     public bool document { get; set; }
+    public bool boolean { get; set; }
     public bool array { get; set; }
     public bool _null { get; set; }
-    public bool boolean { get; set; }
 }
-

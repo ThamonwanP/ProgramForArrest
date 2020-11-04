@@ -215,7 +215,8 @@ namespace ProgramForArrest
                 RestClient client = new RestClient("http://202.28.34.197:8800");
                 RestRequest request = new RestRequest("/ArrestSystem/search/user/card/" + this.card);
                 var info = client.Execute<GetUserbyCard>(request, Method.GET);
-                //this.tbBirthday.Enabled = false;
+                //MessageBox.Show(info.Data.firstname);
+                
                 if (info.Data != null) { 
 
                 tbTitle.Text = info.Data.title;
@@ -247,13 +248,9 @@ namespace ProgramForArrest
 
             
             loadUsers();
-
-
             try
             {
                 getUserfoSeacrh();
-
-
             }
             catch { }
 
@@ -724,15 +721,8 @@ namespace ProgramForArrest
         private void btAddFingerPrint_Click(object sender, EventArgs e)
         {
 
-            //String idAdmin = getID.Data[0].id;
-            //Console.WriteLine(getID.Data[0].id);
-
-
-
             AddFingerprintForm addFingerprint = new AddFingerprintForm(this.card, this.org);
             addFingerprint.Visible = true;
-
-
         }
 
         public void SaveJpeg(Image img, string filename, int quality)
@@ -762,10 +752,6 @@ namespace ProgramForArrest
         public Image ByteToImage(byte[] blob)
         {
             MemoryStream mStream = new MemoryStream(blob);
-            //byte[] pData = blob;
-            //mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            //Bitmap bm = new Bitmap(mStream, false);
-            //mStream.Dispose();
             return Image.FromStream(mStream);
         }
 

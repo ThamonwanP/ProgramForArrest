@@ -179,6 +179,7 @@ namespace ProgramForArrest
 
                             byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
                             base64String = Convert.ToBase64String(gg);
+                            Console.WriteLine(base64String);
 
 
 
