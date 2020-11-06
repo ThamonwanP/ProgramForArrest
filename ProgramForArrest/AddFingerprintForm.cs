@@ -28,7 +28,7 @@ namespace ProgramForArrest
         string organization;
 
         // Default COM port settings. 
-        private const string DefaultComPort = "COM5";
+        private const string DefaultComPort = "COM8";
         private const int DefaultBaudRate = 115200;
 
         // Size of the fingerprint image. 

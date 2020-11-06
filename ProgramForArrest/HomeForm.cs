@@ -36,7 +36,7 @@ namespace ProgramForArrest
         AddPersonForm addper;
 
         // Default COM port settings. 
-        private const string DefaultComPort = "COM5";
+        private const string DefaultComPort = "COM8";
         private const int DefaultBaudRate = 115200;
 
         // Size of the fingerprint image. 
@@ -1216,7 +1216,7 @@ namespace ProgramForArrest
 
         private void btScan_Click(object sender, EventArgs e)
         {
-            progressBar1.Value = 0;
+            
             listView_Matching.Items.Clear();
             try
             {
@@ -1255,10 +1255,7 @@ namespace ProgramForArrest
                                     count++;
                                     outputImage.SetPixel(xPos, yPos, Color.FromArgb(colorBuffer[bufferPos], colorBuffer[bufferPos], colorBuffer[bufferPos]));
                                     bufferPos++;
-                                    if(count % 737 == 0)
-                                    {
-                                        progressBar1.Value += 1;
-                                    }
+                                    
                                 }
                             }
 
@@ -1288,7 +1285,7 @@ namespace ProgramForArrest
                                     string jsonStr = serializer.Serialize(input);
                                     request.AddJsonBody(jsonStr);
                                     var fingerprint = client.Execute<List<MatchingFinger_ResultData>>(request, Method.POST);
-                                    progressBar1.Visible = true;
+                                    
 
 
 
@@ -1324,7 +1321,7 @@ namespace ProgramForArrest
                                                 i++;
                                                 
                                             }
-                                        progressBar1.Visible = false;
+                                        
 
 
                                         }
@@ -1357,7 +1354,7 @@ namespace ProgramForArrest
                                                 i++;
                                             }
 
-                                            progressBar1.Visible = false;
+                                            
                                         }
                                     
                                         else
@@ -1370,7 +1367,7 @@ namespace ProgramForArrest
                                     else 
                                     {
                                         MessageBox.Show("ไม่พบข้อมูล");
-                                        progressBar1.Visible = false;
+                                        
                                     }
                             }
                             catch { }
