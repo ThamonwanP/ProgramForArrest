@@ -35,7 +35,6 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.radioLeft = new System.Windows.Forms.RadioButton();
             this.radioRight = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -52,10 +51,11 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBoxPerson = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -72,9 +72,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.pictureBoxPerson);
             this.panel1.Controls.Add(this.listView_Persons);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.groupBox9);
             this.panel1.Controls.Add(this.groupBox7);
             this.panel1.Controls.Add(this.btAddFingerPrint);
             this.panel1.Controls.Add(this.pictureBox_Finger);
@@ -137,24 +137,10 @@
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 125;
             // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.radioLeft);
-            this.groupBox9.Controls.Add(this.radioRight);
-            this.groupBox9.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.groupBox9.Location = new System.Drawing.Point(712, 255);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox9.Size = new System.Drawing.Size(213, 146);
-            this.groupBox9.TabIndex = 109;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "รายละเอียดลายนิ้วมือ";
-            // 
             // radioLeft
             // 
             this.radioLeft.AutoSize = true;
-            this.radioLeft.Location = new System.Drawing.Point(49, 41);
+            this.radioLeft.Location = new System.Drawing.Point(52, 38);
             this.radioLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioLeft.Name = "radioLeft";
             this.radioLeft.Size = new System.Drawing.Size(85, 33);
@@ -166,7 +152,7 @@
             // radioRight
             // 
             this.radioRight.AutoSize = true;
-            this.radioRight.Location = new System.Drawing.Point(49, 78);
+            this.radioRight.Location = new System.Drawing.Point(52, 75);
             this.radioRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioRight.Name = "radioRight";
             this.radioRight.Size = new System.Drawing.Size(86, 33);
@@ -177,13 +163,15 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.radioLeft);
             this.groupBox7.Controls.Add(this.btScan);
+            this.groupBox7.Controls.Add(this.radioRight);
             this.groupBox7.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.groupBox7.Location = new System.Drawing.Point(712, 465);
+            this.groupBox7.Location = new System.Drawing.Point(720, 426);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox7.Size = new System.Drawing.Size(213, 128);
+            this.groupBox7.Size = new System.Drawing.Size(198, 167);
             this.groupBox7.TabIndex = 108;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "จัดการลายนิ้วมือ";
@@ -191,7 +179,7 @@
             // btScan
             // 
             this.btScan.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btScan.Location = new System.Drawing.Point(15, 54);
+            this.btScan.Location = new System.Drawing.Point(8, 112);
             this.btScan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btScan.Name = "btScan";
             this.btScan.Size = new System.Drawing.Size(179, 38);
@@ -215,10 +203,10 @@
             // pictureBox_Finger
             // 
             this.pictureBox_Finger.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox_Finger.Location = new System.Drawing.Point(727, 36);
+            this.pictureBox_Finger.Location = new System.Drawing.Point(728, 234);
             this.pictureBox_Finger.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox_Finger.Name = "pictureBox_Finger";
-            this.pictureBox_Finger.Size = new System.Drawing.Size(199, 201);
+            this.pictureBox_Finger.Size = new System.Drawing.Size(179, 188);
             this.pictureBox_Finger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Finger.TabIndex = 101;
             this.pictureBox_Finger.TabStop = false;
@@ -323,12 +311,23 @@
             this.label7.TabIndex = 94;
             this.label7.Text = "กลุ่มผู้ต้องหา";
             // 
+            // pictureBoxPerson
+            // 
+            this.pictureBoxPerson.BackColor = System.Drawing.Color.DarkGray;
+            this.pictureBoxPerson.Location = new System.Drawing.Point(728, 22);
+            this.pictureBoxPerson.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBoxPerson.Name = "pictureBoxPerson";
+            this.pictureBoxPerson.Size = new System.Drawing.Size(180, 194);
+            this.pictureBoxPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPerson.TabIndex = 111;
+            this.pictureBoxPerson.TabStop = false;
+            // 
             // AddFingerprintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(72)))), ((int)(((byte)(125)))));
-            this.ClientSize = new System.Drawing.Size(1037, 770);
+            this.ClientSize = new System.Drawing.Size(1038, 770);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddFingerprintForm";
@@ -337,10 +336,10 @@
             this.Load += new System.EventHandler(this.AddFingerprintForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPerson)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -360,7 +359,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.RadioButton radioLeft;
         private System.Windows.Forms.RadioButton radioRight;
         private System.Windows.Forms.Button btScan;
@@ -370,5 +368,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.PictureBox pictureBoxPerson;
     }
 }

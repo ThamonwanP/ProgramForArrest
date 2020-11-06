@@ -25,6 +25,7 @@ namespace ProgramForArrest
         string caseGroupID;
         string org;
         string perId;
+        string organization;
 
         // Default COM port settings. 
         private const string DefaultComPort = "COM5";
@@ -34,12 +35,14 @@ namespace ProgramForArrest
         private const int ImageWidth = 256;
         private const int ImageHeight = 288;
 
-        public AddFingerprintForm(string card, string org)
+        public AddFingerprintForm(string card, string org, string organization)
         {
             InitializeComponent();
             this.card = card;
             this.org = org;
-            
+            this.organization = organization;
+
+
         }
 
         private void AddFingerprintForm_Load(object sender, EventArgs e)
@@ -47,10 +50,11 @@ namespace ProgramForArrest
             _zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
             try
             {
-                RestClient client = new RestClient("http://202.28.34.197:8800");
-                RestRequest request = new RestRequest("/ArrestSystem/persons");
-                var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
 
+                RestClient client = new RestClient("http://202.28.34.197:8800");
+                RestRequest request = new RestRequest("/ArrestSystem/persons/org/" + this.organization);
+                var getPerson = client.Execute<List<GetAllPersonData>>(request, Method.GET);
+                //MessageBox.Show(getPerson.Data[0].card.ToString());
                 int i = 0;
 
                 while (getPerson.Data.Count > i)
@@ -102,6 +106,13 @@ namespace ProgramForArrest
                         tbPersonPhone.Text = getPersons.Data[0].phone;
                         tbPersonGroup.Text = getPersons.Data[0].group;
                         perId = getPersons.Data[0].id;
+
+                        var pic = Convert.FromBase64String(getPersons.Data[0].image_url);
+                        using (MemoryStream ms = new MemoryStream(pic))
+                        {
+                            pictureBoxPerson.Image = Image.FromStream(ms);
+                        }
+                        //imagesStr = info.Data.image_url;
 
                     }
                     i++;

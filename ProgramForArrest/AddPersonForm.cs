@@ -92,7 +92,7 @@ namespace ProgramForArrest
         {
             
 
-                MessageBox.Show("กรุณาวางนิ้วมือก่อนสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //MessageBox.Show("กรุณาวางนิ้วมือก่อนสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             
             readCard();
 

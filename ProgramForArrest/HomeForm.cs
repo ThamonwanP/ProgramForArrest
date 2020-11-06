@@ -301,7 +301,7 @@ namespace ProgramForArrest
         {
             RestClient client = new RestClient("http://202.28.34.197:8800");
             RestRequest request = new RestRequest("/ArrestSystem/persons/org/" + this.organization);
-            var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
+            var getPerson = client.Execute<List<GetAllPersonData>>(request, Method.GET);
             
             int i = 0;
 
@@ -322,27 +322,32 @@ namespace ProgramForArrest
 
         public void getPersonforSearch()
         {
-            listView1.Items.Clear();
-            RestClient client = new RestClient("http://202.28.34.197:8800");
-            RestRequest request = new RestRequest("/ArrestSystem/persons/org/"+this.organization);
-            var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
-
-            int i = 0;
-
-            while (i <= getPerson.Data.Count)
+            try
             {
-                string[] Persons = new string[]
+                listView1.Items.Clear();
+                RestClient client = new RestClient("http://202.28.34.197:8800");
+                RestRequest request = new RestRequest("/ArrestSystem/persons/org/" + this.organization);
+                var getPerson = client.Execute<List<GetAllPersonData>>(request, Method.GET);
+
+                int i = 0;
+
+                while (i <= getPerson.Data.Count)
                 {
+                    string[] Persons = new string[]
+                    {
                             getPerson.Data[i].card.ToString(),
                             getPerson.Data[i].firstname,
                             getPerson.Data[i].lastname,
                             getPerson.Data[i].group,
                             getPerson.Data[i].address
-                };
-                listView1.Items.Add(new ListViewItem(Persons));
-                i++;
+                    };
+                    listView1.Items.Add(new ListViewItem(Persons));
+                    i++;
+                }
+            }catch { }
             }
-        }
+            
+            
 
         public void getInfo()
         {
@@ -628,7 +633,7 @@ namespace ProgramForArrest
             listView_Persons.Items.Clear();
             RestClient client = new RestClient("http://202.28.34.197:8800");
             RestRequest request = new RestRequest("/ArrestSystem/persons/org/"+this.organization);
-            var getPerson = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
+            var getPerson = client.Execute<List<GetAllPersonData>>(request, Method.GET);
 
             int i = 0;
 
@@ -721,7 +726,7 @@ namespace ProgramForArrest
         private void btAddFingerPrint_Click(object sender, EventArgs e)
         {
 
-            AddFingerprintForm addFingerprint = new AddFingerprintForm(this.card, this.org);
+            AddFingerprintForm addFingerprint = new AddFingerprintForm(this.card, this.org, tbOrganization.Text);
             addFingerprint.Visible = true;
         }
 
@@ -950,7 +955,7 @@ namespace ProgramForArrest
                             {
                                 RestClient getClient = new RestClient("http://202.28.34.197:8800");
                                 RestRequest getRequest = new RestRequest("/ArrestSystem/persons");
-                                var getPerson = getClient.Execute<List<GetAllPerson_data>>(getRequest, Method.GET);
+                                var getPerson = getClient.Execute<List<GetAllPersonData>>(getRequest, Method.GET);
                                 listView_Persons.Items.Clear();
                                 
                                 while (i <= getPersons.Data.Count)
@@ -980,7 +985,7 @@ namespace ProgramForArrest
                         {
                             RestClient client = new RestClient("http://202.28.34.197:8800");
                             RestRequest request = new RestRequest("/ArrestSystem/persons");
-                            var getPersons = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
+                            var getPersons = client.Execute<List<GetAllPersonData>>(request, Method.GET);
                             listView_Persons.Items.Clear();
                             int i = 0;
                             while (i <= getPersons.Data.Count)
@@ -1050,7 +1055,7 @@ namespace ProgramForArrest
                             {
                                 RestClient getClient = new RestClient("http://202.28.34.197:8800");
                                 RestRequest getRequest = new RestRequest("/ArrestSystem/persons");
-                                var getPerson = getClient.Execute<List<GetAllPerson_data>>(getRequest, Method.GET);
+                                var getPerson = getClient.Execute<List<GetAllPersonData>>(getRequest, Method.GET);
                                 listView_Persons.Items.Clear();
 
                                 while (i <= getPersons.Data.Count)
@@ -1080,7 +1085,7 @@ namespace ProgramForArrest
                         {
                             RestClient client = new RestClient("http://202.28.34.197:8800");
                             RestRequest request = new RestRequest("/ArrestSystem/persons");
-                            var getPersons = client.Execute<List<GetAllPerson_data>>(request, Method.GET);
+                            var getPersons = client.Execute<List<GetAllPersonData>>(request, Method.GET);
                             listView_Persons.Items.Clear();
                             int i = 0;
                             while (i <= getPersons.Data.Count)
