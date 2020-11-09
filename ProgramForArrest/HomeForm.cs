@@ -1431,5 +1431,97 @@ namespace ProgramForArrest
             
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listView_Matching.Items.Clear();
+
+             try
+             {
+                RestClient client = new RestClient("http://202.28.34.197:8800");
+                var serializer = new JavaScriptSerializer();
+                int i = 0;
+
+
+                if (radioFigLeft.Checked)
+                {
+                    SearchbyFidLeft FidLeft = new SearchbyFidLeft();
+                    RestRequest FidLeftRequest = new RestRequest("/ArrestSystem/person/fleft/search");
+
+                    FidLeft.fid = textBox1.Text;
+
+                    var serializerFL = new JavaScriptSerializer();
+                    string jsonStrFL = serializer.Serialize(FidLeft);
+                    FidLeftRequest.AddJsonBody(jsonStrFL);
+                    var FidLeftfingerprint = client.Execute<List<SearchbyFidLeft_ResultData>>(FidLeftRequest, Method.POST);
+                    if (FidLeftfingerprint.Data.Count != 0)
+                    {
+                        btProof.Visible = true;
+                        while (i <= FidLeftfingerprint.Data.Count)
+                        {
+
+                            string[] fings = new string[]
+                            {
+                              FidLeftfingerprint.Data[i].card,
+                              FidLeftfingerprint.Data[i].firstname,
+                              FidLeftfingerprint.Data[i].lastname,
+                              FidLeftfingerprint.Data[i].group
+                            };
+
+                            listView_Matching.Items.Add(new ListViewItem(fings));
+                            i++;
+
+                        }
+
+                    }
+                }
+
+                else if (radioFigRight.Checked)
+                {
+                    SearchbyFidLeft FidRight = new SearchbyFidLeft();
+                    RestRequest FidRightRequest = new RestRequest("/ArrestSystem/person/fright/search");
+                    FidRight.fid = textBox1.Text;
+
+                    var serializerFR = new JavaScriptSerializer();
+                    string jsonStrFR = serializer.Serialize(FidRight);
+                    FidRightRequest.AddJsonBody(jsonStrFR);
+                    var FidRightfingerprint = client.Execute<List<SearchbyFidRight_ResultData>>(FidRightRequest, Method.POST);
+
+
+                    if (FidRightfingerprint.Data.Count != 0)
+                    {
+                        btProof.Visible = true;
+                        while (i <= FidRightfingerprint.Data.Count)
+                        {
+
+                            string[] fings = new string[]
+                            {
+                                         FidRightfingerprint.Data[i].card,
+                                         FidRightfingerprint.Data[i].firstname,
+                                         FidRightfingerprint.Data[i].lastname,
+                                         FidRightfingerprint.Data[i].group
+                            };
+
+                            listView_Matching.Items.Add(new ListViewItem(fings));
+                            i++;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("ไม่พบข้อมูล");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("กรุณาเลือกลักษณะลายนิ้วมือ");
+                }
+
+            }
+            catch { }
+                 
+              }
+                            
+         }
+
     }
- }
+
+
