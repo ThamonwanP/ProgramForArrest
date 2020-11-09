@@ -1321,9 +1321,7 @@ namespace ProgramForArrest
                                                 i++;
                                                 
                                             }
-                                        
-
-
+  
                                         }
                                     
                                         else if (radioFigRight.Checked) 
