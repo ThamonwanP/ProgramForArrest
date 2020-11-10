@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbUserOrg = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btAddUser = new System.Windows.Forms.Button();
@@ -63,8 +61,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.tbUserOrg);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btAddUser);
@@ -92,26 +88,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(722, 518);
             this.panel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(180, 296);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 24);
-            this.label2.TabIndex = 106;
-            this.label2.Text = "หน่วยงาน";
-            // 
-            // tbUserOrg
-            // 
-            this.tbUserOrg.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbUserOrg.Location = new System.Drawing.Point(181, 322);
-            this.tbUserOrg.Margin = new System.Windows.Forms.Padding(2);
-            this.tbUserOrg.Name = "tbUserOrg";
-            this.tbUserOrg.Size = new System.Drawing.Size(152, 31);
-            this.tbUserOrg.TabIndex = 105;
             // 
             // button1
             // 
@@ -157,6 +133,7 @@
             this.btUserImage.TabIndex = 100;
             this.btUserImage.Text = "เพิ่มรูปภาพ";
             this.btUserImage.UseVisualStyleBackColor = true;
+            this.btUserImage.Click += new System.EventHandler(this.btUserImage_Click);
             // 
             // pictureBox_User
             // 
@@ -193,7 +170,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label7.Location = new System.Drawing.Point(340, 296);
+            this.label7.Location = new System.Drawing.Point(182, 296);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 24);
@@ -230,10 +207,10 @@
             // tbUserPosition
             // 
             this.tbUserPosition.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.tbUserPosition.Location = new System.Drawing.Point(344, 322);
+            this.tbUserPosition.Location = new System.Drawing.Point(184, 322);
             this.tbUserPosition.Margin = new System.Windows.Forms.Padding(2);
             this.tbUserPosition.Name = "tbUserPosition";
-            this.tbUserPosition.Size = new System.Drawing.Size(152, 31);
+            this.tbUserPosition.Size = new System.Drawing.Size(312, 31);
             this.tbUserPosition.TabIndex = 84;
             // 
             // tbUserFristname
@@ -400,7 +377,5 @@
         private System.Windows.Forms.Button btAddUser;
         private System.Windows.Forms.OpenFileDialog openFileDialog_User;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbUserOrg;
     }
 }

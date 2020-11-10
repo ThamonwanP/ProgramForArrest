@@ -36,7 +36,7 @@ namespace ProgramForArrest
         AddPersonForm addper;
 
         // Default COM port settings. 
-        private const string DefaultComPort = "COM8";
+        string DefaultComPort;
         private const int DefaultBaudRate = 115200;
 
         // Size of the fingerprint image. 
@@ -73,6 +73,8 @@ namespace ProgramForArrest
             this.org = org;
             this.role = role;
             this.updateAddPerson = updateAddPerson;
+            
+            
         }
         private void btLogout_Click(object sender, EventArgs e)
         {
@@ -925,7 +927,7 @@ namespace ProgramForArrest
 
                         RestClient client = new RestClient("http://202.28.34.197:8800");
                         RestRequest request = new RestRequest("/ArrestSystem/search/" + tbSearchPersons.Text);
-                        var getPersons = client.Execute<List<SearchPersons_data>>(request, Method.GET);
+                       var getPersons = client.Execute<List<SearchPersons_data>>(request, Method.GET);
 
 
                         int i = 0;
@@ -988,7 +990,7 @@ namespace ProgramForArrest
                             var getPersons = client.Execute<List<GetAllPersonData>>(request, Method.GET);
                             listView_Persons.Items.Clear();
                             int i = 0;
-                            while (i <= getPersons.Data.Count)
+                            while (getPersons.Data != null)
                             {
                                 string[] persons = new string[]
                                 {
@@ -1030,7 +1032,7 @@ namespace ProgramForArrest
 
                         int i = 0;
                         listView_Persons.Items.Clear();
-                        if (!getPersons.Content.Equals("[]"))
+                        if (getPersons.Data.Count > 0)
                         {
                             while (i <= getPersons.Data.Count)
                             {
@@ -1049,7 +1051,7 @@ namespace ProgramForArrest
                         }
                         else
                         {
-                            MessageBox.Show("ไม่พบข้อมูล");
+                            
 
                             try
                             {
@@ -1072,6 +1074,7 @@ namespace ProgramForArrest
                                     listView_Persons.Items.Add(new ListViewItem(persons));
                                     i++;
                                 }
+                                MessageBox.Show("ไม่พบข้อมูล");
                             }
                             catch { }
                         }
@@ -1088,7 +1091,7 @@ namespace ProgramForArrest
                             var getPersons = client.Execute<List<GetAllPersonData>>(request, Method.GET);
                             listView_Persons.Items.Clear();
                             int i = 0;
-                            while (i <= getPersons.Data.Count)
+                            while (getPersons.Data!= null)
                             {
                                 string[] persons = new string[]
                                 {
@@ -1519,8 +1522,18 @@ namespace ProgramForArrest
             catch { }
                  
               }
-                            
-         }
+
+        private void pictureBox_Pass_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DefaultComPort = comboBox1.SelectedItem.ToString();
+            //MessageBox.Show(DefaultComPort);
+        }
+    }
 
     }
 

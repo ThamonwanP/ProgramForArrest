@@ -174,6 +174,15 @@ namespace ProgramForArrest
             return Image.FromStream(mStream);
         }
 
+        private void btPersonImg_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog_Person.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox_Person.Image = Image.FromFile(openFileDialog_Person.FileName);
+                byte[] imageArray = System.IO.File.ReadAllBytes(openFileDialog_Person.FileName);
+                base64String = Convert.ToBase64String(imageArray);
 
+            }
+        }
     }
 }

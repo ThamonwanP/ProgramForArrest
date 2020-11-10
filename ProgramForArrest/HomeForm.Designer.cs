@@ -158,6 +158,9 @@
             this.label37 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.btProof = new System.Windows.Forms.Button();
@@ -183,7 +186,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -227,6 +229,7 @@
             this.pictureBox_Pass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Pass.TabIndex = 15;
             this.pictureBox_Pass.TabStop = false;
+            this.pictureBox_Pass.Click += new System.EventHandler(this.pictureBox_Pass_Click_1);
             // 
             // tabPage1
             // 
@@ -1575,6 +1578,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.comboBox1);
+            this.tabPage5.Controls.Add(this.label48);
             this.tabPage5.Controls.Add(this.button1);
             this.tabPage5.Controls.Add(this.textBox1);
             this.tabPage5.Controls.Add(this.label47);
@@ -1603,6 +1608,56 @@
             this.tabPage5.Text = "ค้นหาลายนิ้วมือ";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "COM1",
+            "COM2",
+            "COM3",
+            "COM4",
+            "COM5",
+            "COM6",
+            "COM7",
+            "COM8",
+            "COM9",
+            "COM10",
+            "COM11",
+            "COM12",
+            "COM13",
+            "COM14",
+            "COM15",
+            "COM16"});
+            this.comboBox1.Location = new System.Drawing.Point(703, 371);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(160, 37);
+            this.comboBox1.TabIndex = 130;
+            this.comboBox1.Text = "Port No.";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label48.Location = new System.Drawing.Point(698, 351);
+            this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(38, 24);
+            this.label48.TabIndex = 131;
+            this.label48.Text = "Port";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.button1.Location = new System.Drawing.Point(574, 97);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(67, 33);
+            this.button1.TabIndex = 129;
+            this.button1.Text = "ค้นหา";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
@@ -1626,7 +1681,7 @@
             // btProof
             // 
             this.btProof.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btProof.Location = new System.Drawing.Point(703, 436);
+            this.btProof.Location = new System.Drawing.Point(703, 484);
             this.btProof.Margin = new System.Windows.Forms.Padding(2);
             this.btProof.Name = "btProof";
             this.btProof.Size = new System.Drawing.Size(160, 33);
@@ -1639,10 +1694,10 @@
             // btScan
             // 
             this.btScan.Font = new System.Drawing.Font("Anantason", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.btScan.Location = new System.Drawing.Point(703, 478);
+            this.btScan.Location = new System.Drawing.Point(703, 433);
             this.btScan.Margin = new System.Windows.Forms.Padding(2);
             this.btScan.Name = "btScan";
-            this.btScan.Size = new System.Drawing.Size(160, 37);
+            this.btScan.Size = new System.Drawing.Size(160, 35);
             this.btScan.TabIndex = 26;
             this.btScan.Text = "สแกนลายนิ้วมือ";
             this.btScan.UseVisualStyleBackColor = true;
@@ -1673,7 +1728,7 @@
             this.listView_Matching.Location = new System.Drawing.Point(165, 315);
             this.listView_Matching.Margin = new System.Windows.Forms.Padding(2);
             this.listView_Matching.Name = "listView_Matching";
-            this.listView_Matching.Size = new System.Drawing.Size(476, 200);
+            this.listView_Matching.Size = new System.Drawing.Size(476, 202);
             this.listView_Matching.TabIndex = 124;
             this.listView_Matching.UseCompatibleStateImageBehavior = false;
             this.listView_Matching.View = System.Windows.Forms.View.Details;
@@ -1707,7 +1762,7 @@
             this.groupBox9.Controls.Add(this.radioFigLeft);
             this.groupBox9.Controls.Add(this.radioFigRight);
             this.groupBox9.Font = new System.Drawing.Font("Anantason", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.groupBox9.Location = new System.Drawing.Point(703, 302);
+            this.groupBox9.Location = new System.Drawing.Point(703, 248);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(2);
@@ -1743,10 +1798,10 @@
             // pictureBox_Finger
             // 
             this.pictureBox_Finger.BackColor = System.Drawing.Color.DarkGray;
-            this.pictureBox_Finger.Location = new System.Drawing.Point(703, 108);
+            this.pictureBox_Finger.Location = new System.Drawing.Point(703, 49);
             this.pictureBox_Finger.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_Finger.Name = "pictureBox_Finger";
-            this.pictureBox_Finger.Size = new System.Drawing.Size(160, 178);
+            this.pictureBox_Finger.Size = new System.Drawing.Size(160, 171);
             this.pictureBox_Finger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Finger.TabIndex = 121;
             this.pictureBox_Finger.TabStop = false;
@@ -1855,18 +1910,6 @@
             this.label45.Size = new System.Drawing.Size(95, 29);
             this.label45.TabIndex = 119;
             this.label45.Text = "กลุ่มผู้ต้องหา";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.button1.Location = new System.Drawing.Point(574, 97);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(67, 33);
-            this.button1.TabIndex = 129;
-            this.button1.Text = "ค้นหา";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // HomeForm
             // 
@@ -2066,5 +2109,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label48;
     }
 }

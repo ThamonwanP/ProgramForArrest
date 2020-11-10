@@ -22,6 +22,7 @@ namespace ProgramForArrest
         HomeForm h;
         string organization;
         ThaiIDCard thaicard;
+        string base64StringInfo;
 
         public AddUserForm(HomeForm h, string card, string organization)
         {
@@ -78,8 +79,6 @@ namespace ProgramForArrest
                         this.h.refeshUser();
                         this.h.getUserfoSeacrh();
                     }   
-                        
-                
                 }
             }
             catch { }
@@ -113,7 +112,7 @@ namespace ProgramForArrest
                 tbUserBirthday.Text = personal.Birthday.ToString("yyyy-MM-dd");
                 tbUserAddress.Text = personal.Address;
                 pictureBox_User.Image = ByteToImage1(personal.PhotoRaw);
-                tbUserOrg.Text = this.organization;
+                //tbUserOrg.Text = this.organization;
 
                 // Convert byte[] to Base64 String
                 base64String = Convert.ToBase64String(personal.PhotoRaw);
@@ -178,6 +177,17 @@ namespace ProgramForArrest
         private void AddUserForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btUserImage_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog_User.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox_User.Image = Image.FromFile(openFileDialog_User.FileName);
+                byte[] imageArray = System.IO.File.ReadAllBytes(openFileDialog_User.FileName);
+                base64String = Convert.ToBase64String(imageArray);
+
+            }
         }
     }
 }

@@ -89,6 +89,7 @@
     <Compile Include="Model\AddTemple_Result.cs" />
     <Compile Include="Model\AddUserbyAdmin_Result.cs" />
     <Compile Include="Model\GetAllPerson%27.cs" />
+    <Compile Include="Model\getAllpersonbyOrg.cs" />
     <Compile Include="Model\GetAllUser.cs" />
     <Compile Include="Model\AddUserbyAdmin.cs" />
     <Compile Include="Model\ChangePassword.cs" />
