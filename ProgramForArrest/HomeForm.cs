@@ -332,7 +332,7 @@ namespace ProgramForArrest
                 var getPerson = client.Execute<List<GetAllPersonData>>(request, Method.GET);
 
                 int i = 0;
-
+                
                 while (i <= getPerson.Data.Count)
                 {
                     string[] Persons = new string[]
@@ -636,7 +636,6 @@ namespace ProgramForArrest
                 getUserfoSeacrh();
             }
 
-            
         }
 
         private void btAddUser_Click(object sender, EventArgs e)
@@ -712,8 +711,6 @@ namespace ProgramForArrest
                     {
                         input.image_url = base64String;
                         //Console.WriteLine("New Image");
-
-
                     }
 
                     var serializer = new JavaScriptSerializer();
@@ -940,7 +937,7 @@ namespace ProgramForArrest
                     {
 
                         RestClient client = new RestClient("http://202.28.34.197:8800");
-                        RestRequest request = new RestRequest("/ArrestSystem/search/" + tbSearchPersons.Text);
+                        RestRequest request = new RestRequest("/ArrestSystem/search/" +this.organization +"/"+ tbSearchPersons.Text);
                        var getPersons = client.Execute<List<SearchPersons_data>>(request, Method.GET);
 
 
@@ -1035,17 +1032,33 @@ namespace ProgramForArrest
                 {
                     if (!tbSearchPerson.Text.Equals(""))
                     {
-
-                        RestClient client = new RestClient("http://202.28.34.197:8800");
-                        RestRequest request = new RestRequest("/ArrestSystem/search/"+ this.organization+"/"+tbSearchPerson.Text);
-                        var getPersons = client.Execute<List<SearchPersons_data>>(request, Method.GET);
-
-
-                        int i = 0;
-                        listView_Persons.Items.Clear();
-                        if (getPersons.Data.Count > 0)
+                        try
                         {
-                           
+                            listView_Persons.Items.Clear();
+                            RestClient client = new RestClient("http://202.28.34.197:8800");
+                            RestRequest request = new RestRequest("/ArrestSystem/search/" + this.organization + "/" + tbSearchPerson.Text);
+                            var getPersons = client.Execute<List<SearchPersons_data>>(request, Method.GET);
+
+
+                            int i = 0;
+                            
+                            if(getPersons.Data == null)
+                            {
+                                MessageBox.Show("ไม่พบข้อมูล");
+                                refeshPerson();
+                                return;
+                            }
+                            if (getPersons.Data.Count > 0)
+                            {
+                                if (getPersons.Data.Count == 1)
+                                {
+                                    if (getPersons.Data == null)
+                                    {
+                                        MessageBox.Show("ไม่พบข้อมูล");
+                                        refeshPerson();
+                                        return;
+                                    }
+                                }
                                 while (i <= getPersons.Data.Count)
                                 {
                                     string[] persons = new string[]
@@ -1056,42 +1069,49 @@ namespace ProgramForArrest
                                     getPersons.Data[i].group,
                                     getPersons.Data[i].address
                                     };
+                                    
 
                                     listView_Persons.Items.Add(new ListViewItem(persons));
                                     i++;
                                 }
-                        }
-                        else
-                        {
-
-                            listView_Persons.Items.Clear();
-                            try
+                                
+                            }
+                            else
                             {
-                                RestClient getClient = new RestClient("http://202.28.34.197:8800");
-                                RestRequest getRequest = new RestRequest("/ArrestSystem/persons");
-                                var getPerson = getClient.Execute<List<GetAllPersonData>>(getRequest, Method.GET);
-                                listView_Persons.Items.Clear();
 
-                                while (i <= getPersons.Data.Count)
+                                listView_Persons.Items.Clear();
+                                try
                                 {
-                                    string[] persons = new string[]
+                                    RestClient getClient = new RestClient("http://202.28.34.197:8800");
+                                    RestRequest getRequest = new RestRequest("/ArrestSystem/persons");
+                                    var getPerson = getClient.Execute<List<GetAllPersonData>>(getRequest, Method.GET);
+                                    listView_Persons.Items.Clear();
+
+                                    while (i <= getPersons.Data.Count)
                                     {
+                                        string[] persons = new string[]
+                                        {
                                         getPersons.Data[i].card.ToString(),
                                         getPersons.Data[i].firstname,
                                         getPersons.Data[i].lastname,
                                         getPersons.Data[i].group,
                                         getPersons.Data[i].address
-                                    };
+                                        };
 
-                                    listView_Persons.Items.Add(new ListViewItem(persons));
-                                    i++;
+                                        listView_Persons.Items.Add(new ListViewItem(persons));
+                                        i++;
+                                    }
+                                    MessageBox.Show("ไม่พบข้อมูล");
                                 }
-                                MessageBox.Show("ไม่พบข้อมูล");
+                                catch { }
                             }
-                            catch { }
-                        }
 
-                    }
+                        }
+                        catch(Exception ex) { }
+                            
+                       
+                        }
+                        
                 }
             }
             catch { }
