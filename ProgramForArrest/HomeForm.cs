@@ -951,7 +951,7 @@ namespace ProgramForArrest
 
                             if (getPersons.Data == null)
                             {
-                                MessageBox.Show("ไม่พบข้อมูล");
+                                //MessageBox.Show("ไม่พบข้อมูล");
                                 refeshPerson();
                                 return;
                             }
@@ -961,7 +961,7 @@ namespace ProgramForArrest
                                 {
                                     if (getPersons.Data[0].card == null)
                                     {
-                                        MessageBox.Show("ไม่พบข้อมูล");
+                                        //MessageBox.Show("ไม่พบข้อมูล");
                                         refeshPerson();
                                         return;
                                     }
@@ -1015,6 +1015,10 @@ namespace ProgramForArrest
 
                         }
                         catch (Exception ex) { }
+                    }
+                    else
+                    {
+                        refeshPerson();
                     }
                 }
             }
