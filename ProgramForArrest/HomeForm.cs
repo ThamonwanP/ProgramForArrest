@@ -1170,167 +1170,173 @@ namespace ProgramForArrest
             listView_Matching.Items.Clear();
             try
             {
-
-                if (_zfmSensor == null)
-                {
-                    MessageBox.Show("กรุณาเลือกพอร์ตก่อนทำการสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                if(radioFigLeft.Checked || radioFigRight.Checked)  
+                { 
+                    if (_zfmSensor == null)
+                    {
+                        MessageBox.Show("กรุณาเลือกพอร์ตก่อนทำการสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     string msgText = _zfmSensor.IsAvailable() ? @"Fingerprint sensor is available." : "Fingerprint sensor is not available.\nCheck sensor configuration options.";
                     if (msgText != null)
                     {
-                    if (_zfmSensor.IsAvailable() != true)
-                    {
-                        MessageBox.Show("พอร์ตไม่ถูกต้อง", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        Zfm20Fingerprint.ZfmStatus captureStatus = _zfmSensor.Capture();
-                        if (captureStatus != Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
+                        if (_zfmSensor.IsAvailable() != true)
                         {
-
-                            MessageBox.Show("กรุณาวางนิ้วมือก่อนสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("พอร์ตไม่ถูกต้อง", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
-                            IntPtr dataBuffer;
-                            uint dataBufferSize;
-
-                            Zfm20Fingerprint.ZfmStatus downloadStatus = _zfmSensor.GetFingerprintBuffer(out dataBuffer, out dataBufferSize);
-                            if (downloadStatus == Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
+                            Zfm20Fingerprint.ZfmStatus captureStatus = _zfmSensor.Capture();
+                            if (captureStatus != Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
                             {
-                                if (dataBufferSize > 0)
+
+                                MessageBox.Show("กรุณาวางนิ้วมือก่อนสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                IntPtr dataBuffer;
+                                uint dataBufferSize;
+
+                                Zfm20Fingerprint.ZfmStatus downloadStatus = _zfmSensor.GetFingerprintBuffer(out dataBuffer, out dataBufferSize);
+                                if (downloadStatus == Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
                                 {
-                                    // Create output bitmap buffer object. 
-                                    Bitmap outputImage = new Bitmap(ImageWidth, ImageHeight);
-                                    byte[] colorBuffer = new byte[dataBufferSize];
-                                    int bufferPos = 0;
-
-                                    Marshal.Copy(dataBuffer, colorBuffer, 0, (int)(dataBufferSize - 1));
-                                    int count = 0;
-                                    // Paint bitmap buffer with received data buffer content.
-                                    for (int yPos = 0; yPos < ImageHeight; yPos++)
+                                    if (dataBufferSize > 0)
                                     {
-                                        for (int xPos = 0; xPos < ImageWidth; xPos++)
+                                        // Create output bitmap buffer object. 
+                                        Bitmap outputImage = new Bitmap(ImageWidth, ImageHeight);
+                                        byte[] colorBuffer = new byte[dataBufferSize];
+                                        int bufferPos = 0;
+
+                                        Marshal.Copy(dataBuffer, colorBuffer, 0, (int)(dataBufferSize - 1));
+                                        int count = 0;
+                                        // Paint bitmap buffer with received data buffer content.
+                                        for (int yPos = 0; yPos < ImageHeight; yPos++)
                                         {
-                                            count++;
-                                            outputImage.SetPixel(xPos, yPos, Color.FromArgb(colorBuffer[bufferPos], colorBuffer[bufferPos], colorBuffer[bufferPos]));
-                                            bufferPos++;
-
-                                        }
-                                    }
-
-                                    // Flush data buffer and show bitmap on UI.
-                                    _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
-                                    Bitmap bmp = new Bitmap(outputImage);
-                                    bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
-
-                                    pictureBox_Finger.Image = bmp;
-
-                                    byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
-                                    Fingerbase64String = Convert.ToBase64String(gg);
-
-                                    try
-                                    {
-
-                                        MatchingFinger input = new MatchingFinger();
-                                        RestClient client = new RestClient("http://202.28.34.197:8800");
-                                        RestRequest request = new RestRequest("/fingerprintSystem/template/matching/" + this.org);
-                                        int i = 0;
-                                        input.template = Fingerbase64String;
-
-                                        var serializer = new JavaScriptSerializer();
-                                        string jsonStr = serializer.Serialize(input);
-                                        request.AddJsonBody(jsonStr);
-                                        var fingerprint = client.Execute<List<MatchingFinger_ResultData>>(request, Method.POST);
-
-                                        if (fingerprint.Data.Count > i)
-                                        {
-                                            if (radioFigLeft.Checked)
+                                            for (int xPos = 0; xPos < ImageWidth; xPos++)
                                             {
-                                                SearchbyFidLeft FidLeft = new SearchbyFidLeft();
-                                                RestRequest FidLeftRequest = new RestRequest("/ArrestSystem/person/fleft/search");
-
-                                                FidLeft.fid = fingerprint.Data[0].key;
-
-                                                var serializerFL = new JavaScriptSerializer();
-                                                string jsonStrFL = serializer.Serialize(FidLeft);
-                                                FidLeftRequest.AddJsonBody(jsonStrFL);
-                                                var FidLeftfingerprint = client.Execute<List<SearchbyFidLeft_ResultData>>(FidLeftRequest, Method.POST);
-
-                                                //MessageBox.Show(FidLeftfingerprint.Data[0].firstname);
-                                                btProof.Visible = true;
-
-                                                while (i <= FidLeftfingerprint.Data.Count)
-                                                {
-
-                                                    string[] fings = new string[]
-                                                    {
-                                                    FidLeftfingerprint.Data[i].card,
-                                                    FidLeftfingerprint.Data[i].firstname,
-                                                    FidLeftfingerprint.Data[i].lastname,
-                                                    FidLeftfingerprint.Data[i].group
-                                                    };
-
-                                                    listView_Matching.Items.Add(new ListViewItem(fings));
-                                                    i++;
-
-                                                }
+                                                count++;
+                                                outputImage.SetPixel(xPos, yPos, Color.FromArgb(colorBuffer[bufferPos], colorBuffer[bufferPos], colorBuffer[bufferPos]));
+                                                bufferPos++;
 
                                             }
+                                        }
 
-                                            else if (radioFigRight.Checked)
+                                        // Flush data buffer and show bitmap on UI.
+                                        _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
+                                        Bitmap bmp = new Bitmap(outputImage);
+                                        bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+                                        pictureBox_Finger.Image = bmp;
+
+                                        byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
+                                        Fingerbase64String = Convert.ToBase64String(gg);
+
+                                        try
+                                        {
+
+                                            MatchingFinger input = new MatchingFinger();
+                                            RestClient client = new RestClient("http://202.28.34.197:8800");
+                                            RestRequest request = new RestRequest("/fingerprintSystem/template/matching/" + this.org);
+                                            int i = 0;
+                                            input.template = Fingerbase64String;
+
+                                            var serializer = new JavaScriptSerializer();
+                                            string jsonStr = serializer.Serialize(input);
+                                            request.AddJsonBody(jsonStr);
+                                            var fingerprint = client.Execute<List<MatchingFinger_ResultData>>(request, Method.POST);
+
+                                            if (fingerprint.Data.Count > i)
                                             {
-                                                SearchbyFidLeft FidRight = new SearchbyFidLeft();
-                                                RestRequest FidRightRequest = new RestRequest("/ArrestSystem/person/fright/search");
-
-                                                FidRight.fid = fingerprint.Data[0].key;
-
-                                                var serializerFR = new JavaScriptSerializer();
-                                                string jsonStrFR = serializer.Serialize(FidRight);
-                                                FidRightRequest.AddJsonBody(jsonStrFR);
-                                                var FidRightfingerprint = client.Execute<List<SearchbyFidRight_ResultData>>(FidRightRequest, Method.POST);
-                                                btProof.Visible = true;
-
-                                                while (i <= FidRightfingerprint.Data.Count)
+                                                if (radioFigLeft.Checked)
                                                 {
+                                                    SearchbyFidLeft FidLeft = new SearchbyFidLeft();
+                                                    RestRequest FidLeftRequest = new RestRequest("/ArrestSystem/person/fleft/search");
 
-                                                    string[] fings = new string[]
+                                                    FidLeft.fid = fingerprint.Data[0].key;
+
+                                                    var serializerFL = new JavaScriptSerializer();
+                                                    string jsonStrFL = serializer.Serialize(FidLeft);
+                                                    FidLeftRequest.AddJsonBody(jsonStrFL);
+                                                    var FidLeftfingerprint = client.Execute<List<SearchbyFidLeft_ResultData>>(FidLeftRequest, Method.POST);
+
+                                                    //MessageBox.Show(FidLeftfingerprint.Data[0].firstname);
+                                                    btProof.Visible = true;
+
+                                                    while (i <= FidLeftfingerprint.Data.Count)
                                                     {
-                                                        FidRightfingerprint.Data[i].card,
-                                                        FidRightfingerprint.Data[i].firstname,
-                                                        FidRightfingerprint.Data[i].lastname,
-                                                        FidRightfingerprint.Data[i].group
-                                                    };
 
-                                                    listView_Matching.Items.Add(new ListViewItem(fings));
-                                                    i++;
+                                                        string[] fings = new string[]
+                                                        {
+                                                        FidLeftfingerprint.Data[i].card,
+                                                        FidLeftfingerprint.Data[i].firstname,
+                                                        FidLeftfingerprint.Data[i].lastname,
+                                                        FidLeftfingerprint.Data[i].group
+                                                        };
+
+                                                        listView_Matching.Items.Add(new ListViewItem(fings));
+                                                        i++;
+
+                                                    }
+
                                                 }
+
+                                                else if (radioFigRight.Checked)
+                                                {
+                                                    SearchbyFidLeft FidRight = new SearchbyFidLeft();
+                                                    RestRequest FidRightRequest = new RestRequest("/ArrestSystem/person/fright/search");
+
+                                                    FidRight.fid = fingerprint.Data[0].key;
+
+                                                    var serializerFR = new JavaScriptSerializer();
+                                                    string jsonStrFR = serializer.Serialize(FidRight);
+                                                    FidRightRequest.AddJsonBody(jsonStrFR);
+                                                    var FidRightfingerprint = client.Execute<List<SearchbyFidRight_ResultData>>(FidRightRequest, Method.POST);
+                                                    btProof.Visible = true;
+
+                                                    while (i <= FidRightfingerprint.Data.Count)
+                                                    {
+
+                                                        string[] fings = new string[]
+                                                        {
+                                                            FidRightfingerprint.Data[i].card,
+                                                            FidRightfingerprint.Data[i].firstname,
+                                                            FidRightfingerprint.Data[i].lastname,
+                                                            FidRightfingerprint.Data[i].group
+                                                        };
+
+                                                        listView_Matching.Items.Add(new ListViewItem(fings));
+                                                        i++;
+                                                    }
+                                                }
+
+                                                else
+                                                {
+                                                    MessageBox.Show("กรุณาเลือกลักษณะลายนิ้วมือ");
+                                                }
+
                                             }
 
                                             else
                                             {
-                                                MessageBox.Show("กรุณาเลือกลักษณะลายนิ้วมือ");
+                                                MessageBox.Show("ไม่พบข้อมูล");
+
                                             }
-
                                         }
-
-                                        else
-                                        {
-                                            MessageBox.Show("ไม่พบข้อมูล");
-
-                                        }
+                                        catch { }
                                     }
-                                    catch { }
                                 }
-                            }
-                            else
-                            {
-                                MessageBox.Show("กรุณาเลือกหมายเลขพอร์ต");
+                                else
+                                {
+                                    MessageBox.Show("กรุณาเลือกหมายเลขพอร์ต");
+                                }
                             }
                         }
                     }
-                }
+                    
+                }else
+                    {
+                        MessageBox.Show("กรุณาเลือกลักษณะลายนิ้วมือ", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
             }
             catch (Exception ex)
             {
