@@ -1229,10 +1229,7 @@ namespace ProgramForArrest
                                         catch { }
                                     }
                                 }
-                                else
-                                {
-                                    MessageBox.Show("กรุณาเลือกหมายเลขพอร์ต");
-                                }
+
                             }
                         }
                     }
@@ -1391,10 +1388,8 @@ namespace ProgramForArrest
         {
             DefaultComPort = comboBox1.SelectedItem.ToString();
             _zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
-            //MessageBox.Show(DefaultComPort);
+            MessageBox.Show(DefaultComPort);
         }
-
-        
     }
 
 }

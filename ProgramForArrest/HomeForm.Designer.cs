@@ -1632,7 +1632,7 @@
             this.comboBox1.Size = new System.Drawing.Size(160, 34);
             this.comboBox1.TabIndex = 130;
             this.comboBox1.Text = "Port No.";
-            
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label48
             // 
