@@ -138,24 +138,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.pictureBox_Info = new System.Windows.Forms.PictureBox();
-            this.tabHome = new System.Windows.Forms.TabPage();
-            this.tbSearchPersons = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnCard = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnLastname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnPosion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnNamePer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnLastPer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnAddrss = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -186,6 +168,24 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label37 = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnNamePer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnLastPer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnGroup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnAddrss = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnCard = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnLastname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnPosion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnPhone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label41 = new System.Windows.Forms.Label();
+            this.tbSearchPersons = new System.Windows.Forms.TextBox();
+            this.tabHome = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Pass)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -197,11 +197,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_User)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).BeginInit();
-            this.tabHome.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).BeginInit();
+            this.tabHome.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog_User
@@ -1399,166 +1399,6 @@
             this.pictureBox_Info.TabIndex = 79;
             this.pictureBox_Info.TabStop = false;
             // 
-            // tabHome
-            // 
-            this.tabHome.Controls.Add(this.tbSearchPersons);
-            this.tabHome.Controls.Add(this.label41);
-            this.tabHome.Controls.Add(this.listView2);
-            this.tabHome.Controls.Add(this.listView1);
-            this.tabHome.Controls.Add(this.tbSearch);
-            this.tabHome.Controls.Add(this.label37);
-            this.tabHome.Location = new System.Drawing.Point(4, 38);
-            this.tabHome.Margin = new System.Windows.Forms.Padding(2);
-            this.tabHome.Name = "tabHome";
-            this.tabHome.Padding = new System.Windows.Forms.Padding(2);
-            this.tabHome.Size = new System.Drawing.Size(951, 559);
-            this.tabHome.TabIndex = 0;
-            this.tabHome.Text = "หน้าหลัก";
-            this.tabHome.UseVisualStyleBackColor = true;
-            // 
-            // tbSearchPersons
-            // 
-            this.tbSearchPersons.Location = new System.Drawing.Point(257, 290);
-            this.tbSearchPersons.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSearchPersons.Name = "tbSearchPersons";
-            this.tbSearchPersons.Size = new System.Drawing.Size(590, 37);
-            this.tbSearchPersons.TabIndex = 79;
-            this.tbSearchPersons.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearchPersons_KeyUp);
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(108, 293);
-            this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(139, 29);
-            this.label41.TabIndex = 78;
-            this.label41.Text = "ค้นหาข้อมูลผู้ต้องหา";
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnCard,
-            this.columnTitle,
-            this.columnName,
-            this.columnLastname,
-            this.columnPosion,
-            this.columnPhone});
-            this.listView2.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(113, 101);
-            this.listView2.Margin = new System.Windows.Forms.Padding(2);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(734, 161);
-            this.listView2.TabIndex = 77;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            // 
-            // columnCard
-            // 
-            this.columnCard.Text = "เลขประชาชนประจำตัว";
-            this.columnCard.Width = 150;
-            // 
-            // columnTitle
-            // 
-            this.columnTitle.Text = "คำนำหน้า";
-            this.columnTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnTitle.Width = 100;
-            // 
-            // columnName
-            // 
-            this.columnName.Text = "ชื่อ";
-            this.columnName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnName.Width = 120;
-            // 
-            // columnLastname
-            // 
-            this.columnLastname.Text = "นามสกุล";
-            this.columnLastname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnLastname.Width = 120;
-            // 
-            // columnPosion
-            // 
-            this.columnPosion.Text = "ตำแหน่ง";
-            this.columnPosion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnPosion.Width = 120;
-            // 
-            // columnPhone
-            // 
-            this.columnPhone.Text = "เบอร์โทรศัพท์";
-            this.columnPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnPhone.Width = 120;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnID,
-            this.columnNamePer,
-            this.columnLastPer,
-            this.columnGroup,
-            this.columnAddrss});
-            this.listView1.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(113, 335);
-            this.listView1.Margin = new System.Windows.Forms.Padding(2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(734, 191);
-            this.listView1.TabIndex = 21;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnID
-            // 
-            this.columnID.Text = "เลขประชาชนประจำตัว";
-            this.columnID.Width = 150;
-            // 
-            // columnNamePer
-            // 
-            this.columnNamePer.Text = "ชื่อ";
-            this.columnNamePer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnNamePer.Width = 110;
-            // 
-            // columnLastPer
-            // 
-            this.columnLastPer.Text = "นามสกุล";
-            this.columnLastPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnLastPer.Width = 110;
-            // 
-            // columnGroup
-            // 
-            this.columnGroup.Text = "กลุ่มผู้ต้องหา";
-            this.columnGroup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnGroup.Width = 120;
-            // 
-            // columnAddrss
-            // 
-            this.columnAddrss.Text = "ที่อยู่";
-            this.columnAddrss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnAddrss.Width = 220;
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.Location = new System.Drawing.Point(257, 46);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(590, 37);
-            this.tbSearch.TabIndex = 19;
-            this.tbSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyUp);
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(108, 53);
-            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(143, 29);
-            this.label37.TabIndex = 18;
-            this.label37.Text = "ค้นหาข้อมูลผู้ใช้ระบบ ";
-            // 
             // tabControl1
             // 
             this.tabControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -1912,6 +1752,165 @@
             this.label45.TabIndex = 119;
             this.label45.Text = "กลุ่มผู้ต้องหา";
             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(108, 53);
+            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(143, 29);
+            this.label37.TabIndex = 18;
+            this.label37.Text = "ค้นหาข้อมูลผู้ใช้ระบบ ";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Location = new System.Drawing.Point(257, 46);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(590, 37);
+            this.tbSearch.TabIndex = 19;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnID,
+            this.columnNamePer,
+            this.columnLastPer,
+            this.columnGroup,
+            this.columnAddrss});
+            this.listView1.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(113, 335);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(734, 191);
+            this.listView1.TabIndex = 21;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnID
+            // 
+            this.columnID.Text = "เลขประชาชนประจำตัว";
+            this.columnID.Width = 150;
+            // 
+            // columnNamePer
+            // 
+            this.columnNamePer.Text = "ชื่อ";
+            this.columnNamePer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnNamePer.Width = 110;
+            // 
+            // columnLastPer
+            // 
+            this.columnLastPer.Text = "นามสกุล";
+            this.columnLastPer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnLastPer.Width = 110;
+            // 
+            // columnGroup
+            // 
+            this.columnGroup.Text = "กลุ่มผู้ต้องหา";
+            this.columnGroup.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnGroup.Width = 120;
+            // 
+            // columnAddrss
+            // 
+            this.columnAddrss.Text = "ที่อยู่";
+            this.columnAddrss.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnAddrss.Width = 220;
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnCard,
+            this.columnTitle,
+            this.columnName,
+            this.columnLastname,
+            this.columnPosion,
+            this.columnPhone});
+            this.listView2.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.listView2.FullRowSelect = true;
+            this.listView2.GridLines = true;
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(113, 101);
+            this.listView2.Margin = new System.Windows.Forms.Padding(2);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(734, 161);
+            this.listView2.TabIndex = 77;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // columnCard
+            // 
+            this.columnCard.Text = "เลขประชาชนประจำตัว";
+            this.columnCard.Width = 150;
+            // 
+            // columnTitle
+            // 
+            this.columnTitle.Text = "คำนำหน้า";
+            this.columnTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnTitle.Width = 100;
+            // 
+            // columnName
+            // 
+            this.columnName.Text = "ชื่อ";
+            this.columnName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnName.Width = 120;
+            // 
+            // columnLastname
+            // 
+            this.columnLastname.Text = "นามสกุล";
+            this.columnLastname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnLastname.Width = 120;
+            // 
+            // columnPosion
+            // 
+            this.columnPosion.Text = "ตำแหน่ง";
+            this.columnPosion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnPosion.Width = 120;
+            // 
+            // columnPhone
+            // 
+            this.columnPhone.Text = "เบอร์โทรศัพท์";
+            this.columnPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnPhone.Width = 120;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(108, 293);
+            this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(139, 29);
+            this.label41.TabIndex = 78;
+            this.label41.Text = "ค้นหาข้อมูลผู้ต้องหา";
+            // 
+            // tbSearchPersons
+            // 
+            this.tbSearchPersons.Location = new System.Drawing.Point(257, 290);
+            this.tbSearchPersons.Margin = new System.Windows.Forms.Padding(2);
+            this.tbSearchPersons.Name = "tbSearchPersons";
+            this.tbSearchPersons.Size = new System.Drawing.Size(590, 37);
+            this.tbSearchPersons.TabIndex = 79;
+            this.tbSearchPersons.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbSearchPersons_KeyUp);
+            // 
+            // tabHome
+            // 
+            this.tabHome.Controls.Add(this.tbSearchPersons);
+            this.tabHome.Controls.Add(this.label41);
+            this.tabHome.Controls.Add(this.listView2);
+            this.tabHome.Controls.Add(this.listView1);
+            this.tabHome.Controls.Add(this.tbSearch);
+            this.tabHome.Controls.Add(this.label37);
+            this.tabHome.Location = new System.Drawing.Point(4, 38);
+            this.tabHome.Margin = new System.Windows.Forms.Padding(2);
+            this.tabHome.Name = "tabHome";
+            this.tabHome.Padding = new System.Windows.Forms.Padding(2);
+            this.tabHome.Size = new System.Drawing.Size(951, 559);
+            this.tabHome.TabIndex = 0;
+            this.tabHome.Text = "หน้าหลัก";
+            this.tabHome.UseVisualStyleBackColor = true;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1943,14 +1942,14 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Info)).EndInit();
-            this.tabHome.ResumeLayout(false);
-            this.tabHome.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Finger)).EndInit();
+            this.tabHome.ResumeLayout(false);
+            this.tabHome.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2059,24 +2058,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.PictureBox pictureBox_Info;
-        private System.Windows.Forms.TabPage tabHome;
-        private System.Windows.Forms.TextBox tbSearchPersons;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader columnCard;
-        private System.Windows.Forms.ColumnHeader columnTitle;
-        private System.Windows.Forms.ColumnHeader columnName;
-        private System.Windows.Forms.ColumnHeader columnLastname;
-        private System.Windows.Forms.ColumnHeader columnPosion;
-        private System.Windows.Forms.ColumnHeader columnPhone;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnID;
-        private System.Windows.Forms.ColumnHeader columnNamePer;
-        private System.Windows.Forms.ColumnHeader columnLastPer;
-        private System.Windows.Forms.ColumnHeader columnGroup;
-        private System.Windows.Forms.ColumnHeader columnAddrss;
-        private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Button btPersonImage;
         private System.Windows.Forms.Button btInfoImage;
@@ -2112,5 +2093,23 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TabPage tabHome;
+        private System.Windows.Forms.TextBox tbSearchPersons;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader columnCard;
+        private System.Windows.Forms.ColumnHeader columnTitle;
+        private System.Windows.Forms.ColumnHeader columnName;
+        private System.Windows.Forms.ColumnHeader columnLastname;
+        private System.Windows.Forms.ColumnHeader columnPosion;
+        private System.Windows.Forms.ColumnHeader columnPhone;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnID;
+        private System.Windows.Forms.ColumnHeader columnNamePer;
+        private System.Windows.Forms.ColumnHeader columnLastPer;
+        private System.Windows.Forms.ColumnHeader columnGroup;
+        private System.Windows.Forms.ColumnHeader columnAddrss;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label label37;
     }
 }

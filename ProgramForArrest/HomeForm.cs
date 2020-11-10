@@ -824,107 +824,7 @@ namespace ProgramForArrest
             }
         }
 
-        private void tbSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            try 
-            { 
-                if (e.KeyCode == Keys.F1) {}
-                else
-                {
-                    if (!tbSearch.Text.Equals(""))
-                    {
-
-                        RestClient client = new RestClient("http://202.28.34.197:8800");
-                        RestRequest request = new RestRequest("/ArrestSystem/search/user/" + tbSearch.Text);
-                        var getUsers = client.Execute<List<SearchUsers_Data>>(request, Method.GET);
-                        listView2.Items.Clear();
-
-                        int i = 0;
-
-                        if (!getUsers.Content.Equals("")) {
-                            while (i <= getUsers.Data.Count)
-                            {
-                                string[] users = new string[]
-                                {
-                                getUsers.Data[i].card.ToString(),
-                                getUsers.Data[i].title,
-                                getUsers.Data[i].firstname,
-                                getUsers.Data[i].lastname,
-                                getUsers.Data[i].position,
-                                getUsers.Data[i].phone
-                                };
-
-                                listView2.Items.Add(new ListViewItem(users));
-                                i++;
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("ไม่พบข้อมูล");
-                            try
-                            {
-
-                                RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                                RestRequest Getrequest = new RestRequest("/ArrestSystem/users");
-                                var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
-                                listView2.Items.Clear();
-                                
-
-                                while (i <= getUser.Data.Count)
-                                {
-                                    string[] users = new string[]
-                                    {
-                                    getUser.Data[i].card.ToString(),
-                                    getUser.Data[i].title,
-                                    getUser.Data[i].firstname,
-                                    getUser.Data[i].lastname,
-                                    getUser.Data[i].position,
-                                    getUser.Data[i].phone
-                                    };
-                                    //listView_Users.Items.Add(new ListViewItem(users));
-                                    listView2.Items.Add(new ListViewItem(users));
-                                    i++;
-                                }
-                            }
-                            catch { }
-                        }
-                    }
-                    
-                    else
-                    {
-                        listView2.Items.Clear();
-                        try
-                        {
-
-                            RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                            RestRequest Getrequest = new RestRequest("/ArrestSystem/users");
-                            var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
-                            listView2.Items.Clear();
-                            int i = 0;
-
-                            while (i <= getUser.Data.Count)
-                            {
-                                string[] users = new string[]
-                                {
-                                    getUser.Data[i].card.ToString(),
-                                    getUser.Data[i].title,
-                                    getUser.Data[i].firstname,
-                                    getUser.Data[i].lastname,
-                                    getUser.Data[i].position,
-                                    getUser.Data[i].phone
-                                };
-                                //listView_Users.Items.Add(new ListViewItem(users));
-                                listView2.Items.Add(new ListViewItem(users));
-                                i++;
-                            }
-                        }
-                        catch { }
-
-                    }
-                }
-            }
-            catch { }
-        }
+        
 
         private void tbSearchPersons_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1052,7 +952,7 @@ namespace ProgramForArrest
                             {
                                 if (getPersons.Data.Count == 1)
                                 {
-                                    if (getPersons.Data == null)
+                                    if (getPersons.Data[0].card == null)
                                     {
                                         MessageBox.Show("ไม่พบข้อมูล");
                                         refeshPerson();
@@ -1108,10 +1008,7 @@ namespace ProgramForArrest
 
                         }
                         catch(Exception ex) { }
-                            
-                       
-                        }
-                        
+                    }
                 }
             }
             catch { }
@@ -1490,6 +1387,6 @@ namespace ProgramForArrest
 
     }
 
-    }
+}
 
 
