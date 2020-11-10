@@ -419,7 +419,7 @@
             this.btPersonImage.Name = "btPersonImage";
             this.btPersonImage.Size = new System.Drawing.Size(173, 29);
             this.btPersonImage.TabIndex = 80;
-            this.btPersonImage.Text = "เพิ่มรูปภาพ";
+            this.btPersonImage.Text = "เลือกรูปภาพ";
             this.btPersonImage.UseVisualStyleBackColor = true;
             this.btPersonImage.Click += new System.EventHandler(this.btPersonImage_Click);
             // 
@@ -758,7 +758,7 @@
             this.btUserImage.Name = "btUserImage";
             this.btUserImage.Size = new System.Drawing.Size(154, 38);
             this.btUserImage.TabIndex = 81;
-            this.btUserImage.Text = "เพิ่มรูปภาพ";
+            this.btUserImage.Text = "เลือกรูปภาพ";
             this.btUserImage.UseVisualStyleBackColor = true;
             this.btUserImage.Click += new System.EventHandler(this.btUserImage_Click);
             // 
@@ -1147,7 +1147,7 @@
             this.btInfoImage.Name = "btInfoImage";
             this.btInfoImage.Size = new System.Drawing.Size(158, 39);
             this.btInfoImage.TabIndex = 81;
-            this.btInfoImage.Text = "เพิ่มรูปภาพ";
+            this.btInfoImage.Text = "เลือกรูปภาพ";
             this.btInfoImage.UseVisualStyleBackColor = true;
             this.btInfoImage.Click += new System.EventHandler(this.btInfoImage_Click);
             // 
@@ -1415,7 +1415,6 @@
             this.tabHome.TabIndex = 0;
             this.tabHome.Text = "หน้าหลัก";
             this.tabHome.UseVisualStyleBackColor = true;
-            this.tabHome.Click += new System.EventHandler(this.tabHome_Click);
             // 
             // tbSearchPersons
             // 
@@ -1611,6 +1610,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("Anantason", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "COM1",
@@ -1631,7 +1631,7 @@
             "COM16"});
             this.comboBox1.Location = new System.Drawing.Point(703, 371);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 37);
+            this.comboBox1.Size = new System.Drawing.Size(160, 34);
             this.comboBox1.TabIndex = 130;
             this.comboBox1.Text = "Port No.";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);

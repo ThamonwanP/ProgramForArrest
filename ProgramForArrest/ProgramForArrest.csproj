@@ -118,6 +118,7 @@
     <Compile Include="Model\SearchbyFidRight_Result.cs" />
     <Compile Include="Model\SearchID.cs" />
     <Compile Include="Model\SearchPersons.cs" />
+    <Compile Include="Model\SearchUserbyOrg.cs" />
     <Compile Include="Model\SearchUsers.cs" />
     <Compile Include="Model\UdateUserbyAdmin.cs" />
     <Compile Include="Model\UdateUserbyAdmin_Result.cs" />

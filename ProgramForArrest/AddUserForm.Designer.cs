@@ -131,7 +131,7 @@
             this.btUserImage.Name = "btUserImage";
             this.btUserImage.Size = new System.Drawing.Size(129, 36);
             this.btUserImage.TabIndex = 100;
-            this.btUserImage.Text = "เพิ่มรูปภาพ";
+            this.btUserImage.Text = "เลือกรูปภาพ";
             this.btUserImage.UseVisualStyleBackColor = true;
             this.btUserImage.Click += new System.EventHandler(this.btUserImage_Click);
             // 
