@@ -21,20 +21,20 @@ namespace ProgramForArrest
     {
         string card;
         string base64String;
-        private Zfm20Fingerprint _zfmSensor;
         string caseGroupID;
         string org;
         string perId;
         string organization;
 
         // Default COM port settings. 
-        private const string DefaultComPort = "COM8";
+        string DefaultComPort;
         private const int DefaultBaudRate = 115200;
 
         // Size of the fingerprint image. 
         private const int ImageWidth = 256;
         private const int ImageHeight = 288;
 
+        private Zfm20Fingerprint _zfmSensor;
         public AddFingerprintForm(string card, string org, string organization)
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace ProgramForArrest
 
         private void AddFingerprintForm_Load(object sender, EventArgs e)
         {
-            _zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
+            //_zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
             try
             {
 
@@ -132,79 +132,83 @@ namespace ProgramForArrest
         {
             try
             {
-
-                string msgText = _zfmSensor.IsAvailable() ? @"Fingerprint sensor is available." : "Fingerprint sensor is not available.\nCheck sensor configuration options.";
-                //MessageBox.Show(msgText, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                Zfm20Fingerprint.ZfmStatus captureStatus = _zfmSensor.Capture();
-                if (captureStatus != Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
+                if (radioRight.Checked || radioLeft.Checked)
                 {
- 
-                    //MessageBox.Show(ZfmStatusToString(captureStatus), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (_zfmSensor == null)
+                    {
+                        MessageBox.Show("กรุณาเลือกพอร์ตก่อนทำการสแกน", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    string msgText = _zfmSensor.IsAvailable() ? @"Fingerprint sensor is available." : "Fingerprint sensor is not available.\nCheck sensor configuration options.";
+                    if (msgText != null)
+                    {
+                        
+                        //MessageBox.Show(msgText, Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (_zfmSensor.IsAvailable() != true)
+                        {
+                            MessageBox.Show("พอร์ตไม่ถูกต้อง", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            Zfm20Fingerprint.ZfmStatus captureStatus = _zfmSensor.Capture();
+                            if (captureStatus != Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
+                            {
+
+                                //MessageBox.Show(ZfmStatusToString(captureStatus), Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                IntPtr dataBuffer;
+                                uint dataBufferSize;
+
+                                Zfm20Fingerprint.ZfmStatus downloadStatus = _zfmSensor.GetFingerprintBuffer(out dataBuffer, out dataBufferSize);
+                                if (downloadStatus == Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
+                                {
+                                    if (dataBufferSize > 0)
+                                    {
+                                        // Create output bitmap buffer object. 
+                                        Bitmap outputImage = new Bitmap(ImageWidth, ImageHeight);
+                                        byte[] colorBuffer = new byte[dataBufferSize];
+                                        int bufferPos = 0;
+
+                                        Marshal.Copy(dataBuffer, colorBuffer, 0, (int)(dataBufferSize - 1));
+
+                                        // Paint bitmap buffer with received data buffer content.
+                                        for (int yPos = 0; yPos < ImageHeight; yPos++)
+                                        {
+                                            for (int xPos = 0; xPos < ImageWidth; xPos++)
+                                            {
+                                                outputImage.SetPixel(xPos, yPos, Color.FromArgb(colorBuffer[bufferPos], colorBuffer[bufferPos], colorBuffer[bufferPos]));
+                                                bufferPos++;
+                                            }
+                                        }
+
+                                        // Flush data buffer and show bitmap on UI.
+                                        _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
+
+                                        Bitmap bmp = new Bitmap(outputImage);
+                                        bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
+
+                                        pictureBox_Finger.Image = bmp;
+
+                                        byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
+                                        base64String = Convert.ToBase64String(gg);
+                                        Console.WriteLine(base64String);
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("กรุณาเลือกหมายเลขพอร์ต");
+                    }
+
                 }
                 else
                 {
-                    IntPtr dataBuffer;
-                    uint dataBufferSize;
-
-                    Zfm20Fingerprint.ZfmStatus downloadStatus = _zfmSensor.GetFingerprintBuffer(out dataBuffer, out dataBufferSize);
-                    if (downloadStatus == Zfm20Fingerprint.ZfmStatus.ZsSuccessful)
-                    {
-                        if (dataBufferSize > 0)
-                        {
-                            // Create output bitmap buffer object. 
-                            Bitmap outputImage = new Bitmap(ImageWidth, ImageHeight);
-                            byte[] colorBuffer = new byte[dataBufferSize];
-                            int bufferPos = 0;
-
-                            Marshal.Copy(dataBuffer, colorBuffer, 0, (int)(dataBufferSize - 1));
-
-                            // Paint bitmap buffer with received data buffer content.
-                            for (int yPos = 0; yPos < ImageHeight; yPos++)
-                            {
-                                for (int xPos = 0; xPos < ImageWidth; xPos++)
-                                {
-                                    outputImage.SetPixel(xPos, yPos, Color.FromArgb(colorBuffer[bufferPos], colorBuffer[bufferPos], colorBuffer[bufferPos]));
-                                    bufferPos++;
-                                }
-                            }
-
-                            // Flush data buffer and show bitmap on UI.
-                            _zfmSensor.FreeFingerprintBuffer(ref dataBuffer);
-                            //pictureBox_Finger.Image = outputImage;
-                            
-                            
-                            
-                           
-                            /*byte[] bb = Relm.Converters.Converter.ToByteArray(pictureBox1.Image);
-                            pictureBox1.Image = bb;
-                            string hh = Convert.ToBase64String(bb); */
-                            
-                            //Console.WriteLine("Original = " + hh);
-
-
-                             Bitmap bmp = new Bitmap(outputImage);
-                             bmp.RotateFlip(RotateFlipType.Rotate180FlipNone);
-
-                             pictureBox_Finger.Image = bmp;
-
-                            byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
-                            base64String = Convert.ToBase64String(gg);
-                            Console.WriteLine(base64String);
-
-
-
-
-                            //SaveJpeg(pictureBox_Finger.Image, @"d:\images.bmp", 100);
-                            //Console.WriteLine(pictureBox_Finger.ToString());
-
-
-                            //Console.WriteLine("Flip = "+base64String);
-
-
-                        }
-
-                    }
+                    MessageBox.Show("กรุณาเลือกลักษณะลายนิ้วมือ", Text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -343,7 +347,7 @@ namespace ProgramForArrest
                     FRrequest.AddJsonBody(jsonStr1);
                     var addFingRight = FRclient.Execute<AddFingerRight_Result>(FRrequest, Method.POST);
                     //Console.WriteLine(addFingRight.Data.fright);
-                    MessageBox.Show("OK");
+                    MessageBox.Show("เพิ่มลายนิ้วมือข้อมูลสำเร็จ!");
 
                 }
                 catch (Exception ex)
@@ -358,6 +362,13 @@ namespace ProgramForArrest
             }
         }
 
-
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DefaultComPort = comboBox1.SelectedItem.ToString();
+            _zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
+            //MessageBox.Show(DefaultComPort);
+        }
     }
+
+    
 }
