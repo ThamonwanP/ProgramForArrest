@@ -172,7 +172,7 @@ namespace ProgramForArrest
         {
             try
             {
-
+                listView_Users.Items.Clear();
                 RestClient Getclient = new RestClient("http://202.28.34.197:8800");
                 RestRequest Getrequest = new RestRequest("/ArrestSystem/users/" + this.organization);
                 var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
@@ -202,7 +202,7 @@ namespace ProgramForArrest
 
         private void Home_Load(object sender, EventArgs e)
         {
-            
+            tabControl1.TabPages.Remove(tabHome);
             if (!this.role.Equals("ผู้ดูแลระบบ"))
             {
                 tabControl1.TabPages.Remove(tabHome);
@@ -951,12 +951,12 @@ namespace ProgramForArrest
                         }
                         else
                         {
-                            MessageBox.Show("ไม่พบข้อมูล");
+                           //MessageBox.Show("ไม่พบข้อมูล");
 
                             try
                             {
                                 RestClient getClient = new RestClient("http://202.28.34.197:8800");
-                                RestRequest getRequest = new RestRequest("/ArrestSystem/persons");
+                                RestRequest getRequest = new RestRequest("/ArrestSystem/persons/org/"+this.organization);
                                 var getPerson = getClient.Execute<List<GetAllPersonData>>(getRequest, Method.GET);
                                 listView_Persons.Items.Clear();
                                 
@@ -1051,8 +1051,8 @@ namespace ProgramForArrest
                         }
                         else
                         {
-                            
 
+                            listView_Persons.Items.Clear();
                             try
                             {
                                 RestClient getClient = new RestClient("http://202.28.34.197:8800");
@@ -1081,7 +1081,7 @@ namespace ProgramForArrest
 
 
                     }
-                    else
+                    /*else
                     {
                         listView_Persons.Items.Clear();
                         try
@@ -1108,7 +1108,7 @@ namespace ProgramForArrest
                         }
                         catch { }
 
-                    }
+                    }*/
                 }
             }
             catch { }
@@ -1151,12 +1151,12 @@ namespace ProgramForArrest
                         }
                         else
                         {
-                            MessageBox.Show("ไม่พบข้อมูล");
+                            //MessageBox.Show("ไม่พบข้อมูล");
                             try
                             {
 
                                 RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                                RestRequest Getrequest = new RestRequest("/ArrestSystem/users");
+                                RestRequest Getrequest = new RestRequest("/ArrestSystem/users/"+this.organization);
                                 var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
                                 listView_Users.Items.Clear();
 
@@ -1179,38 +1179,6 @@ namespace ProgramForArrest
                             }
                             catch { }
                         }
-                    }
-
-                    else
-                    {
-                        listView_Users.Items.Clear();
-                        try
-                        {
-
-                            RestClient Getclient = new RestClient("http://202.28.34.197:8800");
-                            RestRequest Getrequest = new RestRequest("/ArrestSystem/users");
-                            var getUser = Getclient.Execute<List<GetAllUser_data>>(Getrequest, Method.GET);
-                            listView_Users.Items.Clear();
-                            int i = 0;
-
-                            while (i <= getUser.Data.Count)
-                            {
-                                string[] users = new string[]
-                                {
-                                    getUser.Data[i].card.ToString(),
-                                    getUser.Data[i].title,
-                                    getUser.Data[i].firstname,
-                                    getUser.Data[i].lastname,
-                                    getUser.Data[i].position,
-                                    getUser.Data[i].phone
-                                };
-                                //listView_Users.Items.Add(new ListViewItem(users));
-                                listView_Users.Items.Add(new ListViewItem(users));
-                                i++;
-                            }
-                        }
-                        catch { }
-
                     }
                 }
             }
@@ -1530,8 +1498,13 @@ namespace ProgramForArrest
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DefaultComPort = comboBox1.SelectedItem.ToString();
+            this.DefaultComPort = comboBox1.SelectedItem.ToString();
             //MessageBox.Show(DefaultComPort);
+        }
+
+        private void tabHome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -242,7 +242,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage1.Size = new System.Drawing.Size(951, 559);
             this.tabPage1.TabIndex = 5;
-            this.tabPage1.Text = "ตั้งค่า";
+            this.tabPage1.Text = "เปลี่ยนรหัสผ่าน";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -1415,6 +1415,7 @@
             this.tabHome.TabIndex = 0;
             this.tabHome.Text = "หน้าหลัก";
             this.tabHome.UseVisualStyleBackColor = true;
+            this.tabHome.Click += new System.EventHandler(this.tabHome_Click);
             // 
             // tbSearchPersons
             // 
