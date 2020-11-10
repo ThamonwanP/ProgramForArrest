@@ -34,6 +34,7 @@ namespace ProgramForArrest
         string organization;
         HomeForm homeForm;
         AddPersonForm addper;
+        Login log;
 
         // Default COM port settings. 
         string DefaultComPort;
@@ -1374,7 +1375,9 @@ namespace ProgramForArrest
               }
         private void pictureBox_Pass_Click_1(object sender, EventArgs e)
         {
-            Close();
+            Login login = new Login();
+            login.Visible = true;
+            Visible = false;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
