@@ -827,8 +827,6 @@ namespace ProgramForArrest
             }
         }
 
-
-
         private void tbSearch_KeyUp(object sender, KeyEventArgs e)
         {
             try 
@@ -994,7 +992,6 @@ namespace ProgramForArrest
                             catch { }
                         }
                         
-
                     }
                     else
                     {
@@ -1028,8 +1025,6 @@ namespace ProgramForArrest
             }
             catch { }
         }
-
-        
 
         private void tbSearchPerson_KeyUp(object sender, KeyEventArgs e)
         {
@@ -1065,8 +1060,6 @@ namespace ProgramForArrest
                                     listView_Persons.Items.Add(new ListViewItem(persons));
                                     i++;
                                 }
-                            
-                            
                         }
                         else
                         {
@@ -1097,7 +1090,6 @@ namespace ProgramForArrest
                             }
                             catch { }
                         }
-
 
                     }
                 }
@@ -1141,8 +1133,6 @@ namespace ProgramForArrest
                                 i++;
                             }
                         }
-                    
-                        
                     }
                     else
                     {
@@ -1220,9 +1210,6 @@ namespace ProgramForArrest
                                     byte[] gg = Relm.Converters.Converter.ToByteArray(pictureBox_Finger.Image);
                                     Fingerbase64String = Convert.ToBase64String(gg);
 
-                                    //Console.WriteLine(Fingerbase64String);
-
-
                                     try
                                     {
 
@@ -1236,9 +1223,6 @@ namespace ProgramForArrest
                                         string jsonStr = serializer.Serialize(input);
                                         request.AddJsonBody(jsonStr);
                                         var fingerprint = client.Execute<List<MatchingFinger_ResultData>>(request, Method.POST);
-
-
-
 
                                         if (fingerprint.Data.Count > i)
                                         {
@@ -1302,8 +1286,6 @@ namespace ProgramForArrest
                                                     listView_Matching.Items.Add(new ListViewItem(fings));
                                                     i++;
                                                 }
-
-
                                             }
 
                                             else
