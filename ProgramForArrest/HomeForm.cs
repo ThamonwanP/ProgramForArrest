@@ -1170,7 +1170,7 @@ namespace ProgramForArrest
                                                     //MessageBox.Show(FidLeftfingerprint.Data[0].firstname);
                                                     btProof.Visible = true;
 
-                                                    while (i <= FidLeftfingerprint.Data.Count)
+                                                    while (i < FidLeftfingerprint.Data.Count)
                                                     {
 
                                                         string[] fings = new string[]
@@ -1201,7 +1201,7 @@ namespace ProgramForArrest
                                                     var FidRightfingerprint = client.Execute<List<SearchbyFidRight_ResultData>>(FidRightRequest, Method.POST);
                                                     btProof.Visible = true;
 
-                                                    while (i <= FidRightfingerprint.Data.Count)
+                                                    while (i < FidRightfingerprint.Data.Count)
                                                     {
 
                                                         string[] fings = new string[]
@@ -1266,20 +1266,20 @@ namespace ProgramForArrest
                 while (i <= getPersons.Data.Count)
                 {
 
-                    if (listView_Matching.SelectedItems[0].SubItems[0].Text != null)
+                    if (listView_Matching.SelectedItems[i].SubItems[i].Text != null)
                     {
 
-                        tbMCard.Text = getPersons.Data[0].card;
-                        tbMFirstName.Text = getPersons.Data[0].firstname;
-                        tbMLastname.Text = getPersons.Data[0].lastname;
-                        tbMGroup.Text = getPersons.Data[0].group;
-                        tbMPhone.Text = getPersons.Data[0].address;
+                        tbMCard.Text = getPersons.Data[i].card;
+                        tbMFirstName.Text = getPersons.Data[i].firstname;
+                        tbMLastname.Text = getPersons.Data[i].lastname;
+                        tbMGroup.Text = getPersons.Data[i].group;
+                        tbMPhone.Text = getPersons.Data[i].address;
                         var pic = Convert.FromBase64String(getPersons.Data[0].image_url);
                         using (MemoryStream ms = new MemoryStream(pic))
                         {
                             pictureBox_Finger.Image = Image.FromStream(ms);
                         }
-                        imagesStr = getPersons.Data[0].image_url;
+                        imagesStr = getPersons.Data[i].image_url;
                         //Console.WriteLine(imagesStr);
                     }
                     i++;
@@ -1392,7 +1392,7 @@ namespace ProgramForArrest
         {
             DefaultComPort = comboBox1.SelectedItem.ToString();
             _zfmSensor = new Zfm20Fingerprint(DefaultComPort, DefaultBaudRate);
-            MessageBox.Show(DefaultComPort);
+            //MessageBox.Show(DefaultComPort);
         }
     }
 
