@@ -24,6 +24,9 @@ namespace ProgramForArrest
         string card;
         string password;
         string imagesStr;
+        string imagesStrInfo;
+        string imagesStrUser;
+        string imagesStrPerson;
         string org;
         string base64String;
         string base64StringInfo;
@@ -379,7 +382,7 @@ namespace ProgramForArrest
                 {
                     pictureBox_Info.Image = Image.FromStream(ms);
                 }
-                imagesStr = info.Data.image_url;
+                imagesStrInfo = info.Data.image_url;
 
 
                 DateTime bdate = UnixTimeStampToDateTime(info.Data.birthday.value / 1000);
@@ -402,6 +405,7 @@ namespace ProgramForArrest
 
         private void listView_Persons_SelectedIndexChanged(object sender, EventArgs e)
         {
+            base64String = null;
             try
             {
                 string selectCard = listView_Persons.SelectedItems[0].SubItems[0].Text;
@@ -441,13 +445,16 @@ namespace ProgramForArrest
                         {
                             pictureBox_Person.Image = null;
                         }
-                        //imagesStr = getPersons.Data[0].image_url;
+                        imagesStrPerson = getPersons.Data[0].image_url;
                         //Console.WriteLine(imagesStr);
                     }
                     i++;
                 }
             }
-            catch { }
+            catch (Exception eee) {
+                Console.WriteLine(eee.Message);
+               // MessageBox.Show(eee.Message);
+            }
 
         }
 
@@ -470,6 +477,7 @@ namespace ProgramForArrest
 
         private void listView_Users_SelectedIndexChanged(object sender, EventArgs e)
         {
+            base64StringUser = null;
             try
             {
                 string selectCard = listView_Users.SelectedItems[0].SubItems[0].Text;
@@ -509,6 +517,8 @@ namespace ProgramForArrest
                     {
                         pictureBox_User.Image = null;
                     }
+
+                    imagesStrUser = getUsers.Data.image_url;
 
                 }
 
@@ -614,8 +624,8 @@ namespace ProgramForArrest
 
                 if (base64StringUser == null)
                 {
-                    imagesStr = base64StringUser;
-                    input.image_url = imagesStr;
+                    //imagesStr = base64StringUser;
+                    input.image_url = imagesStrUser;
                     //Console.WriteLine("Image");
 
                 }
@@ -623,8 +633,6 @@ namespace ProgramForArrest
                 {
                     input.image_url = base64StringUser;
                     //Console.WriteLine("New Image");
-
-
                 }
 
                 var serializer = new JavaScriptSerializer();
@@ -638,7 +646,7 @@ namespace ProgramForArrest
                 MessageBox.Show("บันทึกข้อมูลสำเร็จ!");
 
                 refeshUser();
-                //getUserfoSeacrh();
+                
             }
 
         }
@@ -704,12 +712,12 @@ namespace ProgramForArrest
                     input.phone = tbPersonPhone.Text;
                     input.address = tbPersonAddress.Text;
                     input.group = tbPersonGroup.Text;
-                    input.image_url = base64String;
+                    //input.image_url = base64String;
 
                     if (base64String == null)
                     {
                         //imagesStr = base64String;
-                        input.image_url = imagesStr;
+                        input.image_url = imagesStrPerson;
                         //Console.WriteLine("Image");
 
                     }

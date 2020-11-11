@@ -492,6 +492,7 @@
             this.tbPersonCard.Location = new System.Drawing.Point(157, 167);
             this.tbPersonCard.Margin = new System.Windows.Forms.Padding(2);
             this.tbPersonCard.Name = "tbPersonCard";
+            this.tbPersonCard.ReadOnly = true;
             this.tbPersonCard.Size = new System.Drawing.Size(159, 31);
             this.tbPersonCard.TabIndex = 0;
             // 
